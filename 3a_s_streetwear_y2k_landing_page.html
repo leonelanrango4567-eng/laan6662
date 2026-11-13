@@ -1,0 +1,1084 @@
+<!-- ... existing code ... -->
+    <title>3A's // DARK Y2K &amp; CYBERSIGILISM STREETWEAR</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tipografías Dark Metal / Gótico Afilado + Y2K Cyber + Monospace -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Metal+Mania&family=Orbitron:wght@700;900&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'darkmetal': ['"Metal Mania"', 'cursive'],
+                        'cyber': ['Orbitron', 'sans-serif'],
+                        'pixel': ['Silkscreen', 'monospace'],
+                        'mono-tech': ['"Space Mono"', 'monospace'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'y2k-bg': '#030304',
+                        'y2k-panel': '#0a0a0d',
+                        'y2k-chrome': '#f5f5f5',
+                        'y2k-blood': '#b91c1c',
+                        'y2k-silver': '#a1a1aa',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* =========================================================
+           ESTILOS DARK Y2K / CYBERSIGILISM / LETTERING RASGADO
+           ========================================================= */
+        body {
+            background-color: #030304;
+            color: #f5f5f5;
+            overflow-x: hidden;
+            /* Fondo negro puro con rejilla sutil y textura analógica */
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 55%),
+                radial-gradient(circle at 85% 25%, rgba(185, 28, 28, 0.12) 0%, transparent 45%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* Tipografía Dark Lettering Rasgada y Alargada Verticalmente (como la referencia) */
+        .dark-lettering {
+            font-family: 'Metal Mania', cursive;
+            display: inline-block;
+            transform: scaleY(1.32);
+            transform-origin: center;
+            letter-spacing: 0.06em;
+            color: #f8f8f8;
+            text-shadow: 
+                0 0 12px rgba(255, 255, 255, 0.35),
+                2px 2px 0px #000000,
+                -1px -1px 0px rgba(185, 28, 28, 0.5);
+            filter: url(#grunge-tear);
+        }
+
+        /* Texto efecto cromo líquido metálico */
+        .chrome-text {
+            background: linear-gradient(
+                180deg,
+                #ffffff 0%,
+                #d4d4d8 38%,
+                #3f3f46 50%,
+                #f4f4f5 65%,
+                #71717a 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.2));
+        }
+
+        /* Ventana Retro OS + Borde Afilado Sigilism */
+        .y2k-window {
+            background: linear-gradient(155deg, rgba(14, 14, 18, 0.96), rgba(4, 4, 6, 0.99));
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 
+                inset 0 1px 0 rgba(255, 255, 255, 0.22),
+                0 14px 35px rgba(0, 0, 0, 0.95),
+                0 0 20px rgba(255, 255, 255, 0.04);
+            position: relative;
+        }
+
+        /* Esquinas afiladas estilo Sigilism en ventanas */
+        .y2k-window::before {
+            content: "";
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            width: 14px;
+            height: 14px;
+            border-top: 2px solid #ffffff;
+            border-left: 2px solid #ffffff;
+            pointer-events: none;
+            z-index: 20;
+        }
+        .y2k-window::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 14px;
+            height: 14px;
+            border-bottom: 2px solid #b91c1c;
+            border-right: 2px solid #b91c1c;
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        /* Barra superior de ventana oscura */
+        .y2k-titlebar {
+            background: linear-gradient(90deg, #09090b 0%, #27272a 50%, #09090b 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        /* Botones metálicos Y2K / Dark Grunge */
+        .btn-y2k-chrome {
+            background: linear-gradient(180deg, #ffffff 0%, #d4d4d8 48%, #71717a 52%, #e4e4e7 100%);
+            color: #050505;
+            border: 1px solid #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), inset 0 -2px 4px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+        }
+        .btn-y2k-chrome:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 24px rgba(255, 255, 255, 0.55), inset 0 -2px 4px rgba(0,0,0,0.2);
+        }
+
+        .btn-y2k-neon {
+            background: rgba(15, 15, 20, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.55);
+            color: #ffffff;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.12), inset 0 0 8px rgba(185, 28, 28, 0.25);
+            transition: all 0.2s ease;
+        }
+        .btn-y2k-neon:hover {
+            background: #b91c1c;
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(185, 28, 28, 0.65);
+            transform: translateY(-2px);
+        }
+
+        /* Animación Marquee Deslizante */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marqueeScroll 24s linear infinite;
+        }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Efecto Scanlines + Ruido analógico */
+        .scanlines::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.24) 0px,
+                rgba(0, 0, 0, 0.24) 1px,
+                transparent 1px,
+                transparent 3px
+            );
+            pointer-events: none;
+        }
+
+        /* Trazos SVG sketchy dibujados a mano */
+        .sketch-stroke {
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-y2k-blood selection:text-white">
+
+    <!-- Filtro SVG oculto para dar textura rasgada/desgastada a la tipografía Dark Lettering -->
+    <svg class="hidden" width="0" height="0">
+        <defs>
+            <filter id="grunge-tear" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.04 0.18" numOctaves="2" result="noise"/>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- =========================================================
+         CINTA DESLIZANTE SUPERIOR (MARQUEE DARK Y2K / SIGILISM)
+         ========================================================= -->
+    <div class="bg-black border-b border-white/25 py-1.5 text-xs font-mono-tech tracking-widest text-y2k-chrome">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                ✦ 3A'S ARCHIVE // DARK STREETWEAR &amp; GORRAS ✦ ESTÉTICA Y2K + CYBERSIGILISM ✦ PÚBLICO 15+ AÑOS ✦ CAMISETAS $10 • GORRAS $30 • PANTALONES $25 ✦ 3A'S ARCHIVE // DARK STREETWEAR &amp; GORRAS ✦ ESTÉTICA Y2K + CYBERSIGILISM ✦ PÚBLICO 15+ AÑOS ✦
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================================================
+         BARRA DE NAVEGACIÓN + BUSCADOR + ACCIONES PRINCIPALES
+         ========================================================= -->
+    <header class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex flex-wrap items-center justify-between gap-4">
+                
+                <!-- Mini Logo Navegación Dark Lettering -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-lg bg-black border border-white/50 p-0.5 shadow-[0_0_15px_rgba(255,255,255,0.2)] flex items-center justify-center relative overflow-hidden">
+                        <span class="dark-lettering text-xl font-bold">3'As</span>
+                    </div>
+                    <div>
+                        <span class="dark-lettering text-2xl leading-none block">3A's</span>
+                        <span class="font-mono-tech text-[10px] text-y2k-silver tracking-widest block mt-1">DARK_Y2K.SYS</span>
+                    </div>
+                </a>
+
+                <!-- Buscador Interactivo Funcional -->
+                <div class="order-3 md:order-2 w-full md:w-auto md:flex-1 max-w-md">
+                    <div class="relative flex items-center">
+                        <i data-lucide="search" class="w-4 h-4 text-white/70 absolute left-3.5 pointer-events-none"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            onkeyup="filtrarProductos()"
+                            placeholder="Buscar camisetas, gorras, pantalones..." 
+                            class="w-full bg-black border border-white/30 focus:border-white rounded-none py-2 pl-10 pr-20 text-xs font-mono-tech text-white placeholder-zinc-500 focus:outline-none focus:shadow-[0_0_15px_rgba(255,255,255,0.25)] transition"
+                        >
+                        <button 
+                            onclick="filtrarProductos()" 
+                            class="absolute right-1.5 bg-white text-black hover:bg-y2k-blood hover:text-white text-[11px] font-mono-tech font-bold px-3 py-1 transition cursor-pointer">
+                            BUSCAR
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Botones de Acción Principal (Registrarse, Comprar, Carrito) -->
+                <nav class="order-2 md:order-3 flex items-center gap-2 sm:gap-3">
+                    <a href="#catalogo" class="btn-y2k-neon px-3.5 py-2 rounded-none font-mono-tech text-xs flex items-center gap-1.5">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>COMPRAR</span>
+                    </a>
+                    <a href="#registro" class="btn-y2k-chrome px-3.5 py-2 rounded-none font-mono-tech text-xs font-bold flex items-center gap-1.5">
+                        <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
+                        <span>REGISTRARSE</span>
+                    </a>
+                    <!-- Botón Carrito -->
+                    <button onclick="toggleCart()" class="relative p-2.5 bg-black hover:bg-zinc-900 border border-white/40 transition cursor-pointer" title="Ver carrito">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 text-white"></i>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-y2k-blood text-white font-mono-tech text-[10px] font-bold w-5 h-5 flex items-center justify-center border border-white/40">
+                            0
+                        </span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- =========================================================
+         SECCIÓN HERO: DARK LETTERING + LOGO 3'As + BANNER EDITORIAL
+         ========================================================= -->
+    <section id="inicio" class="relative pt-10 pb-16 sm:pt-14 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        
+        <!-- Ornamento SVG Sketchy Ojo Místico + Estrella Rasgada (Inspirado en la referencia) -->
+        <svg class="w-24 h-16 text-white/35 absolute top-6 right-8 pointer-events-none hidden sm:block sketch-stroke" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.5">
+            <!-- Ojo trazado a mano -->
+            <path d="M10 35 Q60 5 110 35 Q60 65 10 35 Z"/>
+            <circle cx="60" cy="35" r="11"/>
+            <circle cx="60" cy="35" r="3" fill="currentColor"/>
+            <path d="M60 8 L60 16 M35 14 L39 21 M85 14 L81 21"/>
+        </svg>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Columna Izquierda (7 cols): Título Dark Lettering + Espacio Banner Editorial -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-black border border-white/30 text-xs font-mono-tech text-zinc-300">
+                    <span class="w-2 h-2 bg-y2k-blood inline-block animate-pulse"></span>
+                    DARK_Y2K // CYBERSIGILISM DROP
+                </div>
+
+                <!-- Título Principal con Tipografía Rasgada Alargada -->
+                <div class="py-2">
+                    <h1 class="leading-none">
+                        <span class="dark-lettering text-6xl sm:text-8xl tracking-widest block mb-4">3A's</span>
+                        <span class="font-cyber font-black text-2xl sm:text-4xl text-white block tracking-wider uppercase">
+                            GORRAS &amp; ROPA <span class="chrome-text">ESTILO URBANO</span>
+                        </span>
+                    </h1>
+                </div>
+
+                <p class="text-zinc-300 font-mono-tech text-xs sm:text-sm max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    Fusión de cromo líquido Y2K y arte callejero oscuro. Diseñamos piezas exclusivas con identidad rasgada y estética underground para <strong class="text-white underline decoration-y2k-blood">jóvenes y adultos de 15 años en adelante</strong>.
+                </p>
+
+                <!-- Botones Hero -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-1">
+                    <a href="#catalogo" class="btn-y2k-chrome px-7 py-3.5 font-cyber font-bold text-xs sm:text-sm tracking-wider flex items-center gap-2">
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                        VER CATÁLOGO ($10 - $30)
+                    </a>
+                    <a href="#registro" class="btn-y2k-neon px-7 py-3.5 font-cyber font-bold text-xs sm:text-sm tracking-wider flex items-center gap-2">
+                        <i data-lucide="skull" class="w-4 h-4"></i>
+                        UNIRSE AL CLUB 3A's
+                    </a>
+                </div>
+
+                <!-- ESPACIO 2: BANNER VISUAL EDITORIAL STREETWEAR (SUBIDA DE FOTO) -->
+                <div class="y2k-window mt-6 overflow-hidden">
+                    <div class="y2k-titlebar px-4 py-1.5 flex items-center justify-between">
+                        <span class="font-mono-tech text-[11px] text-white/80">HERO_CAMPAIGN_BANNER.RAW</span>
+                        <span class="font-mono-tech text-[10px] text-y2k-silver">[16:9_EDITORIAL]</span>
+                    </div>
+                    <div class="relative aspect-[16/7] bg-black flex flex-col items-center justify-center overflow-hidden scanlines group">
+                        <img id="heroBannerImg" src="" alt="Banner Editorial 3A's" class="hidden w-full h-full object-cover">
+                        
+                        <div id="heroBannerPlaceholder" class="p-4 text-center z-10 flex flex-col items-center">
+                            <!-- Glifo triángulo + ojo sketchy -->
+                            <svg class="w-12 h-10 text-white/70 mb-2 sketch-stroke" viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="1.6">
+                                <path d="M30 4 L56 46 L4 46 Z"/>
+                                <circle cx="30" cy="31" r="6"/>
+                                <circle cx="30" cy="31" r="1.5" fill="currentColor"/>
+                            </svg>
+                            <span class="dark-lettering text-xl tracking-widest">ESPACIO BANNER PRINCIPAL</span>
+                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">SUBE AQUÍ TU FOTO DE PORTADA / CAMPAÑA URBANA 3A's</span>
+                        </div>
+
+                        <label for="uploadHeroBanner" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
+                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
+                            SUBIR BANNER
+                        </label>
+                        <input type="file" id="uploadHeroBanner" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'heroBannerImg', 'heroBannerPlaceholder')">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha (5 cols): Ventana OS con Logo Híbrido Cromo + Trazos Rasgados -->
+            <div class="lg:col-span-5">
+                <div class="y2k-window overflow-hidden">
+                    <div class="y2k-titlebar px-4 py-2.5 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 bg-white inline-block"></span>
+                            <span class="w-2.5 h-2.5 bg-y2k-blood inline-block"></span>
+                            <span class="font-mono-tech text-[11px] text-white ml-1">SIGIL_LOGO_3AS.PNG</span>
+                        </div>
+                        <span class="font-mono-tech text-[10px] text-zinc-400">[DARK_CHROME]</span>
+                    </div>
+
+                    <!-- Contenedor del Logo -->
+                    <div class="p-6 bg-black relative flex flex-col items-center justify-center min-h-[380px] scanlines">
+                        <img id="customLogoImg" src="" alt="Logo 3A's" class="hidden max-h-72 w-auto object-contain z-10 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]">
+
+                        <!-- SVG Híbrido: Cromo Líquido 3'As + Estrellas Rasgadas Sketchy + Glifos Oscuros -->
+                        <svg id="defaultLogoSvg" viewBox="0 0 400 340" class="w-full max-w-[340px] h-auto z-10" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="liquidChromeDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#ffffff"/>
+                                    <stop offset="28%" stop-color="#a1a1aa"/>
+                                    <stop offset="50%" stop-color="#18181b"/>
+                                    <stop offset="65%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#52525b"/>
+                                </linearGradient>
+                                <filter id="scratchFilter" x="-15%" y="-15%" width="130%" height="130%">
+                                    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
+                                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
+                                </filter>
+                            </defs>
+
+                            <!-- Órbita Ciber-Sigilism Rasgada -->
+                            <ellipse cx="200" cy="170" rx="155" ry="92" transform="rotate(-22 200 170)" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="140 12 60 8" opacity="0.85" filter="url(#scratchFilter)"/>
+                            <ellipse cx="200" cy="170" rx="146" ry="84" transform="rotate(-22 200 170)" fill="none" stroke="#b91c1c" stroke-width="1.2" opacity="0.75"/>
+
+                            <!-- Estrella de 5 puntas trazada a mano (estilo imagen referencia) -->
+                            <g transform="translate(52, 42) scale(0.85)" stroke="#ffffff" stroke-width="2" fill="none" filter="url(#scratchFilter)">
+                                <path d="M25 2 L32 45 L2 18 L48 18 L18 45 Z"/>
+                                <circle cx="25" cy="24" r="23" stroke-dasharray="45 6"/>
+                            </g>
+
+                            <!-- Glifo Ojo Místico superior derecho -->
+                            <g transform="translate(295, 45)" stroke="#ffffff" stroke-width="1.8" fill="none" filter="url(#scratchFilter)">
+                                <path d="M0 18 Q30 -4 60 18 Q30 40 0 18 Z"/>
+                                <circle cx="30" cy="18" r="7"/>
+                                <circle cx="30" cy="18" r="2" fill="#ffffff"/>
+                            </g>
+
+                            <!-- Tipografía "3'As" Alargada y Rasgada -->
+                            <g transform="scale(1, 1.35) translate(0, -42)" filter="url(#scratchFilter)">
+                                <text x="200" y="182" text-anchor="middle" font-family="'Metal Mania', cursive" font-size="118" fill="url(#liquidChromeDark)" stroke="#ffffff" stroke-width="2" letter-spacing="4">
+                                    3’As
+                                </text>
+                            </g>
+
+                            <!-- Destellos Afilados Y2K -->
+                            <path d="M325 225 L329 258 L360 262 L329 266 L325 300 L321 266 L290 262 L321 258 Z" fill="#ffffff" filter="url(#scratchFilter)"/>
+                            <path d="M82 230 L85 250 L104 253 L85 256 L82 276 L79 256 L60 253 L79 250 Z" fill="#ffffff" opacity="0.85"/>
+                            <!-- Cruces rasgadas -->
+                            <path d="M195 285 L205 285 M200 278 L200 296" stroke="#ffffff" stroke-width="2"/>
+                        </svg>
+
+                        <!-- Subida de Logo Personalizado -->
+                        <div class="mt-4 z-20 flex items-center gap-2">
+                            <label for="logoUploadInput" class="cursor-pointer px-4 py-2 bg-black hover:bg-white hover:text-black border border-white/45 text-[11px] font-mono-tech text-white flex items-center gap-2 transition">
+                                <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+                                SUBIR TU LOGO (PNG/JPG)
+                            </label>
+                            <input type="file" id="logoUploadInput" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'customLogoImg', 'defaultLogoSvg')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         DIVISOR DE GLIFOS DARK LETTERING / SIGILISM
+         ========================================================= -->
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center gap-6 opacity-75">
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+        <div class="flex items-center gap-5 text-white font-mono-tech text-xs">
+            <!-- Pentagrama Sketchy -->
+            <svg class="w-6 h-6 sketch-stroke" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M25 3 L32 46 L3 19 L47 19 L18 46 Z"/>
+                <circle cx="25" cy="25" r="22"/>
+            </svg>
+            <span>//</span>
+            <!-- Triángulo Sketchy -->
+            <svg class="w-6 h-6 sketch-stroke" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M25 5 L46 43 L4 43 Z"/>
+            </svg>
+            <span>//</span>
+            <!-- Ojo Sketchy -->
+            <svg class="w-7 h-6 sketch-stroke" viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 20 Q30 2 56 20 Q30 38 4 20 Z"/>
+                <circle cx="30" cy="20" r="6"/>
+            </svg>
+        </div>
+        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+    </div>
+
+    <!-- =========================================================
+         CATÁLOGO DE PRODUCTOS (CAMISETAS $10, GORRAS $30, PANTALONES $25)
+         Con selector de talla (S, M, L, XL) y subida de imagen
+         ========================================================= -->
+    <section id="catalogo" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="font-mono-tech text-xs text-y2k-blood tracking-widest block mb-2">// DROP_ARCHIVE_001</span>
+                <h2 class="dark-lettering text-4xl sm:text-5xl">CATÁLOGO URBANO</h2>
+            </div>
+            <!-- Filtros Rápidos por Categoría -->
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filtrarPorCategoria('todos', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-white text-black font-bold cursor-pointer transition">TODO</button>
+                <button onclick="filtrarPorCategoria('camisetas', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">CAMISETAS ($10)</button>
+                <button onclick="filtrarPorCategoria('gorras', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">GORRAS ($30)</button>
+                <button onclick="filtrarPorCategoria('pantalones', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">PANTALONES ($25)</button>
+            </div>
+        </div>
+
+        <!-- Mensaje sin resultados -->
+        <div id="noResultsMsg" class="hidden text-center py-12 y2k-window mb-8">
+            <p class="font-mono-tech text-y2k-blood text-sm">ERROR 404 // NO SE ENCONTRARON PRENDAS CON ESE TÉRMINO.</p>
+            <button onclick="resetearBusqueda()" class="mt-4 btn-y2k-neon px-5 py-2 font-mono-tech text-xs cursor-pointer">RESTABLECER BÚSQUEDA</button>
+        </div>
+
+        <!-- Grid de 3 Productos Principales -->
+        <div id="productosGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <!-- PRODUCTO 1: CAMISETAS ($10) -->
+            <article class="product-card y2k-window flex flex-col justify-between group" data-category="camisetas" data-name="camisetas camiseta urbana dark y2k 3as">
+                <div>
+                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
+                        <span class="font-mono-tech text-[11px] text-zinc-300">01 // TEE_SIGIL</span>
+                        <span class="font-mono-tech text-xs bg-white text-black px-2 py-0.5 font-bold">$10</span>
+                    </div>
+
+                    <!-- Espacio para Imagen Camiseta -->
+                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
+                        <img id="imgCamiseta" src="" alt="Camiseta 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        
+                        <div id="placeholderCamiseta" class="p-6 text-center flex flex-col items-center justify-center z-10">
+                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
+                                <i data-lucide="shirt" class="w-10 h-10 text-white"></i>
+                            </div>
+                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
+                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">CAMISETAS 3A's</span>
+                        </div>
+
+                        <label for="uploadCamiseta" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
+                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
+                            SUBIR FOTO
+                        </label>
+                        <input type="file" id="uploadCamiseta" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgCamiseta', 'placeholderCamiseta')">
+                    </div>
+
+                    <!-- Detalles + Selector de Talla -->
+                    <div class="p-5">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <h3 class="font-cyber font-bold text-lg text-white">Camisetas 3A's</h3>
+                            <span class="font-cyber font-black text-2xl chrome-text">$10</span>
+                        </div>
+                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
+                            Corte boxy oversized con estampado rasgado estilo Dark Lettering. Algodón pesado de alto contraste.
+                        </p>
+
+                        <!-- Selector de Tallas S, M, L, XL -->
+                        <div class="mb-2">
+                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">SELECCIONAR TALLA:</span>
+                            <div class="grid grid-cols-4 gap-1.5" id="tallas-camiseta">
+                                <button type="button" onclick="seleccionarTalla('camiseta', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
+                                <button type="button" onclick="seleccionarTalla('camiseta', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
+                                <button type="button" onclick="seleccionarTalla('camiseta', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
+                                <button type="button" onclick="seleccionarTalla('camiseta', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-5 pb-5">
+                    <button onclick="agregarAlCarrito('Camisetas 3A\'s', 10, 'camiseta')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                        <i data-lucide="plus-square" class="w-4 h-4"></i>
+                        AGREGAR AL CARRITO — $10
+                    </button>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 2: GORRAS ($30) -->
+            <article class="product-card y2k-window flex flex-col justify-between group" data-category="gorras" data-name="gorras gorra snapback trucker sigil 3as">
+                <div>
+                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
+                        <span class="font-mono-tech text-[11px] text-zinc-300">02 // CAP_CHROME</span>
+                        <span class="font-mono-tech text-xs bg-y2k-blood text-white px-2 py-0.5 font-bold">$30</span>
+                    </div>
+
+                    <!-- Espacio para Imagen Gorra -->
+                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
+                        <img id="imgGorra" src="" alt="Gorra 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        
+                        <div id="placeholderGorra" class="p-6 text-center flex flex-col items-center justify-center z-10">
+                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
+                                <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M3 15a9 9 0 0 1 18 0v2H3v-2Z"/>
+                                    <path d="M12 6v9"/>
+                                    <path d="M21 17c1.5 0 2 .5 2 1.5S22 20 19 20H5c-1.5 0-2-.5-2-1.5"/>
+                                </svg>
+                            </div>
+                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
+                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">GORRAS 3A's</span>
+                        </div>
+
+                        <label for="uploadGorra" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
+                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
+                            SUBIR FOTO
+                        </label>
+                        <input type="file" id="uploadGorra" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgGorra', 'placeholderGorra')">
+                    </div>
+
+                    <!-- Detalles + Selector de Talla -->
+                    <div class="p-5">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <h3 class="font-cyber font-bold text-lg text-white">Gorras 3A's</h3>
+                            <span class="font-cyber font-black text-2xl chrome-text">$30</span>
+                        </div>
+                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
+                            Gorra diseño exclusivo con bordado grueso 3D '3'As', detalles metálicos y estructura streetwear premium.
+                        </p>
+
+                        <!-- Selector de Tallas -->
+                        <div class="mb-2">
+                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">AJUSTE / TALLA:</span>
+                            <div class="grid grid-cols-4 gap-1.5" id="tallas-gorra">
+                                <button type="button" onclick="seleccionarTalla('gorra', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
+                                <button type="button" onclick="seleccionarTalla('gorra', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
+                                <button type="button" onclick="seleccionarTalla('gorra', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
+                                <button type="button" onclick="seleccionarTalla('gorra', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-5 pb-5">
+                    <button onclick="agregarAlCarrito('Gorras 3A\'s', 30, 'gorra')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                        <i data-lucide="plus-square" class="w-4 h-4"></i>
+                        AGREGAR AL CARRITO — $30
+                    </button>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 3: PANTALONES ($25) -->
+            <article class="product-card y2k-window flex flex-col justify-between group" data-category="pantalones" data-name="pantalones pantalon cargo baggy dark 3as">
+                <div>
+                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
+                        <span class="font-mono-tech text-[11px] text-zinc-300">03 // CARGO_2000</span>
+                        <span class="font-mono-tech text-xs bg-white text-black px-2 py-0.5 font-bold">$25</span>
+                    </div>
+
+                    <!-- Espacio para Imagen Pantalón -->
+                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
+                        <img id="imgPantalon" src="" alt="Pantalón 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        
+                        <div id="placeholderPantalon" class="p-6 text-center flex flex-col items-center justify-center z-10">
+                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
+                                <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M6 3h12l2 18h-6l-2-10-2 10H4L6 3Z"/>
+                                    <path d="M6 7h12"/>
+                                </svg>
+                            </div>
+                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
+                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">PANTALONES 3A's</span>
+                        </div>
+
+                        <label for="uploadPantalon" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
+                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
+                            SUBIR FOTO
+                        </label>
+                        <input type="file" id="uploadPantalon" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgPantalon', 'placeholderPantalon')">
+                    </div>
+
+                    <!-- Detalles + Selector de Talla -->
+                    <div class="p-5">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <h3 class="font-cyber font-bold text-lg text-white">Pantalones 3A's</h3>
+                            <span class="font-cyber font-black text-2xl chrome-text">$25</span>
+                        </div>
+                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
+                            Pantalón cargo / baggy corte ancho estilo 2000s con múltiples bolsillos, correas y acabados oscuros.
+                        </p>
+
+                        <!-- Selector de Tallas S, M, L, XL -->
+                        <div class="mb-2">
+                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">SELECCIONAR TALLA:</span>
+                            <div class="grid grid-cols-4 gap-1.5" id="tallas-pantalon">
+                                <button type="button" onclick="seleccionarTalla('pantalon', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
+                                <button type="button" onclick="seleccionarTalla('pantalon', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
+                                <button type="button" onclick="seleccionarTalla('pantalon', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
+                                <button type="button" onclick="seleccionarTalla('pantalon', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="px-5 pb-5">
+                    <button onclick="agregarAlCarrito('Pantalones 3A\'s', 25, 'pantalon')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
+                        <i data-lucide="plus-square" class="w-4 h-4"></i>
+                        AGREGAR AL CARRITO — $25
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- =========================================================
+         GALERÍA / LOOKBOOK URBANO (3 ESPACIOS ADICIONALES PARA FOTOS)
+         ========================================================= -->
+    <section class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15">
+        <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            <div>
+                <span class="font-mono-tech text-xs text-zinc-400 tracking-widest block mb-2">// STREET_DROPS_GALLERY</span>
+                <h2 class="dark-lettering text-3xl sm:text-5xl">LOOKBOOK 3A's</h2>
+            </div>
+            <p class="font-mono-tech text-xs text-zinc-400">HAZ CLIC EN CADA RECUADRO PARA CARGAR FOTOS DE OUTFITS</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <!-- Espacio Galería 1 -->
+            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
+                <img id="lookImg1" src="" alt="Lookbook 01" class="hidden w-full h-full object-cover">
+                <div id="lookPlace1" class="text-center p-4 z-10">
+                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
+                    <span class="dark-lettering text-lg block">LOOK_01</span>
+                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">OUTFIT STREETWEAR COMPLETO</span>
+                </div>
+                <label for="uploadLook1" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
+                    + CARGAR FOTO 01
+                </label>
+                <input type="file" id="uploadLook1" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg1', 'lookPlace1')">
+            </div>
+
+            <!-- Espacio Galería 2 -->
+            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
+                <img id="lookImg2" src="" alt="Lookbook 02" class="hidden w-full h-full object-cover">
+                <div id="lookPlace2" class="text-center p-4 z-10">
+                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
+                    <span class="dark-lettering text-lg block">LOOK_02</span>
+                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">DETALLE GORRAS &amp; BORDADOS</span>
+                </div>
+                <label for="uploadLook2" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
+                    + CARGAR FOTO 02
+                </label>
+                <input type="file" id="uploadLook2" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg2', 'lookPlace2')">
+            </div>
+
+            <!-- Espacio Galería 3 -->
+            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
+                <img id="lookImg3" src="" alt="Lookbook 03" class="hidden w-full h-full object-cover">
+                <div id="lookPlace3" class="text-center p-4 z-10">
+                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
+                    <span class="dark-lettering text-lg block">LOOK_03</span>
+                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">SESIÓN NOCTURNA DARK Y2K</span>
+                </div>
+                <label for="uploadLook3" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
+                    + CARGAR FOTO 03
+                </label>
+                <input type="file" id="uploadLook3" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg3', 'lookPlace3')">
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         FORMULARIO DE REGISTRO / CONVERSIÓN (DARK TERMINAL Y2K)
+         Campos: Nombre, Edad (15+), Número cel., Correo electrónico
+         ========================================================= -->
+    <section id="registro" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-white/15">
+        <div class="y2k-window overflow-hidden">
+            <div class="y2k-titlebar px-5 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="terminal" class="w-4 h-4 text-white"></i>
+                    <span class="font-mono-tech text-xs text-white">MEMBERSHIP_ACCESS_3AS.EXE</span>
+                </div>
+                <span class="font-mono-tech text-[10px] text-y2k-blood font-bold">[PÚBLICO 15+ AÑOS]</span>
+            </div>
+
+            <div class="p-6 sm:p-10">
+                <div class="text-center mb-8">
+                    <h2 class="dark-lettering text-3xl sm:text-5xl mb-3">REGÍSTRATE EN 3A's</h2>
+                    <p class="text-zinc-300 font-mono-tech text-xs sm:text-sm max-w-xl mx-auto">
+                        Ingresa tus datos para desbloquear acceso anticipado a drops exclusivos de gorras, camisetas y pantalones urbanos.
+                    </p>
+                </div>
+
+                <form id="registroForm" onsubmit="procesarRegistro(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- Campo 1: Nombre -->
+                        <div>
+                            <label for="nombre" class="block font-mono-tech text-xs text-white mb-2">NOMBRE *</label>
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                required 
+                                placeholder="Ej. Leonel Anrango"
+                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
+                            >
+                        </div>
+
+                        <!-- Campo 2: Edad (Validación 15+) -->
+                        <div>
+                            <label for="edad" class="block font-mono-tech text-xs text-white mb-2">EDAD (15+ AÑOS) *</label>
+                            <input 
+                                type="number" 
+                                id="edad" 
+                                min="15" 
+                                max="99" 
+                                required 
+                                placeholder="Ej. 18"
+                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
+                            >
+                        </div>
+
+                        <!-- Campo 3: Número cel. -->
+                        <div>
+                            <label for="celular" class="block font-mono-tech text-xs text-white mb-2">NÚMERO CEL. *</label>
+                            <input 
+                                type="tel" 
+                                id="celular" 
+                                required 
+                                placeholder="Ej. 099 123 4567"
+                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
+                            >
+                        </div>
+
+                        <!-- Campo 4: Correo electrónico -->
+                        <div>
+                            <label for="correo" class="block font-mono-tech text-xs text-white mb-2">CORREO ELECTRÓNICO *</label>
+                            <input 
+                                type="email" 
+                                id="correo" 
+                                required 
+                                placeholder="usuario@dominio.com"
+                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full btn-y2k-chrome py-4 font-cyber font-black text-xs sm:text-sm tracking-widest flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            CONFIRMAR REGISTRO EN 3A's
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Confirmación Visual Estilo Terminal Cyber-Gothic -->
+                <div id="registroConfirmacion" class="hidden mt-6 p-5 bg-black border border-white text-center relative">
+                    <div class="w-12 h-12 border border-white text-white flex items-center justify-center mx-auto mb-3">
+                        <i data-lucide="check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="dark-lettering text-2xl mb-2">ACCESO CONCEDIDO // 3A's</h3>
+                    <p id="mensajeBienvenida" class="font-mono-tech text-xs text-zinc-300 leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================
+         PANEL LATERAL DEL CARRITO DE COMPRAS
+         ========================================================= -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 hidden">
+        <div onclick="toggleCart()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+        
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-[#060608] border-l border-white/30 flex flex-col justify-between shadow-2xl">
+            <div>
+                <div class="y2k-titlebar px-5 py-4 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="shopping-cart" class="w-4 h-4 text-white"></i>
+                        <span class="font-mono-tech text-xs text-white">BAG_3AS.SYS</span>
+                    </div>
+                    <button onclick="toggleCart()" class="text-zinc-400 hover:text-white cursor-pointer">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+
+                <div id="cartItemsContainer" class="p-5 space-y-3 max-h-[60vh] overflow-y-auto">
+                    <p class="text-center text-zinc-500 font-mono-tech text-xs py-10">TU CARRITO ESTÁ VACÍO.</p>
+                </div>
+            </div>
+
+            <div class="p-5 border-t border-white/20 bg-black space-y-4">
+                <div class="flex items-center justify-between font-cyber">
+                    <span class="text-xs font-mono-tech text-zinc-400">TOTAL A PAGAR:</span>
+                    <span id="cartTotal" class="text-2xl font-black chrome-text">$0</span>
+                </div>
+                <button onclick="finalizarCompra()" class="w-full btn-y2k-chrome py-3.5 font-mono-tech font-bold text-xs tracking-wider cursor-pointer">
+                    FINALIZAR PEDIDO 3A's
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toastNotif" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden bg-black border border-white text-white px-5 py-3 shadow-[0_0_25px_rgba(255,255,255,0.25)] font-mono-tech text-xs flex items-center gap-2.5">
+        <span class="w-2 h-2 bg-y2k-blood inline-block animate-ping"></span>
+        <span id="toastText">Producto agregado</span>
+    </div>
+
+    <!-- =========================================================
+         FOOTER DARK Y2K + CRÉDITO DEL AUTOR
+         ========================================================= -->
+    <footer class="border-t border-white/20 bg-black py-10 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-3">
+            <span class="dark-lettering text-3xl">3A's</span>
+            <p class="font-mono-tech text-xs text-zinc-400">
+                GORRAS Y ROPA ESTILO URBANO // PÚBLICO 15+ AÑOS
+            </p>
+            <p class="font-mono-tech text-xs text-white/80 mt-1">
+                Por: Leonel Anrango — 3A's
+            </p>
+            <p class="text-[11px] font-mono-tech text-zinc-600 mt-1">
+                © 2000-2026 3A's Dark Streetwear Archive. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- =========================================================
+         JAVASCRIPT INTERACTIVO
+         ========================================================= -->
+    <script>
+        lucide.createIcons();
+
+        // Estado de tallas seleccionadas por producto (por defecto 'M')
+        const tallasSeleccionadas = {
+            camiseta: 'M',
+            gorra: 'M',
+            pantalon: 'M'
+        };
+
+        function seleccionarTalla(productoKey, talla, btnElement) {
+            tallasSeleccionadas[productoKey] = talla;
+            const container = document.getElementById(`tallas-${productoKey}`);
+            const buttons = container.querySelectorAll('.size-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('border-white', 'bg-white', 'text-black', 'font-bold');
+                btn.classList.add('border-white/30', 'text-zinc-300');
+            });
+
+            btnElement.classList.remove('border-white/30', 'text-zinc-300');
+            btnElement.classList.add('border-white', 'bg-white', 'text-black', 'font-bold');
+        }
+
+        // 1. CARGAR IMÁGENES EN ESPACIOS INTERACTIVOS
+        function cargarImagenSlot(event, imgElementId, placeholderElementId) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgEl = document.getElementById(imgElementId);
+                const placeholderEl = document.getElementById(placeholderElementId);
+
+                imgEl.src = e.target.result;
+                imgEl.classList.remove('hidden');
+                if (placeholderEl) {
+                    placeholderEl.classList.add('hidden');
+                }
+                mostrarToast('Archivo visual cargado en 3A\'s');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // 2. BUSCADOR Y FILTROS DE CATÁLOGO
+        function filtrarProductos() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.product-card');
+            let visibles = 0;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                if (name.includes(query)) {
+                    card.classList.remove('hidden');
+                    visibles++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const noResults = document.getElementById('noResultsMsg');
+            if (visibles === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function filtrarPorCategoria(categoria, clickedBtn) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.cat-btn');
+            document.getElementById('searchInput').value = '';
+            document.getElementById('noResultsMsg').classList.add('hidden');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-black', 'font-bold');
+                btn.classList.add('bg-black', 'text-white', 'border', 'border-white/30');
+            });
+            if (clickedBtn) {
+                clickedBtn.classList.remove('bg-black', 'text-white', 'border', 'border-white/30');
+                clickedBtn.classList.add('bg-white', 'text-black', 'font-bold');
+            }
+
+            cards.forEach(card => {
+                if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        function resetearBusqueda() {
+            document.getElementById('searchInput').value = '';
+            filtrarProductos();
+        }
+
+        // 3. CARRITO DE COMPRAS CON TALLA
+        let carrito = [];
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('hidden');
+        }
+
+        function agregarAlCarrito(nombre, precio, productoKey) {
+            const talla = tallasSeleccionadas[productoKey] || 'M';
+            const existente = carrito.find(item => item.nombre === nombre && item.talla === talla);
+
+            if (existente) {
+                existente.cantidad += 1;
+            } else {
+                carrito.push({ nombre, precio, talla, cantidad: 1 });
+            }
+            actualizarCarritoUI();
+            mostrarToast(`+1 ${nombre} [Talla ${talla}] agregado`);
+        }
+
+        function eliminarDelCarrito(index) {
+            carrito.splice(index, 1);
+            actualizarCarritoUI();
+        }
+
+        function actualizarCarritoUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const countBadge = document.getElementById('cartCount');
+            const totalEl = document.getElementById('cartTotal');
+
+            const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            const totalPrecio = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
+
+            countBadge.textContent = totalItems;
+            totalEl.textContent = `$${totalPrecio}`;
+
+            if (carrito.length === 0) {
+                container.innerHTML = `<p class="text-center text-zinc-500 font-mono-tech text-xs py-10">TU CARRITO ESTÁ VACÍO.</p>`;
+                return;
+            }
+
+            container.innerHTML = carrito.map((item, idx) => `
+                <div class="flex items-center justify-between bg-black border border-white/25 p-3.5">
+                    <div>
+                        <h4 class="font-cyber font-bold text-xs text-white">${item.nombre} <span class="text-y2k-blood">[${item.talla}]</span></h4>
+                        <span class="font-mono-tech text-[11px] text-zinc-400">$${item.precio} c/u × ${item.cantidad}</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="font-cyber font-bold text-sm text-white">$${item.precio * item.cantidad}</span>
+                        <button onclick="eliminarDelCarrito(${idx})" class="text-zinc-400 hover:text-y2k-blood p-1 cursor-pointer" title="Quitar">
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function finalizarCompra() {
+            if (carrito.length === 0) {
+                mostrarToast('Agrega al menos una prenda antes de finalizar');
+                return;
+            }
+            carrito = [];
+            actualizarCarritoUI();
+            toggleCart();
+            mostrarToast('¡Pedido 3A\'s generado! Completa tu registro abajo.');
+            document.getElementById('registro').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 4. FORMULARIO DE REGISTRO
+        function procesarRegistro(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const edad = parseInt(document.getElementById('edad').value, 10);
+            const celular = document.getElementById('celular').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+
+            if (edad < 15) {
+                mostrarToast('3A\'s está disponible para público de 15 años en adelante.');
+                return;
+            }
+
+            const confirmBox = document.getElementById('registroConfirmacion');
+            const mensaje = document.getElementById('mensajeBienvenida');
+
+            mensaje.innerHTML = `USUARIO: <strong class="text-white">${nombre.toUpperCase()}</strong> (${edad} AÑOS)<br>TEL: <strong class="text-white">${celular}</strong> // MAIL: <strong class="text-white">${correo}</strong><br><span class="text-zinc-400 mt-1 block">Bienvenido al archivo oficial de 3A's.</span>`;
+            
+            confirmBox.classList.remove('hidden');
+            document.getElementById('registroForm').reset();
+            mostrarToast('¡Registro completado en 3A\'s!');
+        }
+
+        // 5. NOTIFICACIÓN TOAST
+        let toastTimeout;
+        function mostrarToast(texto) {
+            const toast = document.getElementById('toastNotif');
+            const toastText = document.getElementById('toastText');
+            toastText.textContent = texto;
+            toast.classList.remove('hidden');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3200);
+        }
+    </script>
+</body>
+</html>
