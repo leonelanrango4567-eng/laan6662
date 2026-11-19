@@ -1,1084 +1,1119 @@
-<!-- ... existing code ... -->
-    <title>3A's // DARK Y2K &amp; CYBERSIGILISM STREETWEAR</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Tipografías Dark Metal / Gótico Afilado + Y2K Cyber + Monospace -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Metal+Mania&family=Orbitron:wght@700;900&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3'As † GOTHIC CATHEDRAL EDITION</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Space+Mono:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-void: #000000;
+      --bg-panel: #08040d;
+      --purple-deep: #24073d;
+      --purple-dark: #4c1d95;
+      --purple-glow: rgba(107, 33, 168, 0.55);
+      --ink-white: #f5f3ff;
+      --ink-silver: #a79bb8;
+      --border-ink: #ffffff;
+    }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'darkmetal': ['"Metal Mania"', 'cursive'],
-                        'cyber': ['Orbitron', 'sans-serif'],
-                        'pixel': ['Silkscreen', 'monospace'],
-                        'mono-tech': ['"Space Mono"', 'monospace'],
-                        'sans': ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        'y2k-bg': '#030304',
-                        'y2k-panel': '#0a0a0d',
-                        'y2k-chrome': '#f5f5f5',
-                        'y2k-blood': '#b91c1c',
-                        'y2k-silver': '#a1a1aa',
-                    }
-                }
-            }
-        }
-    </script>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
-    <style>
-        /* =========================================================
-           ESTILOS DARK Y2K / CYBERSIGILISM / LETTERING RASGADO
-           ========================================================= */
-        body {
-            background-color: #030304;
-            color: #f5f5f5;
-            overflow-x: hidden;
-            /* Fondo negro puro con rejilla sutil y textura analógica */
-            background-image: 
-                radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 55%),
-                radial-gradient(circle at 85% 25%, rgba(185, 28, 28, 0.12) 0%, transparent 45%),
-                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-            background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
-        }
+    body {
+      background-color: var(--bg-void);
+      color: var(--ink-white);
+      font-family: 'Space Mono', monospace;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(76, 29, 149, 0.25) 0%, transparent 55%),
+        radial-gradient(circle at 50% 85%, rgba(36, 7, 61, 0.4) 0%, transparent 60%);
+    }
 
-        /* Tipografía Dark Lettering Rasgada y Alargada Verticalmente (como la referencia) */
-        .dark-lettering {
-            font-family: 'Metal Mania', cursive;
-            display: inline-block;
-            transform: scaleY(1.32);
-            transform-origin: center;
-            letter-spacing: 0.06em;
-            color: #f8f8f8;
-            text-shadow: 
-                0 0 12px rgba(255, 255, 255, 0.35),
-                2px 2px 0px #000000,
-                -1px -1px 0px rgba(185, 28, 28, 0.5);
-            filter: url(#grunge-tear);
-        }
+    /* Textura sutil de grabado antiguo */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 0);
+      background-size: 4px 4px;
+      pointer-events: none;
+      z-index: 9999;
+    }
 
-        /* Texto efecto cromo líquido metálico */
-        .chrome-text {
-            background: linear-gradient(
-                180deg,
-                #ffffff 0%,
-                #d4d4d8 38%,
-                #3f3f46 50%,
-                #f4f4f5 65%,
-                #71717a 100%
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.2));
-        }
+    /* ORNAMENTOS GÓTICOS REUTILIZABLES */
+    .gothic-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+      color: var(--ink-white);
+      font-family: 'Cinzel', serif;
+      letter-spacing: 6px;
+      font-size: 0.85rem;
+    }
 
-        /* Ventana Retro OS + Borde Afilado Sigilism */
-        .y2k-window {
-            background: linear-gradient(155deg, rgba(14, 14, 18, 0.96), rgba(4, 4, 6, 0.99));
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            box-shadow: 
-                inset 0 1px 0 rgba(255, 255, 255, 0.22),
-                0 14px 35px rgba(0, 0, 0, 0.95),
-                0 0 20px rgba(255, 255, 255, 0.04);
-            position: relative;
-        }
+    .gothic-divider::before,
+    .gothic-divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      max-width: 240px;
+      background: linear-gradient(90deg, transparent, #fff, transparent);
+    }
 
-        /* Esquinas afiladas estilo Sigilism en ventanas */
-        .y2k-window::before {
-            content: "";
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            width: 14px;
-            height: 14px;
-            border-top: 2px solid #ffffff;
-            border-left: 2px solid #ffffff;
-            pointer-events: none;
-            z-index: 20;
-        }
-        .y2k-window::after {
-            content: "";
-            position: absolute;
-            bottom: -1px;
-            right: -1px;
-            width: 14px;
-            height: 14px;
-            border-bottom: 2px solid #b91c1c;
-            border-right: 2px solid #b91c1c;
-            pointer-events: none;
-            z-index: 20;
-        }
+    /* HEADER ARQUITECTÓNICO */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 4px 25px rgba(76, 29, 149, 0.35);
+      padding: 12px 5%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-        /* Barra superior de ventana oscura */
-        .y2k-titlebar {
-            background: linear-gradient(90deg, #09090b 0%, #27272a 50%, #09090b 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-        }
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
 
-        /* Botones metálicos Y2K / Dark Grunge */
-        .btn-y2k-chrome {
-            background: linear-gradient(180deg, #ffffff 0%, #d4d4d8 48%, #71717a 52%, #e4e4e7 100%);
-            color: #050505;
-            border: 1px solid #ffffff;
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2), inset 0 -2px 4px rgba(0,0,0,0.4);
-            transition: all 0.2s ease;
-        }
-        .btn-y2k-chrome:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 24px rgba(255, 255, 255, 0.55), inset 0 -2px 4px rgba(0,0,0,0.2);
-        }
+    /* Escudo ojival para logo */
+    .brand-crest {
+      width: 48px;
+      height: 54px;
+      border: 1.5px solid #fff;
+      border-radius: 50% 50% 4px 4px / 65% 65% 4px 4px;
+      background: var(--purple-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 1.4rem;
+      color: #fff;
+      box-shadow: 0 0 15px var(--purple-glow);
+      overflow: hidden;
+    }
 
-        .btn-y2k-neon {
-            background: rgba(15, 15, 20, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.55);
-            color: #ffffff;
-            box-shadow: 0 0 12px rgba(255, 255, 255, 0.12), inset 0 0 8px rgba(185, 28, 28, 0.25);
-            transition: all 0.2s ease;
-        }
-        .btn-y2k-neon:hover {
-            background: #b91c1c;
-            border-color: #ffffff;
-            box-shadow: 0 0 20px rgba(185, 28, 28, 0.65);
-            transform: translateY(-2px);
-        }
+    .brand-crest img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-        /* Animación Marquee Deslizante */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .marquee-content {
-            display: inline-block;
-            animation: marqueeScroll 24s linear infinite;
-        }
-        @keyframes marqueeScroll {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-50%); }
-        }
+    .brand-title h1 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 12px var(--purple-glow);
+    }
 
-        /* Efecto Scanlines + Ruido analógico */
-        .scanlines::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.24) 0px,
-                rgba(0, 0, 0, 0.24) 1px,
-                transparent 1px,
-                transparent 3px
-            );
-            pointer-events: none;
-        }
+    .brand-title span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      color: var(--ink-silver);
+      display: block;
+    }
 
-        /* Trazos SVG sketchy dibujados a mano */
-        .sketch-stroke {
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
-        }
-    </style>
+    /* BUSCADOR GRABADO */
+    .search-bar {
+      display: flex;
+      flex: 1;
+      max-width: 360px;
+      border: 1px solid rgba(255,255,255,0.5);
+      background: #050208;
+    }
+
+    .search-bar input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 8px 12px;
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      outline: none;
+    }
+
+    .search-bar button {
+      background: var(--purple-deep);
+      color: #fff;
+      border: none;
+      border-left: 1px solid rgba(255,255,255,0.5);
+      padding: 0 14px;
+      font-family: 'Cinzel', serif;
+      font-weight: bold;
+      font-size: 0.72rem;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* BOTONES ESTILO GRABADO GÓTICO */
+    .btn-cathedral {
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+      outline: 1px solid rgba(255,255,255,0.3);
+      outline-offset: -4px;
+      padding: 9px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+
+    .btn-cathedral:hover {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 0 20px var(--purple-glow);
+    }
+
+    .btn-purple-fill {
+      background: var(--purple-deep);
+      box-shadow: inset 0 0 12px rgba(139, 92, 246, 0.4);
+    }
+
+    /* SECCIÓN 1: HERO & ARCO CATEDRAL */
+    .hero-section {
+      position: relative;
+      padding: 55px 5%;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 45px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      overflow: hidden;
+    }
+
+    /* Rosetón gótico SVG de fondo girando lentamente */
+    .rose-window-bg {
+      position: absolute;
+      top: -60px;
+      left: -80px;
+      width: 480px;
+      height: 480px;
+      opacity: 0.12;
+      pointer-events: none;
+      animation: spinSlow 60s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .crest-badge {
+      display: inline-block;
+      border-top: 1px solid #fff;
+      border-bottom: 1px solid #fff;
+      padding: 5px 14px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      color: #d8b4fe;
+      margin-bottom: 18px;
+    }
+
+    .hero-text h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+      line-height: 1.05;
+      font-weight: normal;
+      margin-bottom: 18px;
+      color: #fff;
+      text-shadow: 0 0 22px var(--purple-glow);
+    }
+
+    .hero-text p {
+      color: var(--ink-silver);
+      font-size: 0.88rem;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      max-width: 510px;
+    }
+
+    /* VENTANAL OJIVAL PARA EL BANNER */
+    .cathedral-arch-frame {
+      position: relative;
+      z-index: 2;
+      border: 2px solid #fff;
+      border-radius: 220px 220px 6px 6px;
+      padding: 12px;
+      background: linear-gradient(180deg, var(--purple-deep) 0%, #000 100%);
+      box-shadow: 0 0 40px rgba(76, 29, 149, 0.5), inset 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .cathedral-arch-inner {
+      height: 390px;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 208px 208px 2px 2px;
+      background: #030106;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      text-align: center;
+      padding: 25px;
+    }
+
+    .cathedral-arch-inner img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.15);
+      z-index: 1;
+    }
+
+    .arch-default-art {
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .arch-default-art h3 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 5rem;
+      color: #fff;
+      text-shadow: 0 0 25px #7e22ce, 3px 3px 0 #000;
+    }
+
+    .arch-default-art p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      color: #d8b4fe;
+    }
+
+    .upload-engraved {
+      position: absolute;
+      bottom: 14px;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #fff;
+      color: #fff;
+      padding: 5px 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .upload-engraved:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* SECCIÓN 2: CATÁLOGO EN ARCOS GÓTICOS */
+    .catalog-section {
+      padding: 65px 5%;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .section-title-center {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title-center h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .filter-btn {
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.45);
+      color: var(--ink-silver);
+      padding: 8px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--purple-deep);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
+      gap: 30px;
+    }
+
+    /* TARJETA ESTILO RETABLO GÓTICO */
+    .gothic-card {
+      background: var(--bg-panel);
+      border: 1px solid #fff;
+      outline: 1px solid rgba(255,255,255,0.3);
+      outline-offset: -5px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    .gothic-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 35px rgba(76, 29, 149, 0.6);
+    }
+
+    .card-spire-header {
+      text-align: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 3px;
+      color: #d8b4fe;
+      margin-bottom: 12px;
+    }
+
+    /* Imagen con arco ojival */
+    .product-arch-img {
+      height: 265px;
+      border: 1px solid #fff;
+      border-radius: 140px 140px 2px 2px;
+      background: radial-gradient(circle at center, #1b062e 0%, #000 90%);
+      margin-bottom: 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-arch-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .engraving-placeholder {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .engraving-placeholder .cross-mark {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 6px;
+      text-shadow: 0 0 12px #a855f7;
+    }
+
+    .product-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .product-title-row h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+    }
+
+    .price-crest {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #fff;
+      background: var(--purple-deep);
+      border: 1px solid #fff;
+      padding: 2px 10px;
+    }
+
+    .product-desc {
+      font-size: 0.78rem;
+      color: var(--ink-silver);
+      line-height: 1.6;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .sizes {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 15px;
+    }
+
+    .size-btn {
+      flex: 1;
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: var(--ink-silver);
+      padding: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.74rem;
+      cursor: pointer;
+    }
+
+    .size-btn.selected {
+      background: #fff;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* LOOKBOOK CON ARCOS */
+    .lookbook-section {
+      padding: 55px 5%;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .lookbook-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .lookbook-arch {
+      height: 300px;
+      border: 1px solid rgba(255,255,255,0.7);
+      border-radius: 130px 130px 4px 4px;
+      background: var(--bg-panel);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      overflow: hidden;
+    }
+
+    .lookbook-arch img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* SECCIÓN 3: FORMULARIO DE REGISTRO ALTAR GÓTICO */
+    .register-section {
+      padding: 70px 5%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .sanctuary-form-box {
+      width: 100%;
+      max-width: 760px;
+      background: var(--bg-panel);
+      border: 2px solid #fff;
+      outline: 1px solid rgba(255,255,255,0.4);
+      outline-offset: -7px;
+      padding: 40px 35px;
+      box-shadow: 0 0 50px rgba(76, 29, 149, 0.45);
+      position: relative;
+    }
+
+    .sanctuary-form-box h2 {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 2.8rem;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .sanctuary-form-box .subtitle {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--ink-silver);
+      margin-bottom: 28px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .form-group label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      color: #e9d5ff;
+    }
+
+    .form-group input {
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.6);
+      padding: 12px 14px;
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      outline: none;
+    }
+
+    .form-group input:focus {
+      border-color: #c084fc;
+      box-shadow: 0 0 15px var(--purple-glow);
+    }
+
+    .submit-btn {
+      width: 100%;
+      margin-top: 26px;
+      padding: 15px;
+      background: var(--purple-deep);
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Cinzel', serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .submit-btn:hover {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 0 25px var(--purple-glow);
+    }
+
+    .vip-pass {
+      display: none;
+      margin-top: 24px;
+      padding: 18px;
+      border: 1px solid #fff;
+      background: var(--purple-deep);
+      text-align: center;
+    }
+
+    /* DRAWER BOLSA */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 100%;
+      max-width: 370px;
+      height: 100vh;
+      background: #040108;
+      border-left: 1px solid #fff;
+      z-index: 2000;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+    }
+
+    .cart-drawer.open { right: 0; }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      margin: 18px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cart-item {
+      background: var(--bg-panel);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 5%;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      background: #000;
+      font-size: 0.78rem;
+      color: var(--ink-silver);
+    }
+
+    footer .gothic-brand {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 2.4rem;
+      color: #fff;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 10px 16px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      z-index: 3000;
+      transform: translateY(150%);
+      transition: transform 0.3s ease;
+    }
+
+    .toast.show { transform: translateY(0); }
+
+    input[type="file"] { display: none; }
+
+    @media (max-width: 850px) {
+      .hero-section { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .cathedral-arch-frame { border-radius: 160px 160px 6px 6px; }
+      .cathedral-arch-inner { border-radius: 150px 150px 2px 2px; height: 340px; }
+    }
+  </style>
 </head>
-<body class="font-sans antialiased selection:bg-y2k-blood selection:text-white">
+<body>
 
-    <!-- Filtro SVG oculto para dar textura rasgada/desgastada a la tipografía Dark Lettering -->
-    <svg class="hidden" width="0" height="0">
-        <defs>
-            <filter id="grunge-tear" x="-10%" y="-10%" width="120%" height="120%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.04 0.18" numOctaves="2" result="noise"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-        </defs>
+  <!-- HEADER -->
+  <header>
+    <div class="brand-box" onclick="document.getElementById('logoInput').click()" title="Subir emblema 3'As">
+      <div class="brand-crest" id="logoPreview">3'As</div>
+      <div class="brand-title">
+        <h1>3'As</h1>
+        <span>† GOTHIC STREETWEAR // 15+ †</span>
+      </div>
+      <input type="file" id="logoInput" accept="image/*" onchange="previewImage(this, 'logoPreview', true)">
+    </div>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar reliquias urbanas..." onkeyup="filterProducts()">
+      <button onclick="filterProducts()">BUSCAR</button>
+    </div>
+
+    <div class="nav-actions">
+      <button class="btn-cathedral" onclick="toggleCart()">
+        BOLSA [<span id="cartCount">0</span>]
+      </button>
+      <a href="#registro" class="btn-cathedral btn-purple-fill">† REGISTRO</a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1: BANNER CATEDRAL Y MARCA -->
+  <section class="hero-section">
+    <!-- Rosetón gótico SVG decorativo -->
+    <svg class="rose-window-bg" viewBox="0 0 200 200" fill="none" stroke="#ffffff" stroke-width="1">
+      <circle cx="100" cy="100" r="95" />
+      <circle cx="100" cy="100" r="85" stroke-dasharray="4 2" />
+      <circle cx="100" cy="100" r="45" />
+      <circle cx="100" cy="100" r="18" />
+      <path d="M100 5 L100 195 M5 100 L195 100 M33 33 L167 167 M167 33 L33 167" />
+      <polygon points="100,15 185,100 100,185 15,100" />
+      <polygon points="40,40 160,40 160,160 40,160" />
     </svg>
 
-    <!-- =========================================================
-         CINTA DESLIZANTE SUPERIOR (MARQUEE DARK Y2K / SIGILISM)
-         ========================================================= -->
-    <div class="bg-black border-b border-white/25 py-1.5 text-xs font-mono-tech tracking-widest text-y2k-chrome">
-        <div class="marquee-container">
-            <div class="marquee-content">
-                ✦ 3A'S ARCHIVE // DARK STREETWEAR &amp; GORRAS ✦ ESTÉTICA Y2K + CYBERSIGILISM ✦ PÚBLICO 15+ AÑOS ✦ CAMISETAS $10 • GORRAS $30 • PANTALONES $25 ✦ 3A'S ARCHIVE // DARK STREETWEAR &amp; GORRAS ✦ ESTÉTICA Y2K + CYBERSIGILISM ✦ PÚBLICO 15+ AÑOS ✦
-            </div>
-        </div>
+    <div class="hero-text">
+      <div class="crest-badge">† GORRAS Y ROPA ESTILO URBANO †</div>
+      <h2>3'As Dark Sanctuary</h2>
+      <p>
+        Creamos y diseñamos gorras y ropa estilo urbano con estética gótica, grabado oscuro y esencia underground. Piezas exclusivas forjadas para jóvenes y adultos de <strong>15 años en adelante</strong>.
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:12px;">
+        <a href="#catalogo" class="btn-cathedral btn-purple-fill">↓ VER COLECCIÓN ($10 - $30)</a>
+        <a href="#registro" class="btn-cathedral">† UNIRSE AL CULTO 3'As</a>
+      </div>
     </div>
 
-    <!-- =========================================================
-         BARRA DE NAVEGACIÓN + BUSCADOR + ACCIONES PRINCIPALES
-         ========================================================= -->
-    <header class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-white/20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex flex-wrap items-center justify-between gap-4">
-                
-                <!-- Mini Logo Navegación Dark Lettering -->
-                <a href="#inicio" class="flex items-center gap-3 group">
-                    <div class="w-11 h-11 rounded-lg bg-black border border-white/50 p-0.5 shadow-[0_0_15px_rgba(255,255,255,0.2)] flex items-center justify-center relative overflow-hidden">
-                        <span class="dark-lettering text-xl font-bold">3'As</span>
-                    </div>
-                    <div>
-                        <span class="dark-lettering text-2xl leading-none block">3A's</span>
-                        <span class="font-mono-tech text-[10px] text-y2k-silver tracking-widest block mt-1">DARK_Y2K.SYS</span>
-                    </div>
-                </a>
-
-                <!-- Buscador Interactivo Funcional -->
-                <div class="order-3 md:order-2 w-full md:w-auto md:flex-1 max-w-md">
-                    <div class="relative flex items-center">
-                        <i data-lucide="search" class="w-4 h-4 text-white/70 absolute left-3.5 pointer-events-none"></i>
-                        <input 
-                            type="text" 
-                            id="searchInput" 
-                            onkeyup="filtrarProductos()"
-                            placeholder="Buscar camisetas, gorras, pantalones..." 
-                            class="w-full bg-black border border-white/30 focus:border-white rounded-none py-2 pl-10 pr-20 text-xs font-mono-tech text-white placeholder-zinc-500 focus:outline-none focus:shadow-[0_0_15px_rgba(255,255,255,0.25)] transition"
-                        >
-                        <button 
-                            onclick="filtrarProductos()" 
-                            class="absolute right-1.5 bg-white text-black hover:bg-y2k-blood hover:text-white text-[11px] font-mono-tech font-bold px-3 py-1 transition cursor-pointer">
-                            BUSCAR
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Botones de Acción Principal (Registrarse, Comprar, Carrito) -->
-                <nav class="order-2 md:order-3 flex items-center gap-2 sm:gap-3">
-                    <a href="#catalogo" class="btn-y2k-neon px-3.5 py-2 rounded-none font-mono-tech text-xs flex items-center gap-1.5">
-                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-                        <span>COMPRAR</span>
-                    </a>
-                    <a href="#registro" class="btn-y2k-chrome px-3.5 py-2 rounded-none font-mono-tech text-xs font-bold flex items-center gap-1.5">
-                        <i data-lucide="user-plus" class="w-3.5 h-3.5"></i>
-                        <span>REGISTRARSE</span>
-                    </a>
-                    <!-- Botón Carrito -->
-                    <button onclick="toggleCart()" class="relative p-2.5 bg-black hover:bg-zinc-900 border border-white/40 transition cursor-pointer" title="Ver carrito">
-                        <i data-lucide="shopping-cart" class="w-4 h-4 text-white"></i>
-                        <span id="cartCount" class="absolute -top-2 -right-2 bg-y2k-blood text-white font-mono-tech text-[10px] font-bold w-5 h-5 flex items-center justify-center border border-white/40">
-                            0
-                        </span>
-                    </button>
-                </nav>
-            </div>
+    <!-- Arco Ojival Banner -->
+    <div class="cathedral-arch-frame">
+      <div class="cathedral-arch-inner" id="bannerContainer">
+        <div class="arch-default-art" id="bannerDefault">
+          <div style="font-size:1.4rem; margin-bottom:4px;">†</div>
+          <h3>3'As</h3>
+          <p>URBAN CAPS & GOTHIC APPAREL</p>
         </div>
-    </header>
+        <button class="upload-engraved" onclick="document.getElementById('bannerInput').click()">
+          📷 SUBIR ARTE / BANNER
+        </button>
+        <input type="file" id="bannerInput" accept="image/*" onchange="previewImage(this, 'bannerContainer', false)">
+      </div>
+    </div>
+  </section>
 
-    <!-- =========================================================
-         SECCIÓN HERO: DARK LETTERING + LOGO 3'As + BANNER EDITORIAL
-         ========================================================= -->
-    <section id="inicio" class="relative pt-10 pb-16 sm:pt-14 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        
-        <!-- Ornamento SVG Sketchy Ojo Místico + Estrella Rasgada (Inspirado en la referencia) -->
-        <svg class="w-24 h-16 text-white/35 absolute top-6 right-8 pointer-events-none hidden sm:block sketch-stroke" viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.5">
-            <!-- Ojo trazado a mano -->
-            <path d="M10 35 Q60 5 110 35 Q60 65 10 35 Z"/>
-            <circle cx="60" cy="35" r="11"/>
-            <circle cx="60" cy="35" r="3" fill="currentColor"/>
-            <path d="M60 8 L60 16 M35 14 L39 21 M85 14 L81 21"/>
-        </svg>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Columna Izquierda (7 cols): Título Dark Lettering + Espacio Banner Editorial -->
-            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 bg-black border border-white/30 text-xs font-mono-tech text-zinc-300">
-                    <span class="w-2 h-2 bg-y2k-blood inline-block animate-pulse"></span>
-                    DARK_Y2K // CYBERSIGILISM DROP
-                </div>
-
-                <!-- Título Principal con Tipografía Rasgada Alargada -->
-                <div class="py-2">
-                    <h1 class="leading-none">
-                        <span class="dark-lettering text-6xl sm:text-8xl tracking-widest block mb-4">3A's</span>
-                        <span class="font-cyber font-black text-2xl sm:text-4xl text-white block tracking-wider uppercase">
-                            GORRAS &amp; ROPA <span class="chrome-text">ESTILO URBANO</span>
-                        </span>
-                    </h1>
-                </div>
-
-                <p class="text-zinc-300 font-mono-tech text-xs sm:text-sm max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                    Fusión de cromo líquido Y2K y arte callejero oscuro. Diseñamos piezas exclusivas con identidad rasgada y estética underground para <strong class="text-white underline decoration-y2k-blood">jóvenes y adultos de 15 años en adelante</strong>.
-                </p>
-
-                <!-- Botones Hero -->
-                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-1">
-                    <a href="#catalogo" class="btn-y2k-chrome px-7 py-3.5 font-cyber font-bold text-xs sm:text-sm tracking-wider flex items-center gap-2">
-                        <i data-lucide="zap" class="w-4 h-4"></i>
-                        VER CATÁLOGO ($10 - $30)
-                    </a>
-                    <a href="#registro" class="btn-y2k-neon px-7 py-3.5 font-cyber font-bold text-xs sm:text-sm tracking-wider flex items-center gap-2">
-                        <i data-lucide="skull" class="w-4 h-4"></i>
-                        UNIRSE AL CLUB 3A's
-                    </a>
-                </div>
-
-                <!-- ESPACIO 2: BANNER VISUAL EDITORIAL STREETWEAR (SUBIDA DE FOTO) -->
-                <div class="y2k-window mt-6 overflow-hidden">
-                    <div class="y2k-titlebar px-4 py-1.5 flex items-center justify-between">
-                        <span class="font-mono-tech text-[11px] text-white/80">HERO_CAMPAIGN_BANNER.RAW</span>
-                        <span class="font-mono-tech text-[10px] text-y2k-silver">[16:9_EDITORIAL]</span>
-                    </div>
-                    <div class="relative aspect-[16/7] bg-black flex flex-col items-center justify-center overflow-hidden scanlines group">
-                        <img id="heroBannerImg" src="" alt="Banner Editorial 3A's" class="hidden w-full h-full object-cover">
-                        
-                        <div id="heroBannerPlaceholder" class="p-4 text-center z-10 flex flex-col items-center">
-                            <!-- Glifo triángulo + ojo sketchy -->
-                            <svg class="w-12 h-10 text-white/70 mb-2 sketch-stroke" viewBox="0 0 60 50" fill="none" stroke="currentColor" stroke-width="1.6">
-                                <path d="M30 4 L56 46 L4 46 Z"/>
-                                <circle cx="30" cy="31" r="6"/>
-                                <circle cx="30" cy="31" r="1.5" fill="currentColor"/>
-                            </svg>
-                            <span class="dark-lettering text-xl tracking-widest">ESPACIO BANNER PRINCIPAL</span>
-                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">SUBE AQUÍ TU FOTO DE PORTADA / CAMPAÑA URBANA 3A's</span>
-                        </div>
-
-                        <label for="uploadHeroBanner" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
-                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
-                            SUBIR BANNER
-                        </label>
-                        <input type="file" id="uploadHeroBanner" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'heroBannerImg', 'heroBannerPlaceholder')">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Columna Derecha (5 cols): Ventana OS con Logo Híbrido Cromo + Trazos Rasgados -->
-            <div class="lg:col-span-5">
-                <div class="y2k-window overflow-hidden">
-                    <div class="y2k-titlebar px-4 py-2.5 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 bg-white inline-block"></span>
-                            <span class="w-2.5 h-2.5 bg-y2k-blood inline-block"></span>
-                            <span class="font-mono-tech text-[11px] text-white ml-1">SIGIL_LOGO_3AS.PNG</span>
-                        </div>
-                        <span class="font-mono-tech text-[10px] text-zinc-400">[DARK_CHROME]</span>
-                    </div>
-
-                    <!-- Contenedor del Logo -->
-                    <div class="p-6 bg-black relative flex flex-col items-center justify-center min-h-[380px] scanlines">
-                        <img id="customLogoImg" src="" alt="Logo 3A's" class="hidden max-h-72 w-auto object-contain z-10 drop-shadow-[0_0_25px_rgba(255,255,255,0.3)]">
-
-                        <!-- SVG Híbrido: Cromo Líquido 3'As + Estrellas Rasgadas Sketchy + Glifos Oscuros -->
-                        <svg id="defaultLogoSvg" viewBox="0 0 400 340" class="w-full max-w-[340px] h-auto z-10" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="liquidChromeDark" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#ffffff"/>
-                                    <stop offset="28%" stop-color="#a1a1aa"/>
-                                    <stop offset="50%" stop-color="#18181b"/>
-                                    <stop offset="65%" stop-color="#ffffff"/>
-                                    <stop offset="100%" stop-color="#52525b"/>
-                                </linearGradient>
-                                <filter id="scratchFilter" x="-15%" y="-15%" width="130%" height="130%">
-                                    <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" result="noise"/>
-                                    <feDisplacementMap in="SourceGraphic" in2="noise" scale="3"/>
-                                </filter>
-                            </defs>
-
-                            <!-- Órbita Ciber-Sigilism Rasgada -->
-                            <ellipse cx="200" cy="170" rx="155" ry="92" transform="rotate(-22 200 170)" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="140 12 60 8" opacity="0.85" filter="url(#scratchFilter)"/>
-                            <ellipse cx="200" cy="170" rx="146" ry="84" transform="rotate(-22 200 170)" fill="none" stroke="#b91c1c" stroke-width="1.2" opacity="0.75"/>
-
-                            <!-- Estrella de 5 puntas trazada a mano (estilo imagen referencia) -->
-                            <g transform="translate(52, 42) scale(0.85)" stroke="#ffffff" stroke-width="2" fill="none" filter="url(#scratchFilter)">
-                                <path d="M25 2 L32 45 L2 18 L48 18 L18 45 Z"/>
-                                <circle cx="25" cy="24" r="23" stroke-dasharray="45 6"/>
-                            </g>
-
-                            <!-- Glifo Ojo Místico superior derecho -->
-                            <g transform="translate(295, 45)" stroke="#ffffff" stroke-width="1.8" fill="none" filter="url(#scratchFilter)">
-                                <path d="M0 18 Q30 -4 60 18 Q30 40 0 18 Z"/>
-                                <circle cx="30" cy="18" r="7"/>
-                                <circle cx="30" cy="18" r="2" fill="#ffffff"/>
-                            </g>
-
-                            <!-- Tipografía "3'As" Alargada y Rasgada -->
-                            <g transform="scale(1, 1.35) translate(0, -42)" filter="url(#scratchFilter)">
-                                <text x="200" y="182" text-anchor="middle" font-family="'Metal Mania', cursive" font-size="118" fill="url(#liquidChromeDark)" stroke="#ffffff" stroke-width="2" letter-spacing="4">
-                                    3’As
-                                </text>
-                            </g>
-
-                            <!-- Destellos Afilados Y2K -->
-                            <path d="M325 225 L329 258 L360 262 L329 266 L325 300 L321 266 L290 262 L321 258 Z" fill="#ffffff" filter="url(#scratchFilter)"/>
-                            <path d="M82 230 L85 250 L104 253 L85 256 L82 276 L79 256 L60 253 L79 250 Z" fill="#ffffff" opacity="0.85"/>
-                            <!-- Cruces rasgadas -->
-                            <path d="M195 285 L205 285 M200 278 L200 296" stroke="#ffffff" stroke-width="2"/>
-                        </svg>
-
-                        <!-- Subida de Logo Personalizado -->
-                        <div class="mt-4 z-20 flex items-center gap-2">
-                            <label for="logoUploadInput" class="cursor-pointer px-4 py-2 bg-black hover:bg-white hover:text-black border border-white/45 text-[11px] font-mono-tech text-white flex items-center gap-2 transition">
-                                <i data-lucide="upload" class="w-3.5 h-3.5"></i>
-                                SUBIR TU LOGO (PNG/JPG)
-                            </label>
-                            <input type="file" id="logoUploadInput" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'customLogoImg', 'defaultLogoSvg')">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         DIVISOR DE GLIFOS DARK LETTERING / SIGILISM
-         ========================================================= -->
-    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-center gap-6 opacity-75">
-        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
-        <div class="flex items-center gap-5 text-white font-mono-tech text-xs">
-            <!-- Pentagrama Sketchy -->
-            <svg class="w-6 h-6 sketch-stroke" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M25 3 L32 46 L3 19 L47 19 L18 46 Z"/>
-                <circle cx="25" cy="25" r="22"/>
-            </svg>
-            <span>//</span>
-            <!-- Triángulo Sketchy -->
-            <svg class="w-6 h-6 sketch-stroke" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M25 5 L46 43 L4 43 Z"/>
-            </svg>
-            <span>//</span>
-            <!-- Ojo Sketchy -->
-            <svg class="w-7 h-6 sketch-stroke" viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 20 Q30 2 56 20 Q30 38 4 20 Z"/>
-                <circle cx="30" cy="20" r="6"/>
-            </svg>
-        </div>
-        <div class="h-px flex-1 bg-gradient-to-r from-transparent via-white/40 to-transparent"></div>
+  <!-- SECCIÓN 2: PRODUCTOS A OFRECER -->
+  <section class="catalog-section" id="catalogo">
+    <div class="section-title-center">
+      <div class="gothic-divider">† COLECCIÓN OFICIAL †</div>
+      <h2>Catálogo Urbano 3'As</h2>
     </div>
 
-    <!-- =========================================================
-         CATÁLOGO DE PRODUCTOS (CAMISETAS $10, GORRAS $30, PANTALONES $25)
-         Con selector de talla (S, M, L, XL) y subida de imagen
-         ========================================================= -->
-    <section id="catalogo" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
-                <span class="font-mono-tech text-xs text-y2k-blood tracking-widest block mb-2">// DROP_ARCHIVE_001</span>
-                <h2 class="dark-lettering text-4xl sm:text-5xl">CATÁLOGO URBANO</h2>
-            </div>
-            <!-- Filtros Rápidos por Categoría -->
-            <div class="flex flex-wrap gap-2">
-                <button onclick="filtrarPorCategoria('todos', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-white text-black font-bold cursor-pointer transition">TODO</button>
-                <button onclick="filtrarPorCategoria('camisetas', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">CAMISETAS ($10)</button>
-                <button onclick="filtrarPorCategoria('gorras', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">GORRAS ($30)</button>
-                <button onclick="filtrarPorCategoria('pantalones', this)" class="cat-btn px-4 py-2 font-mono-tech text-xs bg-black hover:bg-zinc-900 text-white border border-white/30 cursor-pointer transition">PANTALONES ($25)</button>
-            </div>
-        </div>
-
-        <!-- Mensaje sin resultados -->
-        <div id="noResultsMsg" class="hidden text-center py-12 y2k-window mb-8">
-            <p class="font-mono-tech text-y2k-blood text-sm">ERROR 404 // NO SE ENCONTRARON PRENDAS CON ESE TÉRMINO.</p>
-            <button onclick="resetearBusqueda()" class="mt-4 btn-y2k-neon px-5 py-2 font-mono-tech text-xs cursor-pointer">RESTABLECER BÚSQUEDA</button>
-        </div>
-
-        <!-- Grid de 3 Productos Principales -->
-        <div id="productosGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            <!-- PRODUCTO 1: CAMISETAS ($10) -->
-            <article class="product-card y2k-window flex flex-col justify-between group" data-category="camisetas" data-name="camisetas camiseta urbana dark y2k 3as">
-                <div>
-                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
-                        <span class="font-mono-tech text-[11px] text-zinc-300">01 // TEE_SIGIL</span>
-                        <span class="font-mono-tech text-xs bg-white text-black px-2 py-0.5 font-bold">$10</span>
-                    </div>
-
-                    <!-- Espacio para Imagen Camiseta -->
-                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
-                        <img id="imgCamiseta" src="" alt="Camiseta 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        
-                        <div id="placeholderCamiseta" class="p-6 text-center flex flex-col items-center justify-center z-10">
-                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
-                                <i data-lucide="shirt" class="w-10 h-10 text-white"></i>
-                            </div>
-                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
-                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">CAMISETAS 3A's</span>
-                        </div>
-
-                        <label for="uploadCamiseta" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
-                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
-                            SUBIR FOTO
-                        </label>
-                        <input type="file" id="uploadCamiseta" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgCamiseta', 'placeholderCamiseta')">
-                    </div>
-
-                    <!-- Detalles + Selector de Talla -->
-                    <div class="p-5">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <h3 class="font-cyber font-bold text-lg text-white">Camisetas 3A's</h3>
-                            <span class="font-cyber font-black text-2xl chrome-text">$10</span>
-                        </div>
-                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
-                            Corte boxy oversized con estampado rasgado estilo Dark Lettering. Algodón pesado de alto contraste.
-                        </p>
-
-                        <!-- Selector de Tallas S, M, L, XL -->
-                        <div class="mb-2">
-                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">SELECCIONAR TALLA:</span>
-                            <div class="grid grid-cols-4 gap-1.5" id="tallas-camiseta">
-                                <button type="button" onclick="seleccionarTalla('camiseta', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
-                                <button type="button" onclick="seleccionarTalla('camiseta', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
-                                <button type="button" onclick="seleccionarTalla('camiseta', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
-                                <button type="button" onclick="seleccionarTalla('camiseta', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="px-5 pb-5">
-                    <button onclick="agregarAlCarrito('Camisetas 3A\'s', 10, 'camiseta')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
-                        <i data-lucide="plus-square" class="w-4 h-4"></i>
-                        AGREGAR AL CARRITO — $10
-                    </button>
-                </div>
-            </article>
-
-            <!-- PRODUCTO 2: GORRAS ($30) -->
-            <article class="product-card y2k-window flex flex-col justify-between group" data-category="gorras" data-name="gorras gorra snapback trucker sigil 3as">
-                <div>
-                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
-                        <span class="font-mono-tech text-[11px] text-zinc-300">02 // CAP_CHROME</span>
-                        <span class="font-mono-tech text-xs bg-y2k-blood text-white px-2 py-0.5 font-bold">$30</span>
-                    </div>
-
-                    <!-- Espacio para Imagen Gorra -->
-                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
-                        <img id="imgGorra" src="" alt="Gorra 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        
-                        <div id="placeholderGorra" class="p-6 text-center flex flex-col items-center justify-center z-10">
-                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
-                                <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                    <path d="M3 15a9 9 0 0 1 18 0v2H3v-2Z"/>
-                                    <path d="M12 6v9"/>
-                                    <path d="M21 17c1.5 0 2 .5 2 1.5S22 20 19 20H5c-1.5 0-2-.5-2-1.5"/>
-                                </svg>
-                            </div>
-                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
-                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">GORRAS 3A's</span>
-                        </div>
-
-                        <label for="uploadGorra" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
-                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
-                            SUBIR FOTO
-                        </label>
-                        <input type="file" id="uploadGorra" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgGorra', 'placeholderGorra')">
-                    </div>
-
-                    <!-- Detalles + Selector de Talla -->
-                    <div class="p-5">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <h3 class="font-cyber font-bold text-lg text-white">Gorras 3A's</h3>
-                            <span class="font-cyber font-black text-2xl chrome-text">$30</span>
-                        </div>
-                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
-                            Gorra diseño exclusivo con bordado grueso 3D '3'As', detalles metálicos y estructura streetwear premium.
-                        </p>
-
-                        <!-- Selector de Tallas -->
-                        <div class="mb-2">
-                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">AJUSTE / TALLA:</span>
-                            <div class="grid grid-cols-4 gap-1.5" id="tallas-gorra">
-                                <button type="button" onclick="seleccionarTalla('gorra', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
-                                <button type="button" onclick="seleccionarTalla('gorra', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
-                                <button type="button" onclick="seleccionarTalla('gorra', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
-                                <button type="button" onclick="seleccionarTalla('gorra', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="px-5 pb-5">
-                    <button onclick="agregarAlCarrito('Gorras 3A\'s', 30, 'gorra')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
-                        <i data-lucide="plus-square" class="w-4 h-4"></i>
-                        AGREGAR AL CARRITO — $30
-                    </button>
-                </div>
-            </article>
-
-            <!-- PRODUCTO 3: PANTALONES ($25) -->
-            <article class="product-card y2k-window flex flex-col justify-between group" data-category="pantalones" data-name="pantalones pantalon cargo baggy dark 3as">
-                <div>
-                    <div class="y2k-titlebar px-4 py-2 flex items-center justify-between">
-                        <span class="font-mono-tech text-[11px] text-zinc-300">03 // CARGO_2000</span>
-                        <span class="font-mono-tech text-xs bg-white text-black px-2 py-0.5 font-bold">$25</span>
-                    </div>
-
-                    <!-- Espacio para Imagen Pantalón -->
-                    <div class="relative aspect-square bg-black border-b border-white/20 flex flex-col items-center justify-center overflow-hidden scanlines">
-                        <img id="imgPantalon" src="" alt="Pantalón 3A's" class="hidden w-full h-full object-cover transition duration-500 group-hover:scale-105">
-                        
-                        <div id="placeholderPantalon" class="p-6 text-center flex flex-col items-center justify-center z-10">
-                            <div class="w-20 h-20 border border-dashed border-white/50 bg-white/5 flex items-center justify-center mb-3 group-hover:border-white transition">
-                                <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                    <path d="M6 3h12l2 18h-6l-2-10-2 10H4L6 3Z"/>
-                                    <path d="M6 7h12"/>
-                                </svg>
-                            </div>
-                            <span class="dark-lettering text-lg tracking-wider">ESPACIO IMAGEN</span>
-                            <span class="font-mono-tech text-[10px] text-zinc-400 mt-1">PANTALONES 3A's</span>
-                        </div>
-
-                        <label for="uploadPantalon" class="absolute bottom-3 right-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/40 px-3 py-1.5 font-mono-tech text-[10px] flex items-center gap-1.5 transition">
-                            <i data-lucide="image-plus" class="w-3.5 h-3.5"></i>
-                            SUBIR FOTO
-                        </label>
-                        <input type="file" id="uploadPantalon" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'imgPantalon', 'placeholderPantalon')">
-                    </div>
-
-                    <!-- Detalles + Selector de Talla -->
-                    <div class="p-5">
-                        <div class="flex items-center justify-between gap-2 mb-2">
-                            <h3 class="font-cyber font-bold text-lg text-white">Pantalones 3A's</h3>
-                            <span class="font-cyber font-black text-2xl chrome-text">$25</span>
-                        </div>
-                        <p class="text-zinc-400 text-xs font-mono-tech leading-relaxed mb-4">
-                            Pantalón cargo / baggy corte ancho estilo 2000s con múltiples bolsillos, correas y acabados oscuros.
-                        </p>
-
-                        <!-- Selector de Tallas S, M, L, XL -->
-                        <div class="mb-2">
-                            <span class="font-mono-tech text-[10px] text-zinc-400 block mb-1.5">SELECCIONAR TALLA:</span>
-                            <div class="grid grid-cols-4 gap-1.5" id="tallas-pantalon">
-                                <button type="button" onclick="seleccionarTalla('pantalon', 'S', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">S</button>
-                                <button type="button" onclick="seleccionarTalla('pantalon', 'M', this)" class="size-btn py-1 text-xs font-mono-tech border border-white bg-white text-black font-bold cursor-pointer">M</button>
-                                <button type="button" onclick="seleccionarTalla('pantalon', 'L', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">L</button>
-                                <button type="button" onclick="seleccionarTalla('pantalon', 'XL', this)" class="size-btn py-1 text-xs font-mono-tech border border-white/30 text-zinc-300 hover:border-white cursor-pointer">XL</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="px-5 pb-5">
-                    <button onclick="agregarAlCarrito('Pantalones 3A\'s', 25, 'pantalon')" class="w-full btn-y2k-chrome py-3 font-mono-tech font-bold text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer">
-                        <i data-lucide="plus-square" class="w-4 h-4"></i>
-                        AGREGAR AL CARRITO — $25
-                    </button>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- =========================================================
-         GALERÍA / LOOKBOOK URBANO (3 ESPACIOS ADICIONALES PARA FOTOS)
-         ========================================================= -->
-    <section class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/15">
-        <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div>
-                <span class="font-mono-tech text-xs text-zinc-400 tracking-widest block mb-2">// STREET_DROPS_GALLERY</span>
-                <h2 class="dark-lettering text-3xl sm:text-5xl">LOOKBOOK 3A's</h2>
-            </div>
-            <p class="font-mono-tech text-xs text-zinc-400">HAZ CLIC EN CADA RECUADRO PARA CARGAR FOTOS DE OUTFITS</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <!-- Espacio Galería 1 -->
-            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
-                <img id="lookImg1" src="" alt="Lookbook 01" class="hidden w-full h-full object-cover">
-                <div id="lookPlace1" class="text-center p-4 z-10">
-                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
-                    <span class="dark-lettering text-lg block">LOOK_01</span>
-                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">OUTFIT STREETWEAR COMPLETO</span>
-                </div>
-                <label for="uploadLook1" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
-                    + CARGAR FOTO 01
-                </label>
-                <input type="file" id="uploadLook1" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg1', 'lookPlace1')">
-            </div>
-
-            <!-- Espacio Galería 2 -->
-            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
-                <img id="lookImg2" src="" alt="Lookbook 02" class="hidden w-full h-full object-cover">
-                <div id="lookPlace2" class="text-center p-4 z-10">
-                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
-                    <span class="dark-lettering text-lg block">LOOK_02</span>
-                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">DETALLE GORRAS &amp; BORDADOS</span>
-                </div>
-                <label for="uploadLook2" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
-                    + CARGAR FOTO 02
-                </label>
-                <input type="file" id="uploadLook2" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg2', 'lookPlace2')">
-            </div>
-
-            <!-- Espacio Galería 3 -->
-            <div class="y2k-window overflow-hidden relative aspect-[4/5] bg-black flex flex-col items-center justify-center group scanlines">
-                <img id="lookImg3" src="" alt="Lookbook 03" class="hidden w-full h-full object-cover">
-                <div id="lookPlace3" class="text-center p-4 z-10">
-                    <i data-lucide="camera" class="w-9 h-9 text-white mx-auto mb-3 opacity-80"></i>
-                    <span class="dark-lettering text-lg block">LOOK_03</span>
-                    <span class="font-mono-tech text-[10px] text-zinc-400 mt-1 block">SESIÓN NOCTURNA DARK Y2K</span>
-                </div>
-                <label for="uploadLook3" class="absolute bottom-3 inset-x-3 z-20 cursor-pointer bg-black/90 hover:bg-white hover:text-black text-white border border-white/35 py-2 font-mono-tech text-[10px] text-center transition">
-                    + CARGAR FOTO 03
-                </label>
-                <input type="file" id="uploadLook3" accept="image/*" class="hidden" onchange="cargarImagenSlot(event, 'lookImg3', 'lookPlace3')">
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         FORMULARIO DE REGISTRO / CONVERSIÓN (DARK TERMINAL Y2K)
-         Campos: Nombre, Edad (15+), Número cel., Correo electrónico
-         ========================================================= -->
-    <section id="registro" class="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto border-t border-white/15">
-        <div class="y2k-window overflow-hidden">
-            <div class="y2k-titlebar px-5 py-3 flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="terminal" class="w-4 h-4 text-white"></i>
-                    <span class="font-mono-tech text-xs text-white">MEMBERSHIP_ACCESS_3AS.EXE</span>
-                </div>
-                <span class="font-mono-tech text-[10px] text-y2k-blood font-bold">[PÚBLICO 15+ AÑOS]</span>
-            </div>
-
-            <div class="p-6 sm:p-10">
-                <div class="text-center mb-8">
-                    <h2 class="dark-lettering text-3xl sm:text-5xl mb-3">REGÍSTRATE EN 3A's</h2>
-                    <p class="text-zinc-300 font-mono-tech text-xs sm:text-sm max-w-xl mx-auto">
-                        Ingresa tus datos para desbloquear acceso anticipado a drops exclusivos de gorras, camisetas y pantalones urbanos.
-                    </p>
-                </div>
-
-                <form id="registroForm" onsubmit="procesarRegistro(event)" class="space-y-5">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <!-- Campo 1: Nombre -->
-                        <div>
-                            <label for="nombre" class="block font-mono-tech text-xs text-white mb-2">NOMBRE *</label>
-                            <input 
-                                type="text" 
-                                id="nombre" 
-                                required 
-                                placeholder="Ej. Leonel Anrango"
-                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
-                            >
-                        </div>
-
-                        <!-- Campo 2: Edad (Validación 15+) -->
-                        <div>
-                            <label for="edad" class="block font-mono-tech text-xs text-white mb-2">EDAD (15+ AÑOS) *</label>
-                            <input 
-                                type="number" 
-                                id="edad" 
-                                min="15" 
-                                max="99" 
-                                required 
-                                placeholder="Ej. 18"
-                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
-                            >
-                        </div>
-
-                        <!-- Campo 3: Número cel. -->
-                        <div>
-                            <label for="celular" class="block font-mono-tech text-xs text-white mb-2">NÚMERO CEL. *</label>
-                            <input 
-                                type="tel" 
-                                id="celular" 
-                                required 
-                                placeholder="Ej. 099 123 4567"
-                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
-                            >
-                        </div>
-
-                        <!-- Campo 4: Correo electrónico -->
-                        <div>
-                            <label for="correo" class="block font-mono-tech text-xs text-white mb-2">CORREO ELECTRÓNICO *</label>
-                            <input 
-                                type="email" 
-                                id="correo" 
-                                required 
-                                placeholder="usuario@dominio.com"
-                                class="w-full bg-black border border-white/30 focus:border-white px-4 py-3 text-white font-mono-tech text-xs placeholder-zinc-600 focus:outline-none focus:shadow-[0_0_12px_rgba(255,255,255,0.25)] transition"
-                            >
-                        </div>
-                    </div>
-
-                    <div class="pt-2">
-                        <button type="submit" class="w-full btn-y2k-chrome py-4 font-cyber font-black text-xs sm:text-sm tracking-widest flex items-center justify-center gap-2 cursor-pointer">
-                            <i data-lucide="send" class="w-4 h-4"></i>
-                            CONFIRMAR REGISTRO EN 3A's
-                        </button>
-                    </div>
-                </form>
-
-                <!-- Confirmación Visual Estilo Terminal Cyber-Gothic -->
-                <div id="registroConfirmacion" class="hidden mt-6 p-5 bg-black border border-white text-center relative">
-                    <div class="w-12 h-12 border border-white text-white flex items-center justify-center mx-auto mb-3">
-                        <i data-lucide="check" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="dark-lettering text-2xl mb-2">ACCESO CONCEDIDO // 3A's</h3>
-                    <p id="mensajeBienvenida" class="font-mono-tech text-xs text-zinc-300 leading-relaxed"></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========================================================
-         PANEL LATERAL DEL CARRITO DE COMPRAS
-         ========================================================= -->
-    <div id="cartDrawer" class="fixed inset-0 z-50 hidden">
-        <div onclick="toggleCart()" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
-        
-        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-[#060608] border-l border-white/30 flex flex-col justify-between shadow-2xl">
-            <div>
-                <div class="y2k-titlebar px-5 py-4 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="shopping-cart" class="w-4 h-4 text-white"></i>
-                        <span class="font-mono-tech text-xs text-white">BAG_3AS.SYS</span>
-                    </div>
-                    <button onclick="toggleCart()" class="text-zinc-400 hover:text-white cursor-pointer">
-                        <i data-lucide="x" class="w-5 h-5"></i>
-                    </button>
-                </div>
-
-                <div id="cartItemsContainer" class="p-5 space-y-3 max-h-[60vh] overflow-y-auto">
-                    <p class="text-center text-zinc-500 font-mono-tech text-xs py-10">TU CARRITO ESTÁ VACÍO.</p>
-                </div>
-            </div>
-
-            <div class="p-5 border-t border-white/20 bg-black space-y-4">
-                <div class="flex items-center justify-between font-cyber">
-                    <span class="text-xs font-mono-tech text-zinc-400">TOTAL A PAGAR:</span>
-                    <span id="cartTotal" class="text-2xl font-black chrome-text">$0</span>
-                </div>
-                <button onclick="finalizarCompra()" class="w-full btn-y2k-chrome py-3.5 font-mono-tech font-bold text-xs tracking-wider cursor-pointer">
-                    FINALIZAR PEDIDO 3A's
-                </button>
-            </div>
-        </div>
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="setCategory('all', this)">TODO [3]</button>
+      <button class="filter-btn" onclick="setCategory('camisetas', this)">CAMISETAS — $10</button>
+      <button class="filter-btn" onclick="setCategory('gorras', this)">GORRAS — $30</button>
+      <button class="filter-btn" onclick="setCategory('pantalones', this)">PANTALONES — $25</button>
     </div>
 
-    <!-- Notificación Toast Flotante -->
-    <div id="toastNotif" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden bg-black border border-white text-white px-5 py-3 shadow-[0_0_25px_rgba(255,255,255,0.25)] font-mono-tech text-xs flex items-center gap-2.5">
-        <span class="w-2 h-2 bg-y2k-blood inline-block animate-ping"></span>
-        <span id="toastText">Producto agregado</span>
-    </div>
-
-    <!-- =========================================================
-         FOOTER DARK Y2K + CRÉDITO DEL AUTOR
-         ========================================================= -->
-    <footer class="border-t border-white/20 bg-black py-10 px-4 text-center">
-        <div class="max-w-7xl mx-auto flex flex-col items-center gap-3">
-            <span class="dark-lettering text-3xl">3A's</span>
-            <p class="font-mono-tech text-xs text-zinc-400">
-                GORRAS Y ROPA ESTILO URBANO // PÚBLICO 15+ AÑOS
-            </p>
-            <p class="font-mono-tech text-xs text-white/80 mt-1">
-                Por: Leonel Anrango — 3A's
-            </p>
-            <p class="text-[11px] font-mono-tech text-zinc-600 mt-1">
-                © 2000-2026 3A's Dark Streetwear Archive. Todos los derechos reservados.
-            </p>
+    <div class="products-grid" id="productsGrid">
+      <!-- CAMISETAS $10 -->
+      <article class="gothic-card" data-category="camisetas" data-name="camisetas 3a's">
+        <div class="card-spire-header">† I // TEE_ENGRAVING †</div>
+        <div class="product-arch-img" id="prodImg1">
+          <div class="engraving-placeholder">
+            <span class="cross-mark">†</span>
+            <small>Camiseta Urbana 3'As</small>
+          </div>
+          <button class="upload-engraved" onclick="document.getElementById('fileProd1').click()">📷 SUBIR FOTO</button>
+          <input type="file" id="fileProd1" accept="image/*" onchange="previewImage(this, 'prodImg1', false)">
         </div>
-    </footer>
+        <div class="product-title-row">
+          <h3>Camisetas 3A's</h3>
+          <span class="price-crest">$10</span>
+        </div>
+        <p class="product-desc">
+          Corte boxy oversized negro profundo con ilustraciones estilo grabado gótico y arquitectura oscura.
+        </p>
+        <div class="sizes">
+          <button class="size-btn" onclick="selectSize(this)">S</button>
+          <button class="size-btn selected" onclick="selectSize(this)">M</button>
+          <button class="size-btn" onclick="selectSize(this)">L</button>
+          <button class="size-btn" onclick="selectSize(this)">XL</button>
+        </div>
+        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Camiseta 3A\'s', 10, this)">
+          + AÑADIR A LA BOLSA — $10
+        </button>
+      </article>
 
-    <!-- =========================================================
-         JAVASCRIPT INTERACTIVO
-         ========================================================= -->
-    <script>
-        lucide.createIcons();
+      <!-- GORRAS $30 -->
+      <article class="gothic-card" data-category="gorras" data-name="gorras 3a's">
+        <div class="card-spire-header">† II // CROWN_CAP †</div>
+        <div class="product-arch-img" id="prodImg2">
+          <div class="engraving-placeholder">
+            <span class="cross-mark">⛧</span>
+            <small>Gorra Exclusiva 3'As</small>
+          </div>
+          <button class="upload-engraved" onclick="document.getElementById('fileProd2').click()">📷 SUBIR FOTO</button>
+          <input type="file" id="fileProd2" accept="image/*" onchange="previewImage(this, 'prodImg2', false)">
+        </div>
+        <div class="product-title-row">
+          <h3>Gorras 3A's</h3>
+          <span class="price-crest">$30</span>
+        </div>
+        <p class="product-desc">
+          Gorra estructurada de colección con bordado grueso gótico 3'As y detalles ornamentales monocromáticos.
+        </p>
+        <div class="sizes">
+          <button class="size-btn selected" onclick="selectSize(this)">ÚNICA</button>
+          <button class="size-btn" onclick="selectSize(this)">7 1/4</button>
+          <button class="size-btn" onclick="selectSize(this)">7 1/2</button>
+        </div>
+        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Gorra 3A\'s', 30, this)">
+          + AÑADIR A LA BOLSA — $30
+        </button>
+      </article>
 
-        // Estado de tallas seleccionadas por producto (por defecto 'M')
-        const tallasSeleccionadas = {
-            camiseta: 'M',
-            gorra: 'M',
-            pantalon: 'M'
+      <!-- PANTALONES $25 -->
+      <article class="gothic-card" data-category="pantalones" data-name="pantalones 3a's">
+        <div class="card-spire-header">† III // BAGGY_RELIC †</div>
+        <div class="product-arch-img" id="prodImg3">
+          <div class="engraving-placeholder">
+            <span class="cross-mark">✦</span>
+            <small>Pantalón Urbano 3'As</small>
+          </div>
+          <button class="upload-engraved" onclick="document.getElementById('fileProd3').click()">📷 SUBIR FOTO</button>
+          <input type="file" id="fileProd3" accept="image/*" onchange="previewImage(this, 'prodImg3', false)">
+        </div>
+        <div class="product-title-row">
+          <h3>Pantalones 3A's</h3>
+          <span class="price-crest">$25</span>
+        </div>
+        <p class="product-desc">
+          Pantalón baggy / cargo corte ancho estilo urbano con costuras contrastadas y bolsillos utilitarios.
+        </p>
+        <div class="sizes">
+          <button class="size-btn" onclick="selectSize(this)">28</button>
+          <button class="size-btn selected" onclick="selectSize(this)">30</button>
+          <button class="size-btn" onclick="selectSize(this)">32</button>
+          <button class="size-btn" onclick="selectSize(this)">34</button>
+        </div>
+        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Pantalón 3A\'s', 25, this)">
+          + AÑADIR A LA BOLSA — $25
+        </button>
+      </article>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK EN ARCOS -->
+  <section class="lookbook-section">
+    <div class="section-title-center">
+      <div class="gothic-divider">† GALERÍA VISUAL †</div>
+      <h2 style="font-size:2.4rem;">Lookbook 3'As</h2>
+    </div>
+    <div class="lookbook-grid">
+      <div class="lookbook-arch" id="look1">
+        <span>† OUTFIT I †</span>
+        <button class="upload-engraved" onclick="document.getElementById('fileLook1').click()">+ SUBIR FOTO I</button>
+        <input type="file" id="fileLook1" accept="image/*" onchange="previewImage(this, 'look1', false)">
+      </div>
+      <div class="lookbook-arch" id="look2">
+        <span>† OUTFIT II †</span>
+        <button class="upload-engraved" onclick="document.getElementById('fileLook2').click()">+ SUBIR FOTO II</button>
+        <input type="file" id="fileLook2" accept="image/*" onchange="previewImage(this, 'look2', false)">
+      </div>
+      <div class="lookbook-arch" id="look3">
+        <span>† OUTFIT III †</span>
+        <button class="upload-engraved" onclick="document.getElementById('fileLook3').click()">+ SUBIR FOTO III</button>
+        <input type="file" id="fileLook3" accept="image/*" onchange="previewImage(this, 'look3', false)">
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3: REGISTRO AL FINAL -->
+  <section class="register-section" id="registro">
+    <div class="sanctuary-form-box">
+      <div style="text-align:center; font-size:1.3rem; margin-bottom:4px;">†</div>
+      <h2>Registro 3'As</h2>
+      <p class="subtitle">
+        Acceso exclusivo para público de <strong>15 años en adelante</strong>. Completa tus datos para unirte.
+      </p>
+
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="regNombre">NOMBRE *</label>
+            <input type="text" id="regNombre" placeholder="Ej. Leonel Anrango" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regEdad">EDAD (15+ AÑOS) *</label>
+            <input type="number" id="regEdad" min="15" max="99" placeholder="Ej. 18" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regCel">NÚMERO CEL. *</label>
+            <input type="tel" id="regCel" placeholder="Ej. 099 123 4567" required>
+          </div>
+
+          <div class="form-group">
+            <label for="regCorreo">CORREO ELECTRÓNICO *</label>
+            <input type="email" id="regCorreo" placeholder="usuario@correo.com" required>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          † CONFIRMAR REGISTRO EN 3'As †
+        </button>
+      </form>
+
+      <div class="vip-pass" id="vipPass">
+        <h3 style="font-family:'Cinzel', serif; margin-bottom:6px;">† MIEMBRO REGISTRADO EN 3'As †</h3>
+        <p id="vipDetails" style="font-size: 0.8rem;"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="gothic-brand">3'As</span>
+    <p style="font-family:'Cinzel', serif; letter-spacing:2px;">GORRAS Y ROPA ESTILO URBANO // PÚBLICO 15+ AÑOS</p>
+    <p style="margin-top:8px;">Por: <strong>Leonel Anrango</strong> — 3A's</p>
+  </footer>
+
+  <!-- DRAWER BOLSA -->
+  <aside class="cart-drawer" id="cartDrawer">
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.4); padding-bottom:12px;">
+      <h3 style="font-family:'Cinzel', serif; font-size:1rem;">† BOLSA 3'As</h3>
+      <button class="btn-cathedral" style="padding:4px 10px;" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p style="color:var(--ink-silver); font-size:0.8rem;">Tu bolsa está vacía.</p>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.4); padding-top:14px;">
+      <div style="display:flex; justify-content:space-between; font-family:'Cinzel', serif; font-weight:bold; margin-bottom:14px;">
+        <span>TOTAL:</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <a href="#registro" class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="toggleCart()">
+        CONTINUAR AL REGISTRO →
+      </a>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    let cart = [];
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2600);
+    }
+
+    function previewImage(input, targetId, isLogo) {
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const container = document.getElementById(targetId);
+          if (isLogo) {
+            container.innerHTML = `<img src="${e.target.result}" alt="Logo 3'As">`;
+          } else {
+            const oldImg = container.querySelector('img');
+            if (oldImg) oldImg.remove();
+            const defArt = container.querySelector('.arch-default-art, .engraving-placeholder');
+            if (defArt) defArt.style.display = 'none';
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            container.prepend(img);
+          }
+          showToast('† Imagen integrada');
         };
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
 
-        function seleccionarTalla(productoKey, talla, btnElement) {
-            tallasSeleccionadas[productoKey] = talla;
-            const container = document.getElementById(`tallas-${productoKey}`);
-            const buttons = container.querySelectorAll('.size-btn');
+    function selectSize(btn) {
+      btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+    }
 
-            buttons.forEach(btn => {
-                btn.classList.remove('border-white', 'bg-white', 'text-black', 'font-bold');
-                btn.classList.add('border-white/30', 'text-zinc-300');
-            });
+    function addToCart(name, price, btnElement) {
+      const card = btnElement.closest('.gothic-card');
+      const selectedSize = card.querySelector('.size-btn.selected').textContent;
+      cart.push({ name, price, size: selectedSize });
+      updateCartUI();
+      showToast(`+ ${name} [${selectedSize}] añadido`);
+    }
 
-            btnElement.classList.remove('border-white/30', 'text-zinc-300');
-            btnElement.classList.add('border-white', 'bg-white', 'text-black', 'font-bold');
-        }
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
 
-        // 1. CARGAR IMÁGENES EN ESPACIOS INTERACTIVOS
-        function cargarImagenSlot(event, imgElementId, placeholderElementId) {
-            const file = event.target.files[0];
-            if (!file) return;
+    function updateCartUI() {
+      document.getElementById('cartCount').textContent = cart.length;
+      const itemsContainer = document.getElementById('cartItems');
+      const totalEl = document.getElementById('cartTotal');
 
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const imgEl = document.getElementById(imgElementId);
-                const placeholderEl = document.getElementById(placeholderElementId);
+      if (cart.length === 0) {
+        itemsContainer.innerHTML = '<p style="color:var(--ink-silver); font-size:0.8rem;">Tu bolsa está vacía.</p>';
+        totalEl.textContent = '$0';
+        return;
+      }
 
-                imgEl.src = e.target.result;
-                imgEl.classList.remove('hidden');
-                if (placeholderEl) {
-                    placeholderEl.classList.add('hidden');
-                }
-                mostrarToast('Archivo visual cargado en 3A\'s');
-            };
-            reader.readAsDataURL(file);
-        }
+      let total = 0;
+      itemsContainer.innerHTML = cart.map((item, idx) => {
+        total += item.price;
+        return `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong><br>
+              <small style="color:#d8b4fe;">Talla: ${item.size} | $${item.price}</small>
+            </div>
+            <button class="btn-cathedral" style="padding:3px 7px;" onclick="removeFromCart(${idx})">✕</button>
+          </div>
+        `;
+      }).join('');
 
-        // 2. BUSCADOR Y FILTROS DE CATÁLOGO
-        function filtrarProductos() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.product-card');
-            let visibles = 0;
+      totalEl.textContent = `$${total}`;
+    }
 
-            cards.forEach(card => {
-                const name = card.getAttribute('data-name').toLowerCase();
-                if (name.includes(query)) {
-                    card.classList.remove('hidden');
-                    visibles++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
+    function toggleCart() {
+      document.getElementById('cartDrawer').classList.toggle('open');
+    }
 
-            const noResults = document.getElementById('noResultsMsg');
-            if (visibles === 0) {
-                noResults.classList.remove('hidden');
-            } else {
-                noResults.classList.add('hidden');
-            }
-        }
+    let currentCategory = 'all';
 
-        function filtrarPorCategoria(categoria, clickedBtn) {
-            const cards = document.querySelectorAll('.product-card');
-            const buttons = document.querySelectorAll('.cat-btn');
-            document.getElementById('searchInput').value = '';
-            document.getElementById('noResultsMsg').classList.add('hidden');
+    function setCategory(cat, btn) {
+      currentCategory = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
 
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-white', 'text-black', 'font-bold');
-                btn.classList.add('bg-black', 'text-white', 'border', 'border-white/30');
-            });
-            if (clickedBtn) {
-                clickedBtn.classList.remove('bg-black', 'text-white', 'border', 'border-white/30');
-                clickedBtn.classList.add('bg-white', 'text-black', 'font-bold');
-            }
+    function filterProducts() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.gothic-card').forEach(card => {
+        const cat = card.dataset.category;
+        const name = card.dataset.name;
+        const matchCat = currentCategory === 'all' || cat === currentCategory;
+        const matchSearch = name.includes(query);
+        card.style.display = (matchCat && matchSearch) ? 'flex' : 'none';
+      });
+    }
 
-            cards.forEach(card => {
-                if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        }
+    function handleRegister(e) {
+      e.preventDefault();
+      const nombre = document.getElementById('regNombre').value.trim();
+      const edad = parseInt(document.getElementById('regEdad').value, 10);
+      const cel = document.getElementById('regCel').value.trim();
+      const correo = document.getElementById('regCorreo').value.trim();
 
-        function resetearBusqueda() {
-            document.getElementById('searchInput').value = '';
-            filtrarProductos();
-        }
+      if (edad < 15) {
+        showToast('⚠ Edad mínima requerida: 15 años.');
+        return;
+      }
 
-        // 3. CARRITO DE COMPRAS CON TALLA
-        let carrito = [];
-
-        function toggleCart() {
-            document.getElementById('cartDrawer').classList.toggle('hidden');
-        }
-
-        function agregarAlCarrito(nombre, precio, productoKey) {
-            const talla = tallasSeleccionadas[productoKey] || 'M';
-            const existente = carrito.find(item => item.nombre === nombre && item.talla === talla);
-
-            if (existente) {
-                existente.cantidad += 1;
-            } else {
-                carrito.push({ nombre, precio, talla, cantidad: 1 });
-            }
-            actualizarCarritoUI();
-            mostrarToast(`+1 ${nombre} [Talla ${talla}] agregado`);
-        }
-
-        function eliminarDelCarrito(index) {
-            carrito.splice(index, 1);
-            actualizarCarritoUI();
-        }
-
-        function actualizarCarritoUI() {
-            const container = document.getElementById('cartItemsContainer');
-            const countBadge = document.getElementById('cartCount');
-            const totalEl = document.getElementById('cartTotal');
-
-            const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-            const totalPrecio = carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0);
-
-            countBadge.textContent = totalItems;
-            totalEl.textContent = `$${totalPrecio}`;
-
-            if (carrito.length === 0) {
-                container.innerHTML = `<p class="text-center text-zinc-500 font-mono-tech text-xs py-10">TU CARRITO ESTÁ VACÍO.</p>`;
-                return;
-            }
-
-            container.innerHTML = carrito.map((item, idx) => `
-                <div class="flex items-center justify-between bg-black border border-white/25 p-3.5">
-                    <div>
-                        <h4 class="font-cyber font-bold text-xs text-white">${item.nombre} <span class="text-y2k-blood">[${item.talla}]</span></h4>
-                        <span class="font-mono-tech text-[11px] text-zinc-400">$${item.precio} c/u × ${item.cantidad}</span>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <span class="font-cyber font-bold text-sm text-white">$${item.precio * item.cantidad}</span>
-                        <button onclick="eliminarDelCarrito(${idx})" class="text-zinc-400 hover:text-y2k-blood p-1 cursor-pointer" title="Quitar">
-                            <i data-lucide="trash-2" class="w-4 h-4"></i>
-                        </button>
-                    </div>
-                </div>
-            `).join('');
-
-            lucide.createIcons();
-        }
-
-        function finalizarCompra() {
-            if (carrito.length === 0) {
-                mostrarToast('Agrega al menos una prenda antes de finalizar');
-                return;
-            }
-            carrito = [];
-            actualizarCarritoUI();
-            toggleCart();
-            mostrarToast('¡Pedido 3A\'s generado! Completa tu registro abajo.');
-            document.getElementById('registro').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // 4. FORMULARIO DE REGISTRO
-        function procesarRegistro(e) {
-            e.preventDefault();
-            const nombre = document.getElementById('nombre').value.trim();
-            const edad = parseInt(document.getElementById('edad').value, 10);
-            const celular = document.getElementById('celular').value.trim();
-            const correo = document.getElementById('correo').value.trim();
-
-            if (edad < 15) {
-                mostrarToast('3A\'s está disponible para público de 15 años en adelante.');
-                return;
-            }
-
-            const confirmBox = document.getElementById('registroConfirmacion');
-            const mensaje = document.getElementById('mensajeBienvenida');
-
-            mensaje.innerHTML = `USUARIO: <strong class="text-white">${nombre.toUpperCase()}</strong> (${edad} AÑOS)<br>TEL: <strong class="text-white">${celular}</strong> // MAIL: <strong class="text-white">${correo}</strong><br><span class="text-zinc-400 mt-1 block">Bienvenido al archivo oficial de 3A's.</span>`;
-            
-            confirmBox.classList.remove('hidden');
-            document.getElementById('registroForm').reset();
-            mostrarToast('¡Registro completado en 3A\'s!');
-        }
-
-        // 5. NOTIFICACIÓN TOAST
-        let toastTimeout;
-        function mostrarToast(texto) {
-            const toast = document.getElementById('toastNotif');
-            const toastText = document.getElementById('toastText');
-            toastText.textContent = texto;
-            toast.classList.remove('hidden');
-
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.add('hidden');
-            }, 3200);
-        }
-    </script>
+      const vipPass = document.getElementById('vipPass');
+      const vipDetails = document.getElementById('vipDetails');
+      vipDetails.innerHTML = `
+        <strong>${nombre}</strong> (${edad} años)<br>
+        Tel: <strong>${cel}</strong> | Correo: <strong>${correo}</strong>
+      `;
+      vipPass.style.display = 'block';
+      showToast('† Registro completado en 3\'As');
+    }
+  </script>
 </body>
 </html>
