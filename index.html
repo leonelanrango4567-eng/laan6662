@@ -1,546 +1,1310 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3A's | Gorras & Ropa Urbana Y2K</title>
-    <!-- Fuentes estilo Y2K y Streetwear -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-dark: #070709;
-            --card-bg: #111116;
-            --chrome-silver: #e2e2e8;
-            --metal-gray: #8a8a99;
-            --accent-red: #ff1e42;
-            --accent-acid: #ccff00;
-            --border-y2k: 1px solid rgba(255, 255, 255, 0.25);
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3A's — Gorras estilo Urbano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#060609',
+            abyss: '#0c0c12',
+            chrome: '#f1f2f7',
+            ash: '#9a9cb0',
+            crimson: '#ff1e42',
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root {
+      --bg-void: #060609;
+      --bg-surface: #0e0e15;
+      --silver-bright: #f5f6fa;
+      --silver-mid: #9a9cb0;
+      --crimson-glow: #ff1e42;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--chrome-silver);
-            font-family: 'Space Mono', monospace;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 15% 20%, rgba(255, 30, 66, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        /* Cinta superior Y2K animada */
-        .marquee-bar {
-            background: var(--chrome-silver);
-            color: var(--bg-dark);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 0.75rem;
-            padding: 6px 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-bottom: 2px solid var(--accent-red);
-            white-space: nowrap;
-            overflow: hidden;
-        }
+    body {
+      margin: 0;
+      background-color: var(--bg-void);
+      color: var(--silver-bright);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      selection-background-color: var(--crimson-glow);
+    }
 
-        .marquee-content {
-            display: inline-block;
-            animation: scrollText 18s linear infinite;
-        }
+    /* Fondos orgánicos fluidos (blobs) */
+    .ambient-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
 
-        @keyframes scrollText {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+    .blob {
+      position: absolute;
+      filter: blur(85px);
+      opacity: 0.42;
+      will-change: transform, border-radius;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
-        /* Navegación */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            border-bottom: var(--border-y2k);
-            backdrop-filter: blur(8px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(7, 7, 9, 0.85);
-        }
+    .blob-1 {
+      width: 440px;
+      height: 440px;
+      top: -110px;
+      left: -110px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 30, 66, 0.55), rgba(110, 12, 34, 0.1) 70%);
+      border-radius: 62% 38% 46% 54% / 51% 63% 37% 49%;
+      animation: morphBlobA 14s ease-in-out infinite alternate;
+    }
 
-        .brand-logo-small {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            background: linear-gradient(180deg, #ffffff 0%, #686875 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 12px rgba(255,255,255,0.2);
-        }
+    .blob-2 {
+      width: 500px;
+      height: 420px;
+      top: 32%;
+      right: -150px;
+      background: radial-gradient(circle at 60% 40%, rgba(226, 230, 245, 0.24), rgba(255, 30, 66, 0.14) 65%, transparent 80%);
+      border-radius: 41% 59% 67% 33% / 38% 45% 55% 62%;
+      animation: morphBlobB 18s ease-in-out infinite alternate;
+    }
 
-        nav a {
-            color: var(--chrome-silver);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
+    .blob-3 {
+      width: 460px;
+      height: 460px;
+      bottom: -140px;
+      left: 20%;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 30, 66, 0.32), rgba(70, 72, 105, 0.14) 70%);
+      border-radius: 55% 45% 34% 66% / 61% 39% 61% 39%;
+      animation: morphBlobA 16s ease-in-out infinite alternate-reverse;
+    }
 
-        nav a:hover {
-            color: var(--accent-red);
-        }
+    @keyframes morphBlobA {
+      0% {
+        border-radius: 62% 38% 46% 54% / 51% 63% 37% 49%;
+      }
+      50% {
+        border-radius: 39% 61% 64% 36% / 44% 36% 64% 56%;
+      }
+      100% {
+        border-radius: 53% 47% 37% 63% / 64% 48% 52% 36%;
+      }
+    }
 
-        /* HERO / BANNER PRINCIPAL (Acción principal) */
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px 20px;
-            position: relative;
-            border-bottom: var(--border-y2k);
-        }
+    @keyframes morphBlobB {
+      0% {
+        border-radius: 41% 59% 67% 33% / 38% 45% 55% 62%;
+      }
+      50% {
+        border-radius: 63% 37% 42% 58% / 55% 61% 39% 45%;
+      }
+      100% {
+        border-radius: 47% 53% 59% 41% / 42% 57% 43% 58%;
+      }
+    }
 
-        /* Emblema Y2K inspirado en el logo de la imagen */
-        .y2k-emblem {
-            position: relative;
-            padding: 40px 70px;
-            border: 1.5px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(255, 30, 66, 0.25), inset 0 0 20px rgba(255,255,255,0.1);
-            margin-bottom: 30px;
-            transform: rotate(-4deg);
-            background: radial-gradient(circle, #181820 0%, #050507 100%);
-        }
+    /* Estela orgánica de cursor Y2K */
+    .cursor-spark {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      color: var(--silver-bright);
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 18px rgba(255, 30, 66, 0.65);
+      animation: sparkFade 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      user-select: none;
+    }
 
-        .y2k-emblem::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border: 1px solid var(--accent-red);
-            border-radius: 50%;
-            transform: rotate(6deg);
-            pointer-events: none;
-        }
+    @keyframes sparkFade {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -115%) scale(1.35) rotate(65deg);
+      }
+    }
 
-        .hero-title {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3.5rem, 8vw, 6.5rem);
-            font-weight: 800;
-            font-style: italic;
-            line-height: 1;
-            background: linear-gradient(180deg, #ffffff 20%, #8e8e9e 50%, #ffffff 85%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.9));
-        }
+    /* Navegación flotante orgánica */
+    .floating-nav {
+      position: sticky;
+      top: 14px;
+      z-index: 60;
+      margin: 14px auto 0;
+      width: min(94%, 980px);
+      border-radius: 999px;
+      background: rgba(14, 14, 22, 0.74);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
 
-        /* Estrellas Y2K decorativas */
-        .star {
-            position: absolute;
-            color: #fff;
-            font-size: 1.5rem;
-            text-shadow: 0 0 10px #fff;
-            animation: pulse 2s infinite alternate;
-        }
-        .star-1 { top: -15px; left: 10px; font-size: 1.8rem; }
-        .star-2 { bottom: -15px; right: 15px; font-size: 2.2rem; }
-        .star-3 { bottom: 10px; left: -10px; font-size: 1.2rem; color: var(--accent-red); }
+    /* Cinturón curvo / orgánico Y2K */
+    .ribbon-flow {
+      position: relative;
+      overflow: hidden;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 30, 66, 0.18), rgba(241, 242, 247, 0.14), rgba(255, 30, 66, 0.18));
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
 
-        @keyframes pulse {
-            from { opacity: 0.5; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1.15); }
-        }
+    .ribbon-track {
+      display: flex;
+      width: max-content;
+      animation: ribbonSlide 22s linear infinite;
+    }
 
-        .hero-subtitle {
-            max-width: 600px;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+    @keyframes ribbonSlide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-        .hero-target {
-            font-size: 0.85rem;
-            color: var(--metal-gray);
-            margin-bottom: 35px;
-        }
+    /* Botones orgánicos con brillo cromado y acento rojo */
+    .pill-btn {
+      border-radius: 999px;
+      background: linear-gradient(145deg, #ffffff 0%, #c7cad8 48%, #8f93a8 100%);
+      color: #07070b;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.55);
+      transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, background 0.25s ease;
+      cursor: pointer;
+    }
 
-        .btn-y2k {
-            display: inline-block;
-            padding: 14px 36px;
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            box-shadow: 4px 4px 0px var(--accent-red);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+    .pill-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(255, 30, 66, 0.35), 0 0 0 1.5px rgba(255, 255, 255, 0.9);
+    }
 
-        .btn-y2k:hover {
-            background: #fff;
-            color: var(--bg-dark);
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
-            transform: translate(2px, 2px);
-        }
+    .pill-btn:active {
+      transform: translateY(0) scale(0.98);
+    }
 
-        /* SECCIÓN DE PRODUCTOS Y PRECIOS */
-        .section-container {
-            max-width: 1150px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
+    .ghost-pill-btn {
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--silver-bright);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: var(--border-y2k);
-            padding-bottom: 15px;
-            margin-bottom: 50px;
-        }
+    .ghost-pill-btn:hover {
+      background: rgba(255, 30, 66, 0.16);
+      border-color: rgba(255, 30, 66, 0.75);
+      transform: translateY(-2px);
+    }
 
-        .section-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    .ghost-pill-btn.active-filter {
+      background: linear-gradient(135deg, rgba(255, 30, 66, 0.32), rgba(255, 255, 255, 0.14));
+      border-color: var(--crimson-glow);
+      color: #ffffff;
+      box-shadow: 0 0 22px rgba(255, 30, 66, 0.3);
+    }
 
-        .tag-badge {
-            border: 1px solid var(--accent-red);
-            color: var(--accent-red);
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
+    /* Tarjetas orgánicas (evitando cajas rectangulares duras) */
+    .organic-card {
+      position: relative;
+      border-radius: 38px 22px 44px 28px;
+      background: linear-gradient(160deg, rgba(22, 22, 33, 0.86) 0%, rgba(9, 9, 14, 0.92) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform 0.22s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 30px;
-        }
+    .organic-card:nth-child(even) {
+      border-radius: 26px 44px 24px 40px;
+    }
 
-        .product-card {
-            background: var(--card-bg);
-            border: var(--border-y2k);
-            padding: 25px;
-            position: relative;
-            transition: transform 0.3s, border-color 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+    .organic-card:hover {
+      border-color: rgba(255, 255, 255, 0.36);
+      box-shadow: 0 26px 60px rgba(0, 0, 0, 0.78), 0 0 28px rgba(255, 30, 66, 0.18);
+    }
 
-        .product-card:hover {
-            transform: translateY(-6px);
-            border-color: #fff;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-        }
+    /* Secciones con contorno orgánico curvo */
+    .curved-band {
+      border-radius: 48px 24px 52px 28px;
+      background: linear-gradient(145deg, rgba(18, 18, 28, 0.78), rgba(8, 8, 13, 0.88));
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.62);
+    }
 
-        .product-card.featured {
-            border: 1.5px solid var(--accent-red);
-        }
+    /* Campos del formulario con bordes fluidos */
+    .fluid-input {
+      width: 100%;
+      padding: 13px 18px;
+      border-radius: 22px 14px 24px 16px;
+      background: rgba(6, 6, 10, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
 
-        .featured-label {
-            position: absolute;
-            top: -12px;
-            right: 15px;
-            background: var(--accent-red);
-            color: #fff;
-            font-size: 0.7rem;
-            font-weight: bold;
-            padding: 3px 10px;
-            letter-spacing: 1px;
-        }
+    .fluid-input:focus {
+      border-color: var(--crimson-glow);
+      background: rgba(12, 12, 19, 0.95);
+      box-shadow: 0 0 0 3px rgba(255, 30, 66, 0.22);
+    }
 
-        .product-visual {
-            height: 200px;
-            background: radial-gradient(circle, #22222b 0%, #0b0b0e 100%);
-            border: 1px dashed rgba(255,255,255,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: rgba(255,255,255,0.15);
-            position: relative;
-        }
+    /* Animación flotante suave para emblemas */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-7px) rotate(1.2deg); }
+    }
 
-        /* Puedes reemplazar el contenido de .product-visual con etiquetas <img> reales de tus productos */
-        .product-visual span {
-            color: var(--chrome-silver);
-            font-size: 1rem;
-            letter-spacing: 3px;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 14px;
-            background: rgba(0,0,0,0.6);
-        }
+    .float-emblem {
+      animation: floatSlow 6.5s ease-in-out infinite;
+    }
 
-        .product-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: #fff;
-        }
+    /* Modal orgánico */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(4, 4, 7, 0.84);
+      backdrop-filter: blur(12px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
 
-        .product-desc {
-            font-size: 0.85rem;
-            color: var(--metal-gray);
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
+    .modal-backdrop.open {
+      display: flex;
+    }
 
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 15px;
-        }
-
-        .price {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: #fff;
-        }
-
-        /* SECCIÓN FORMULARIO DE REGISTRO */
-        .register-section {
-            border-top: var(--border-y2k);
-            background: linear-gradient(180deg, #070709 0%, #101016 100%);
-        }
-
-        .form-wrapper {
-            max-width: 580px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border: 1.5px solid #fff;
-            padding: 40px;
-            box-shadow: 8px 8px 0px var(--accent-red);
-        }
-
-        .form-wrapper h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .form-wrapper p {
-            font-size: 0.85rem;
-            color: var(--metal-gray);
-            margin-bottom: 25px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
-            color: var(--chrome-silver);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            background: #070709;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            font-family: 'Space Mono', monospace;
-            font-size: 0.95rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            border-color: var(--accent-red);
-            box-shadow: 0 0 10px rgba(255, 30, 66, 0.3);
-        }
-
-        .submit-btn {
-            width: 100%;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        #formMessage {
-            margin-top: 15px;
-            font-size: 0.85rem;
-            color: var(--accent-acid);
-            text-align: center;
-            display: none;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: var(--border-y2k);
-            font-size: 0.8rem;
-            color: var(--metal-gray);
-        }
-    </style>
+    .modal-shell {
+      width: min(94%, 760px);
+      max-height: 88vh;
+      overflow-y: auto;
+      border-radius: 40px 26px 42px 30px;
+      background: linear-gradient(160deg, #151520 0%, #09090e 100%);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 35px rgba(255, 30, 66, 0.22);
+    }
+  </style>
 </head>
-<body>
+<body class="relative antialiased">
+  <!-- Capas de fondo orgánicas reactivas al mouse -->
+  <div class="ambient-layer" aria-hidden="true">
+    <div id="blob1" class="blob blob-1"></div>
+    <div id="blob2" class="blob blob-2"></div>
+    <div id="blob3" class="blob blob-3"></div>
+  </div>
 
-    <!-- Barra superior Y2K -->
-    <div class="marquee-bar">
-        <div class="marquee-content">
-            ✦ 3A'S STREETWEAR ✦ GORRAS & ROPA ESTILO URBANO ✦ NUEVA COLECCIÓN Y2K ✦ ENVÍOS DISPONIBLES ✦ 3A'S STREETWEAR ✦ GORRAS & ROPA ESTILO URBANO ✦ NUEVA COLECCIÓN Y2K ✦
-        </div>
+  <!-- Barra de navegación flotante -->
+  <header class="floating-nav px-4 sm:px-6 py-2.5 flex items-center justify-between gap-3">
+    <a href="#inicio" class="flex items-center gap-2.5 group focus:outline-none">
+      <div class="w-11 h-9 flex items-center justify-center rounded-full bg-black/70 border border-white/20 overflow-hidden group-hover:border-crimson/70 transition">
+        <span class="brand-logo-slot inline-flex items-center justify-center w-full h-full"></span>
+      </div>
+      <span class="font-display font-extrabold text-lg tracking-tight text-white">3A's</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-sm text-ash">
+      <a href="#inicio" class="hover:text-white transition">Marca</a>
+      <a href="#explorador" class="hover:text-white transition">Ver diseños</a>
+      <a href="#registro" class="hover:text-white transition">Registro</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <label
+        for="logoUploadInput"
+        class="ghost-pill-btn px-3.5 py-2 text-xs font-semibold flex items-center gap-1.5"
+        title="Sube tu propia imagen del logo si deseas reemplazarlo"
+      >
+        <span>✦</span>
+        <span>Subir logo</span>
+      </label>
+      <input id="logoUploadInput" type="file" accept="image/*" class="hidden" />
+      <a href="#registro" class="pill-btn px-4 py-2 text-xs sm:text-sm inline-block">
+        Registro
+      </a>
+    </div>
+  </header>
+
+  <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-8 pb-20 space-y-16">
+    <!-- Cinta fluida Y2K -->
+    <div class="ribbon-flow py-2.5 text-xs font-semibold tracking-wider text-chrome uppercase">
+      <div class="ribbon-track">
+        <span class="mx-6">✦ 3A's — CREA, DISEÑA GORRAS Y ROPA ESTILO URBANO</span>
+        <span class="mx-6 text-crimson">†</span>
+        <span class="mx-6">GORRAS $30 · CAMISETAS $10 · PANTALONES $25</span>
+        <span class="mx-6 text-crimson">✦</span>
+        <span class="mx-6">ESTILO DARK Y2K // JÓVENES Y ADULTOS 15+</span>
+        <span class="mx-6 text-crimson">✦</span>
+        <span class="mx-6">3A's — CREA, DISEÑA GORRAS Y ROPA ESTILO URBANO</span>
+        <span class="mx-6 text-crimson">†</span>
+        <span class="mx-6">GORRAS $30 · CAMISETAS $10 · PANTALONES $25</span>
+        <span class="mx-6 text-crimson">✦</span>
+      </div>
     </div>
 
-    <!-- Encabezado -->
-    <header>
-        <div class="brand-logo-small">3A's</div>
-        <nav>
-            <a href="#inicio">Marca</a>
-            <a href="#productos">Catálogo</a>
-            <a href="#registro">Registro</a>
-        </nav>
-    </header>
+    <!-- 1. BANNER PRINCIPAL Y MARCA -->
+    <section id="inicio" class="curved-band px-6 sm:px-12 py-10 sm:py-14 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Columna izquierda: Identidad y conversión -->
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/15 text-xs text-chrome">
+            <span class="text-crimson font-bold">✦</span>
+            <span>Público 15+ años · Streetwear Oscuro Y2K</span>
+          </div>
 
-    <!-- 1. BANNER Y MARCA -->
-    <section id="inicio" class="hero">
-        <div class="y2k-emblem">
-            <span class="star star-1">✦</span>
-            <span class="star star-2">✦</span>
-            <span class="star star-3">†</span>
-            <h1 class="hero-title">3A's</h1>
+          <h1 class="font-display text-4xl sm:text-6xl font-extrabold leading-[1.03] tracking-tight text-white">
+            3A's: gorras y ropa urbana con alma <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-ash to-crimson">Y2K</span>.
+          </h1>
+
+          <p class="text-ash text-base sm:text-lg leading-relaxed max-w-xl">
+            Encuentra gorras y ropa estilo urbano. Piezas pensadas para jóvenes y adultos de <strong class="text-white">15 años en adelante</strong> Viste a tu estilo.
+          </p>
+
+          <!-- Precios clave en cápsulas orgánicas -->
+          <div class="flex flex-wrap gap-3 pt-1">
+            <div class="px-4 py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-sm flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-crimson"></span>
+              <span class="text-ash">Gorras</span>
+              <span class="font-bold text-white">$30</span>
+            </div>
+            <div class="px-4 py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-sm flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-white"></span>
+              <span class="text-ash">Camisetas</span>
+              <span class="font-bold text-white">$10</span>
+            </div>
+            <div class="px-4 py-2.5 rounded-full bg-white/[0.05] border border-white/15 text-sm flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-crimson"></span>
+              <span class="text-ash">Pantalones</span>
+              <span class="font-bold text-white">$25</span>
+            </div>
+          </div>
+
+          <!-- Acciones principales -->
+          <div class="flex flex-wrap items-center gap-4 pt-3">
+            <a href="#explorador" class="pill-btn px-7 py-3.5 text-sm inline-flex items-center gap-2">
+              <span>Ver diseños</span>
+              <span>✦</span>
+            </a>
+            <a href="#registro" class="ghost-pill-btn px-6 py-3.5 text-sm font-semibold inline-flex items-center gap-2">
+              <span>Ir al registro</span>
+              <span>→</span>
+            </a>
+          </div>
         </div>
 
-        <p class="hero-subtitle">Crea, diseña gorras y ropa estilo urbano</p>
-        <p class="hero-target">[ PARA JÓVENES Y ADULTOS DE 15 AÑOS EN ADELANTE // ESTÉTICA Y2K ]</p>
-        
-        <a href="#productos" class="btn-y2k">Ver Colección</a>
+        <!-- Columna derecha: Emblema fiel '3'AS' con movimiento reactivo -->
+        <div class="lg:col-span-5 flex flex-col items-center justify-center">
+          <div
+            id="heroLogoTilt"
+            class="tilt-target float-emblem w-full max-w-[380px] aspect-[4/3.3] rounded-[46px_28px_48px_30px] bg-[#040406] border border-white/20 shadow-[0_24px_70px_rgba(0,0,0,0.9),0_0_35px_rgba(255,30,66,0.22)] flex items-center justify-center p-4 relative overflow-hidden"
+          >
+            <div class="brand-logo-slot w-full h-full flex items-center justify-center"></div>
+          </div>
+          <div class="mt-3 flex items-center gap-3 text-xs text-ash">
+            <span>Emblema oficial 3A's</span>
+            <button
+              id="resetLogoBtn"
+              type="button"
+              class="hidden text-crimson underline hover:text-white transition cursor-pointer"
+            >
+              Restaurar logo original
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- 2. PRODUCTOS A OFRECER Y PRECIOS -->
-    <section id="productos" class="section-container">
-        <div class="section-header">
-            <h2>Drop Oficial</h2>
-            <span class="tag-badge">Edición Limitada</span>
+    <!-- 2. EXPLORADOR INTERACTIVO DE DISEÑOS ("VER DISEÑOS") -->
+    <section id="explorador" class="space-y-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-5">
+        <div class="space-y-2">
+          <span class="text-xs uppercase tracking-[0.2em] text-crimson font-semibold">✦ Catálogo interactivo</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white">
+            Ver diseños 3A's
+          </h2>
+          <p class="text-ash text-sm sm:text-base max-w-2xl">
+            Explora nuestros diseños urbanos sin límites fijos. Cambia el acabado o variante de cada pieza, inclínala con el cursor y selecciona tu favorita para llevarla al formulario.
+          </p>
         </div>
 
-        <div class="products-grid">
-            <!-- Producto Principal: Gorras -->
-            <div class="product-card featured">
-                <div class="featured-label">ESTELAR</div>
-                <div>
-                    <div class="product-visual">
-                        <span>[ GORRA 3A's ]</span>
-                    </div>
-                    <h3 class="product-title">Gorras Urbanas</h3>
-                    <p class="product-desc">Diseño exclusivo 3A's con bordados de alto relieve, visera curva y estética cyber-streetwear.</p>
-                </div>
-                <div class="product-footer">
-                    <span class="price">$30</span>
-                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
-                </div>
-            </div>
-
-            <!-- Producto 2: Camisetas -->
-            <div class="product-card">
-                <div>
-                    <div class="product-visual">
-                        <span>[ TEE 3A's ]</span>
-                    </div>
-                    <h3 class="product-title">Camisetas</h3>
-                    <p class="product-desc">Corte streetwear oversized en algodón pesado negro con gráficos cromados estilo 2000s.</p>
-                </div>
-                <div class="product-footer">
-                    <span class="price">$10</span>
-                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
-                </div>
-            </div>
-
-            <!-- Producto 3: Pantalones -->
-            <div class="product-card">
-                <div>
-                    <div class="product-visual">
-                        <span>[ PANTS 3A's ]</span>
-                    </div>
-                    <h3 class="product-title">Pantalones</h3>
-                    <p class="product-desc">Silueta holgada urbana con detalles metálicos y costuras reforzadas para el día a día.</p>
-                </div>
-                <div class="product-footer">
-                    <span class="price">$25</span>
-                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
-                </div>
-            </div>
+        <!-- Filtros orgánicos por categoría -->
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar diseños">
+          <button type="button" data-filter="todos" class="filter-btn ghost-pill-btn active-filter px-4 py-2 text-xs sm:text-sm font-semibold">
+            Todos los diseños
+          </button>
+          <button type="button" data-filter="gorras" class="filter-btn ghost-pill-btn px-4 py-2 text-xs sm:text-sm font-semibold">
+            Gorras ($30)
+          </button>
+          <button type="button" data-filter="camisetas" class="filter-btn ghost-pill-btn px-4 py-2 text-xs sm:text-sm font-semibold">
+            Camisetas ($10)
+          </button>
+          <button type="button" data-filter="pantalones" class="filter-btn ghost-pill-btn px-4 py-2 text-xs sm:text-sm font-semibold">
+            Pantalones ($25)
+          </button>
         </div>
+      </div>
+
+      <!-- Contenedor dinámico de diseños -->
+      <div id="designsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7"></div>
     </section>
 
-    <!-- 3. FORMULARIO DE REGISTRO AL FINAL -->
-    <section id="registro" class="section-container register-section">
-        <div class="form-wrapper">
-            <h3>Únete al Club 3A's</h3>
-            <p>Regístrate para apartar tus gorras y prendas urbanas o recibir acceso anticipado a nuestros próximos drops.</p>
+    <!-- 3. FORMULARIO DE REGISTRO AL FINAL (OBJETIVO DE CONVERSIÓN) -->
+    <section id="registro" class="curved-band px-6 sm:px-12 py-12 relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <!-- Mensaje de cierre -->
+        <div class="lg:col-span-5 space-y-4">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-crimson/15 border border-crimson/40 text-xs text-white">
+            <span>†</span>
+            <span>Registro directo 3A's</span>
+          </span>
+          <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            Asegura tu drop y conecta con 3A's
+          </h2>
+          <p class="text-ash text-sm sm:text-base leading-relaxed">
+            Completa tus datos para apartar tu diseño, pedir piezas o enterarte antes que nadie de las nuevas gorras, camisetas y pantalones.
+          </p>
 
-            <form id="y2kForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre *</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Alex Méndez" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="edad">Edad (15+ años) *</label>
-                    <input type="number" id="edad" name="edad" min="15" max="99" placeholder="Ej. 20" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="celular">Número Cel. *</label>
-                    <input type="tel" id="celular" name="celular" placeholder="Ej. 099 123 4567" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="correo">Correo electrónico *</label>
-                    <input type="email" id="correo" name="correo" placeholder="usuario@dominio.com" required>
-                </div>
-
-                <button type="submit" class="btn-y2k submit-btn">Completar Registro</button>
-                <div id="formMessage">✦ ¡Registro exitoso! Bienvenido a 3A's.</div>
-            </form>
+          <!-- Indicador de diseño seleccionado -->
+          <div
+            id="selectedDesignBanner"
+            class="p-4 rounded-[28px_18px_32px_20px] bg-white/[0.04] border border-white/15 text-sm text-chrome space-y-1"
+          >
+            <div class="text-xs uppercase tracking-wider text-crimson font-semibold">Selección actual</div>
+            <div id="selectedDesignText" class="font-medium text-white">
+              Ningún diseño fijado aún (puedes elegir cualquiera arriba o enviar tu registro general).
+            </div>
+          </div>
         </div>
+
+        <!-- Formulario solicitado: Nombre, Edad, Número cel., Correo electrónico -->
+        <div class="lg:col-span-7">
+          <form id="registrationForm" novalidate class="space-y-5 p-6 sm:p-8 rounded-[38px_24px_42px_28px] bg-black/55 border border-white/15">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="sm:col-span-2 space-y-1.5">
+                <label for="fullName" class="block text-xs uppercase tracking-wider text-chrome font-semibold">
+                  Nombre *
+                </label>
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  required
+                  placeholder="Tu nombre completo"
+                  class="fluid-input"
+                />
+                <p id="nameError" class="text-xs text-crimson hidden">Por favor escribe tu nombre.</p>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="age" class="block text-xs uppercase tracking-wider text-chrome font-semibold">
+                  Edad (15+) *
+                </label>
+                <input
+                  id="age"
+                  name="age"
+                  type="number"
+                  min="15"
+                  max="110"
+                  required
+                  placeholder="15+"
+                  class="fluid-input"
+                />
+                <p id="ageError" class="text-xs text-crimson hidden">Debes tener 15 años o más.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label for="phone" class="block text-xs uppercase tracking-wider text-chrome font-semibold">
+                  Número cel. *
+                </label>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  required
+                  placeholder="+593 99 000 0000"
+                  class="fluid-input"
+                />
+                <p id="phoneError" class="text-xs text-crimson hidden">Ingresa un número celular válido.</p>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="email" class="block text-xs uppercase tracking-wider text-chrome font-semibold">
+                  Correo electrónico *
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="nombre@correo.com"
+                  class="fluid-input"
+                />
+                <p id="emailError" class="text-xs text-crimson hidden">Ingresa un correo electrónico válido.</p>
+              </div>
+            </div>
+
+            <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <button type="submit" class="pill-btn px-8 py-3.5 text-sm">
+                Registrarme en 3A's ✦
+              </button>
+              <span class="text-xs text-ash">Público objetivo: jóvenes y adultos desde 15 años.</span>
+            </div>
+
+            <!-- Confirmación amigable (sin alert()) -->
+            <div
+              id="formSuccessBox"
+              class="hidden p-4 rounded-[26px_18px_28px_20px] bg-emerald-950/50 border border-emerald-400/40 text-emerald-200 text-sm"
+            ></div>
+          </form>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>© 2026 3A's — Gorras y Ropa Estilo Urbano. Todos los derechos reservados.</p>
-    </footer>
+  <!-- Pie de página orgánico -->
+  <footer class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pb-10">
+    <div class="curved-band px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-ash">
+      <div class="flex items-center gap-2.5">
+        <span class="font-display font-extrabold text-white text-sm">3A's</span>
+        <span>· Gorras ($30), Camisetas ($10) y Pantalones ($25) · Estilo Dark Y2K</span>
+      </div>
+      <div>✦ Hecho para la calle · 15+</div>
+    </div>
+  </footer>
 
-    <script>
-        // Validación básica y mensaje de confirmación en el formulario
-        document.getElementById('y2kForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const msg = document.getElementById('formMessage');
-            msg.style.display = 'block';
-            this.reset();
+  <!-- Modal de vista detallada interactiva al inspeccionar un diseño -->
+  <div id="designModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalDesignTitle">
+    <div class="modal-shell p-6 sm:p-8 space-y-6">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modalCategoryBadge" class="text-xs uppercase tracking-widest text-crimson font-semibold"></span>
+          <h3 id="modalDesignTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-white mt-1"></h3>
+        </div>
+        <button id="closeModalBtn" type="button" class="ghost-pill-btn px-4 py-2 text-xs font-bold">
+          Cerrar ✕
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+        <div
+          id="modalArtworkBox"
+          class="aspect-[4/3] rounded-[34px_22px_36px_24px] bg-[#040406] border border-white/20 flex items-center justify-center p-4 relative overflow-hidden"
+        ></div>
+
+        <div class="space-y-4">
+          <p id="modalDesignDesc" class="text-ash text-sm leading-relaxed"></p>
+          <div class="flex items-baseline gap-3">
+            <span id="modalDesignPrice" class="font-display text-3xl font-extrabold text-white"></span>
+            <span id="modalDesignFinish" class="text-xs text-chrome px-3 py-1 rounded-full bg-white/10"></span>
+          </div>
+
+          <div class="pt-2 flex flex-wrap gap-3">
+            <button id="modalSelectBtn" type="button" class="pill-btn px-6 py-3 text-sm">
+              Elegir este diseño ✦
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Template SVG del emblema fiel '3'AS' de la imagen adjunta -->
+  <template id="default3AsLogoTemplate">
+    <svg
+      viewBox="0 0 440 340"
+      class="w-full h-full select-none"
+      role="img"
+      aria-label="Logo 3'AS estilo dark Y2K"
+    >
+      <defs>
+        <!-- Degradado metálico/cromado desgastado para '3'AS' -->
+        <linearGradient id="chromeSlashGrad" x1="15%" y1="10%" x2="85%" y2="90%">
+          <stop offset="0%" stop-color="#6f7282" />
+          <stop offset="22%" stop-color="#f7f8fc" />
+          <stop offset="46%" stop-color="#8b8fa3" />
+          <stop offset="68%" stop-color="#ffffff" />
+          <stop offset="88%" stop-color="#646778" />
+          <stop offset="100%" stop-color="#e3e6f0" />
+        </linearGradient>
+
+        <!-- Brillo suave cromado -->
+        <filter id="y2kGlow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2.2" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- Fondo negro profundo -->
+      <rect width="440" height="340" fill="#040406" />
+
+      <!-- Estrella de 5 puntas dentro de un círculo arriba a la izquierda -->
+      <g transform="translate(52, 46)" stroke="#f2f4fa" stroke-width="2.2" fill="none" filter="url(#y2kGlow)">
+        <circle cx="0" cy="0" r="22" stroke-dasharray="95 14 22 9" stroke-linecap="round" />
+        <polygon
+          points="0,-16 4.7,-5.2 16,-4.8 7.2,2.2 10.2,13.2 0,6.8 -10.2,13.2 -7.2,2.2 -16,-4.8 -4.7,-5.2"
+          stroke-linejoin="round"
+        />
+      </g>
+
+      <!-- Ojo místico arriba a la derecha -->
+      <g transform="translate(376, 44)" stroke="#f4f6fc" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#y2kGlow)">
+        <path d="M-28,0 C-14,-15 14,-15 28,0 C14,15 -14,15 -28,0 Z" />
+        <circle cx="0" cy="0" r="7.5" />
+        <circle cx="0" cy="0" r="2.6" fill="#f4f6fc" />
+      </g>
+
+      <!-- Elipse inclinada con trazo rojo y blanco desgastado/punteado -->
+      <g transform="translate(220, 174) rotate(-17)">
+        <!-- Trazo exterior blanco desgastado -->
+        <ellipse
+          cx="0"
+          cy="0"
+          rx="168"
+          ry="86"
+          fill="none"
+          stroke="#e8eaf2"
+          stroke-width="3.2"
+          stroke-dasharray="145 14 48 11 92 16 28 10"
+          stroke-linecap="round"
+        />
+        <!-- Trazo interior rojo -->
+        <ellipse
+          cx="0"
+          cy="0"
+          rx="161"
+          ry="80"
+          fill="none"
+          stroke="#d91635"
+          stroke-width="2.2"
+          stroke-dasharray="190 12 75 10"
+          stroke-linecap="round"
+          opacity="0.92"
+        />
+      </g>
+
+      <!-- Tipografía metálica/cromada desgastada 3'AS -->
+      <g transform="translate(220, 186) rotate(-11)" filter="url(#y2kGlow)">
+        <!-- Sombra profunda para relieve -->
+        <text
+          x="3"
+          y="4"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          fill="#1b1c26"
+          font-family="Syne, Impact, sans-serif"
+          font-weight="800"
+          font-style="italic"
+          font-size="114"
+          letter-spacing="-3"
+        >
+          3'AS
+        </text>
+        <!-- Relleno cromado -->
+        <text
+          x="0"
+          y="0"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          fill="url(#chromeSlashGrad)"
+          stroke="#ffffff"
+          stroke-width="1.3"
+          font-family="Syne, Impact, sans-serif"
+          font-weight="800"
+          font-style="italic"
+          font-size="114"
+          letter-spacing="-3"
+        >
+          3'AS
+        </text>
+        <!-- Rasgaduras / muescas metálicas sutiles estilo desgastado -->
+        <path
+          d="M-112,-34 L-96,-28 M-106,12 L-88,18 M-24,-46 L-18,-28 M34,26 L46,38 M96,-38 L108,-26"
+          stroke="#040406"
+          stroke-width="3.5"
+          stroke-linecap="round"
+        />
+      </g>
+
+      <!-- Destello de 4 puntas abajo a la izquierda -->
+      <g transform="translate(86, 266)" fill="#e8eaf2" filter="url(#y2kGlow)">
+        <path d="M0,-24 C2.2,-5.5 5.5,-2.2 24,0 C5.5,2.2 2.2,5.5 0,24 C-2.2,5.5 -5.5,2.2 -24,0 C-5.5,-2.2 -2.2,-5.5 0,-24 Z" />
+      </g>
+
+      <!-- Pequeña cruz abajo al centro -->
+      <g transform="translate(220, 304)" stroke="#f2f4fa" stroke-width="2.6" stroke-linecap="round" filter="url(#y2kGlow)">
+        <line x1="0" y1="-10" x2="0" y2="10" />
+        <line x1="-6.5" y1="-3" x2="6.5" y2="-3" />
+      </g>
+
+      <!-- Destello de 4 puntas grande abajo a la derecha -->
+      <g transform="translate(362, 272)" fill="#ffffff" filter="url(#y2kGlow)">
+        <path d="M0,-34 C3.2,-7.5 7.5,-3.2 34,0 C7.5,3.2 3.2,7.5 0,34 C-3.2,7.5 -7.5,3.2 -34,0 C-7.5,-3.2 -3.2,-7.5 0,-34 Z" />
+      </g>
+    </svg>
+  </template>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // Catálogo de diseños urbanos 3A's (no restringido rígidamente a 3 por categoría)
+      const DESIGNS = [
+        {
+          id: "gorra-3as-chrome",
+          category: "gorras",
+          categoryLabel: "Gorra",
+          title: "Gorra 3'AS Chrome Emblem",
+          price: "$30",
+          description: "Corona oscura con bordado plateado desgastado del emblema 3'AS, destellos Y2K y visera curva.",
+          variants: [
+            { name: "Cromo & Carmesí", accent: "#ff1e42", tint: "rgba(255,30,66,0.16)" },
+            { name: "Plata Líquida", accent: "#e8eaf2", tint: "rgba(232,234,242,0.14)" },
+            { name: "Sombra Total", accent: "#8c90a6", tint: "rgba(140,144,166,0.12)" }
+          ]
+        },
+        {
+          id: "gorra-3as-mystic",
+          category: "gorras",
+          categoryLabel: "Gorra",
+          title: "Gorra Mystic Eye & Star",
+          price: "$30",
+          description: "Edición urbana inspirada en el ojo místico y la estrella de cinco puntas con ajuste trasero fluido.",
+          variants: [
+            { name: "Rojo Sangre", accent: "#ff1e42", tint: "rgba(255,30,66,0.18)" },
+            { name: "Cromo Frío", accent: "#d8dce8", tint: "rgba(216,220,232,0.13)" }
+          ]
+        },
+        {
+          id: "gorra-3as-spark",
+          category: "gorras",
+          categoryLabel: "Gorra",
+          title: "Gorra Four-Point Spark",
+          price: "$30",
+          description: "Diseño callejero con destellos de cuatro puntas y elipse rasgada en contraste oscuro.",
+          variants: [
+            { name: "Brillo Estelar", accent: "#ffffff", tint: "rgba(255,255,255,0.15)" },
+            { name: "Acento Carmesí", accent: "#ff1e42", tint: "rgba(255,30,66,0.16)" }
+          ]
+        },
+        {
+          id: "camiseta-3as-oval",
+          category: "camisetas",
+          categoryLabel: "Camiseta",
+          title: "Camiseta 3'AS Elipse Y2K",
+          price: "$10",
+          description: "Corte urbano relajado en negro profundo con el emblema 3'AS metalizado al centro.",
+          variants: [
+            { name: "Cromo & Carmesí", accent: "#ff1e42", tint: "rgba(255,30,66,0.16)" },
+            { name: "Plata Brutal", accent: "#e8eaf2", tint: "rgba(232,234,242,0.14)" }
+          ]
+        },
+        {
+          id: "camiseta-3as-cross",
+          category: "camisetas",
+          categoryLabel: "Camiseta",
+          title: "Camiseta Night Cross & Eye",
+          price: "$10",
+          description: "Estampado frontal y simbología oscura 3A's pensada para el día a día juvenil y adulto (15+).",
+          variants: [
+            { name: "Rojo Y2K", accent: "#ff1e42", tint: "rgba(255,30,66,0.17)" },
+            { name: "Gris Ceniza", accent: "#9ea2b8", tint: "rgba(158,162,184,0.12)" }
+          ]
+        },
+        {
+          id: "pantalon-3as-baggy",
+          category: "pantalones",
+          categoryLabel: "Pantalón",
+          title: "Pantalón 3'AS Fluid Baggy",
+          price: "$25",
+          description: "Silueta amplia de caída orgánica con detalle del emblema 3'AS y herrajes discretos.",
+          variants: [
+            { name: "Carmesí Oscuro", accent: "#ff1e42", tint: "rgba(255,30,66,0.16)" },
+            { name: "Cromo Mate", accent: "#e2e5f0", tint: "rgba(226,229,240,0.13)" }
+          ]
+        },
+        {
+          id: "pantalon-3as-street",
+          category: "pantalones",
+          categoryLabel: "Pantalón",
+          title: "Pantalón Cyber Street 3A's",
+          price: "$25",
+          description: "Comodidad urbana con líneas de inspiración 2000s y el sello 3'AS en acabado metálico.",
+          variants: [
+            { name: "Plata & Rojo", accent: "#ff1e42", tint: "rgba(255,30,66,0.15)" },
+            { name: "Negro Cromo", accent: "#cfd3e3", tint: "rgba(207,211,227,0.12)" }
+          ]
+        }
+      ];
+
+      let activeCategory = "todos";
+      let customLogoDataUrl = null;
+      let selectedDesignSummary = null;
+      let activeModalDesign = null;
+      let activeModalVariantIndex = 0;
+
+      // Renderiza el emblema por defecto o el logo subido por el usuario en todos los slots
+      function renderBrandLogos() {
+        const slots = document.querySelectorAll(".brand-logo-slot");
+        const tpl = document.getElementById("default3AsLogoTemplate");
+
+        slots.forEach((slot) => {
+          slot.innerHTML = "";
+          if (customLogoDataUrl) {
+            const img = document.createElement("img");
+            img.src = customLogoDataUrl;
+            img.alt = "Logo personalizado de 3A's";
+            img.className = "max-w-full max-h-full object-contain rounded-2xl";
+            slot.appendChild(img);
+          } else if (tpl && tpl.content) {
+            slot.appendChild(tpl.content.cloneNode(true));
+          }
         });
-    </script>
+
+        const resetBtn = document.getElementById("resetLogoBtn");
+        if (resetBtn) {
+          resetBtn.classList.toggle("hidden", !customLogoDataUrl);
+        }
+      }
+
+      // Maneja subida de logo opcional por el usuario
+      function initLogoUpload() {
+        const input = document.getElementById("logoUploadInput");
+        const resetBtn = document.getElementById("resetLogoBtn");
+
+        if (input) {
+          input.addEventListener("change", (e) => {
+            const file = e.target.files && e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              customLogoDataUrl = ev.target.result;
+              renderBrandLogos();
+              renderDesignsGrid();
+            };
+            reader.readAsDataURL(file);
+          });
+        }
+
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            customLogoDataUrl = null;
+            if (input) input.value = "";
+            renderBrandLogos();
+            renderDesignsGrid();
+          });
+        }
+      }
+
+      // Crea la vista visual de un diseño usando el logo 3A's + variante activa
+      function createDesignArtwork(design, variant) {
+        const wrap = document.createElement("div");
+        wrap.className =
+          "w-full aspect-[4/3] rounded-[28px_18px_30px_20px] bg-[#050508] border border-white/15 relative overflow-hidden flex items-center justify-center p-3";
+        wrap.style.boxShadow = `inset 0 0 36px ${variant.tint}`;
+
+        // Destello orgánico sutil según variante
+        const glowDot = document.createElement("div");
+        glowDot.className = "absolute -bottom-8 -right-8 w-28 h-28 rounded-full blur-2xl pointer-events-none";
+        glowDot.style.background = variant.accent;
+        glowDot.style.opacity = "0.26";
+        wrap.appendChild(glowDot);
+
+        const logoContainer = document.createElement("div");
+        logoContainer.className = "w-full h-full flex items-center justify-center relative z-10";
+
+        if (customLogoDataUrl) {
+          const img = document.createElement("img");
+          img.src = customLogoDataUrl;
+          img.alt = design.title;
+          img.className = "max-w-full max-h-full object-contain";
+          logoContainer.appendChild(img);
+        } else {
+          const tpl = document.getElementById("default3AsLogoTemplate");
+          if (tpl && tpl.content) {
+            const clone = tpl.content.cloneNode(true);
+            // Ajusta el color de acento de las elipses según la variante seleccionada
+            const redStroke = clone.querySelector('ellipse[stroke="#d91635"]');
+            if (redStroke) {
+              redStroke.setAttribute("stroke", variant.accent);
+            }
+            logoContainer.appendChild(clone);
+          }
+        }
+
+        wrap.appendChild(logoContainer);
+        return wrap;
+      }
+
+      // Renderiza las tarjetas del explorador según el filtro activo
+      function renderDesignsGrid() {
+        const grid = document.getElementById("designsGrid");
+        if (!grid) return;
+
+        const filtered =
+          activeCategory === "todos"
+            ? DESIGNS
+            : DESIGNS.filter((d) => d.category === activeCategory);
+
+        grid.innerHTML = "";
+
+        filtered.forEach((design) => {
+          let currentVariantIdx = 0;
+
+          const card = document.createElement("article");
+          card.className = "organic-card tilt-target p-5 flex flex-col justify-between gap-4";
+
+          const topSection = document.createElement("div");
+          topSection.className = "space-y-3.5";
+
+          const headerRow = document.createElement("div");
+          headerRow.className = "flex items-center justify-between gap-2";
+
+          const badge = document.createElement("span");
+          badge.className =
+            "px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-chrome border border-white/15";
+          badge.textContent = `${design.categoryLabel} · ${design.price}`;
+
+          const spark = document.createElement("span");
+          spark.className = "text-crimson text-sm font-bold";
+          spark.textContent = "✦";
+
+          headerRow.appendChild(badge);
+          headerRow.appendChild(spark);
+
+          const artworkSlot = document.createElement("div");
+          artworkSlot.appendChild(createDesignArtwork(design, design.variants[currentVariantIdx]));
+
+          const titleEl = document.createElement("h3");
+          titleEl.className = "font-display text-xl font-bold text-white";
+          titleEl.textContent = design.title;
+
+          const descEl = document.createElement("p");
+          descEl.className = "text-xs sm:text-sm text-ash leading-relaxed";
+          descEl.textContent = design.description;
+
+          // Selector interactivo de acabado / variante
+          const variantRow = document.createElement("div");
+          variantRow.className = "flex flex-wrap items-center gap-1.5 pt-1";
+
+          const variantButtons = design.variants.map((v, idx) => {
+            const vBtn = document.createElement("button");
+            vBtn.type = "button";
+            vBtn.textContent = v.name;
+            vBtn.className =
+              "px-2.5 py-1 rounded-full text-[11px] font-medium border transition cursor-pointer " +
+              (idx === 0
+                ? "bg-white/20 text-white border-white/50"
+                : "bg-white/[0.03] text-ash border-white/10 hover:text-white");
+
+            vBtn.addEventListener("click", () => {
+              currentVariantIdx = idx;
+              artworkSlot.innerHTML = "";
+              artworkSlot.appendChild(createDesignArtwork(design, design.variants[idx]));
+              variantButtons.forEach((b, bIdx) => {
+                b.className =
+                  "px-2.5 py-1 rounded-full text-[11px] font-medium border transition cursor-pointer " +
+                  (bIdx === idx
+                    ? "bg-white/20 text-white border-white/50"
+                    : "bg-white/[0.03] text-ash border-white/10 hover:text-white");
+              });
+            });
+            return vBtn;
+          });
+
+          variantButtons.forEach((b) => variantRow.appendChild(b));
+
+          topSection.appendChild(headerRow);
+          topSection.appendChild(artworkSlot);
+          topSection.appendChild(titleEl);
+          topSection.appendChild(descEl);
+          topSection.appendChild(variantRow);
+
+          // Acciones: Inspeccionar o Elegir directo para el formulario
+          const actionsRow = document.createElement("div");
+          actionsRow.className = "flex items-center justify-between gap-2 pt-2";
+
+          const inspectBtn = document.createElement("button");
+          inspectBtn.type = "button";
+          inspectBtn.className = "ghost-pill-btn px-3.5 py-2 text-xs font-semibold";
+          inspectBtn.textContent = "Inspeccionar";
+          inspectBtn.addEventListener("click", () => {
+            openDesignModal(design, currentVariantIdx);
+          });
+
+          const chooseBtn = document.createElement("button");
+          chooseBtn.type = "button";
+          chooseBtn.className = "pill-btn px-4 py-2 text-xs";
+          chooseBtn.textContent = "Elegir →";
+          chooseBtn.addEventListener("click", () => {
+            selectDesignForRegistration(design, design.variants[currentVariantIdx]);
+          });
+
+          actionsRow.appendChild(inspectBtn);
+          actionsRow.appendChild(chooseBtn);
+
+          card.appendChild(topSection);
+          card.appendChild(actionsRow);
+          grid.appendChild(card);
+        });
+
+        bindTiltEffects();
+      }
+
+      // Filtros de categoría
+      function initFilters() {
+        const buttons = document.querySelectorAll(".filter-btn");
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            activeCategory = btn.getAttribute("data-filter") || "todos";
+            buttons.forEach((b) => b.classList.remove("active-filter"));
+            btn.classList.add("active-filter");
+            renderDesignsGrid();
+          });
+        });
+      }
+
+      // Modal interactivo de detalle
+      function openDesignModal(design, variantIdx) {
+        activeModalDesign = design;
+        activeModalVariantIndex = variantIdx || 0;
+        const variant = design.variants[activeModalVariantIndex] || design.variants[0];
+
+        const modal = document.getElementById("designModal");
+        document.getElementById("modalCategoryBadge").textContent = `${design.categoryLabel} 3A's`;
+        document.getElementById("modalDesignTitle").textContent = design.title;
+        document.getElementById("modalDesignDesc").textContent = design.description;
+        document.getElementById("modalDesignPrice").textContent = design.price;
+        document.getElementById("modalDesignFinish").textContent = `Acabado: ${variant.name}`;
+
+        const artBox = document.getElementById("modalArtworkBox");
+        artBox.innerHTML = "";
+        artBox.appendChild(createDesignArtwork(design, variant));
+
+        modal.classList.add("open");
+      }
+
+      function closeDesignModal() {
+        const modal = document.getElementById("designModal");
+        if (modal) modal.classList.remove("open");
+      }
+
+      function initModal() {
+        const closeBtn = document.getElementById("closeModalBtn");
+        const modal = document.getElementById("designModal");
+        const selectBtn = document.getElementById("modalSelectBtn");
+
+        if (closeBtn) closeBtn.addEventListener("click", closeDesignModal);
+        if (modal) {
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeDesignModal();
+          });
+        }
+        if (selectBtn) {
+          selectBtn.addEventListener("click", () => {
+            if (activeModalDesign) {
+              const variant =
+                activeModalDesign.variants[activeModalVariantIndex] || activeModalDesign.variants[0];
+              selectDesignForRegistration(activeModalDesign, variant);
+              closeDesignModal();
+            }
+          });
+        }
+      }
+
+      // Fija la selección y desplaza suavemente al formulario final
+      function selectDesignForRegistration(design, variant) {
+        selectedDesignSummary = `${design.title} (${design.price}) — ${variant.name}`;
+        const textEl = document.getElementById("selectedDesignText");
+        if (textEl) {
+          textEl.textContent = selectedDesignSummary;
+        }
+        const regSection = document.getElementById("registro");
+        if (regSection) {
+          regSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Inclinación reactiva al cursor en tarjetas y emblema principal
+      function bindTiltEffects() {
+        const targets = document.querySelectorAll(".tilt-target");
+        targets.forEach((el) => {
+          if (el.dataset.tiltBound === "true") return;
+          el.dataset.tiltBound = "true";
+
+          el.addEventListener("mousemove", (e) => {
+            const rect = el.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            const rotateY = relX * 10;
+            const rotateX = -relY * 10;
+            el.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
+          });
+
+          el.addEventListener("mouseleave", () => {
+            el.style.transform = "";
+          });
+        });
+      }
+
+      // Parallax fluido de blobs orgánicos + estela Y2K al mover el mouse
+      function initPointerAtmosphere() {
+        const blob1 = document.getElementById("blob1");
+        const blob2 = document.getElementById("blob2");
+        const blob3 = document.getElementById("blob3");
+        const glyphs = ["✦", "†", "✧", "⋆"];
+        let lastSparkTime = 0;
+
+        window.addEventListener(
+          "mousemove",
+          (e) => {
+            const normX = e.clientX / window.innerWidth - 0.5;
+            const normY = e.clientY / window.innerHeight - 0.5;
+
+            if (blob1) {
+              blob1.style.transform = `translate3d(${(normX * 36).toFixed(1)}px, ${(normY * 28).toFixed(1)}px, 0)`;
+            }
+            if (blob2) {
+              blob2.style.transform = `translate3d(${(-normX * 44).toFixed(1)}px, ${(normY * 32).toFixed(1)}px, 0)`;
+            }
+            if (blob3) {
+              blob3.style.transform = `translate3d(${(normX * 26).toFixed(1)}px, ${(-normY * 34).toFixed(1)}px, 0)`;
+            }
+
+            const now = performance.now();
+            if (now - lastSparkTime > 48) {
+              lastSparkTime = now;
+              const spark = document.createElement("span");
+              spark.className = "cursor-spark";
+              spark.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+              spark.style.left = `${e.clientX}px`;
+              spark.style.top = `${e.clientY}px`;
+              spark.style.fontSize = `${11 + Math.random() * 8}px`;
+              document.body.appendChild(spark);
+
+              setTimeout(() => {
+                spark.remove();
+              }, 760);
+            }
+          },
+          { passive: true }
+        );
+      }
+
+      // Validación y envío del formulario de registro
+      function initRegistrationForm() {
+        const form = document.getElementById("registrationForm");
+        const nameInput = document.getElementById("fullName");
+        const ageInput = document.getElementById("age");
+        const phoneInput = document.getElementById("phone");
+        const emailInput = document.getElementById("email");
+
+        const nameError = document.getElementById("nameError");
+        const ageError = document.getElementById("ageError");
+        const phoneError = document.getElementById("phoneError");
+        const emailError = document.getElementById("emailError");
+        const successBox = document.getElementById("formSuccessBox");
+
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const nameVal = (nameInput.value || "").trim();
+          const ageVal = Number(ageInput.value);
+          const phoneVal = (phoneInput.value || "").trim();
+          const emailVal = (emailInput.value || "").trim();
+
+          let valid = true;
+
+          nameError.classList.toggle("hidden", nameVal.length >= 2);
+          if (nameVal.length < 2) valid = false;
+
+          const ageOk = Number.isFinite(ageVal) && ageVal >= 15 && ageVal <= 110;
+          ageError.classList.toggle("hidden", ageOk);
+          if (!ageOk) valid = false;
+
+          const phoneDigits = phoneVal.replace(/\D/g, "");
+          const phoneOk = phoneDigits.length >= 7;
+          phoneError.classList.toggle("hidden", phoneOk);
+          if (!phoneOk) valid = false;
+
+          const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+          emailError.classList.toggle("hidden", emailOk);
+          if (!emailOk) valid = false;
+
+          if (!valid) {
+            successBox.classList.add("hidden");
+            return;
+          }
+
+          const designNote = selectedDesignSummary
+            ? ` Diseño apartado: ${selectedDesignSummary}.`
+            : "";
+
+          successBox.innerHTML = `
+            <strong>✦ Registro completado en 3A's.</strong> Gracias, <span>${escapeHtml(nameVal)}</span> (${ageVal} años).${escapeHtml(designNote)} Te contactaremos al <span>${escapeHtml(phoneVal)}</span> o <span>${escapeHtml(emailVal)}</span>.
+          `;
+          successBox.classList.remove("hidden");
+          form.reset();
+        });
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      // Inicialización general
+      document.addEventListener("DOMContentLoaded", () => {
+        renderBrandLogos();
+        initLogoUpload();
+        initFilters();
+        renderDesignsGrid();
+        initModal();
+        bindTiltEffects();
+        initPointerAtmosphere();
+        initRegistrationForm();
+      });
+    })();
+  </script>
 </body>
 </html>
