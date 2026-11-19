@@ -1,1119 +1,546 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3'As † GOTHIC CATHEDRAL EDITION</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Space+Mono:wght@400;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-void: #000000;
-      --bg-panel: #08040d;
-      --purple-deep: #24073d;
-      --purple-dark: #4c1d95;
-      --purple-glow: rgba(107, 33, 168, 0.55);
-      --ink-white: #f5f3ff;
-      --ink-silver: #a79bb8;
-      --border-ink: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background-color: var(--bg-void);
-      color: var(--ink-white);
-      font-family: 'Space Mono', monospace;
-      overflow-x: hidden;
-      background-image: 
-        radial-gradient(circle at 50% 15%, rgba(76, 29, 149, 0.25) 0%, transparent 55%),
-        radial-gradient(circle at 50% 85%, rgba(36, 7, 61, 0.4) 0%, transparent 60%);
-    }
-
-    /* Textura sutil de grabado antiguo */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 0);
-      background-size: 4px 4px;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    /* ORNAMENTOS GÓTICOS REUTILIZABLES */
-    .gothic-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin: 25px 0;
-      color: var(--ink-white);
-      font-family: 'Cinzel', serif;
-      letter-spacing: 6px;
-      font-size: 0.85rem;
-    }
-
-    .gothic-divider::before,
-    .gothic-divider::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      max-width: 240px;
-      background: linear-gradient(90deg, transparent, #fff, transparent);
-    }
-
-    /* HEADER ARQUITECTÓNICO */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0, 0, 0, 0.94);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow: 0 4px 25px rgba(76, 29, 149, 0.35);
-      padding: 12px 5%;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .brand-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-    }
-
-    /* Escudo ojival para logo */
-    .brand-crest {
-      width: 48px;
-      height: 54px;
-      border: 1.5px solid #fff;
-      border-radius: 50% 50% 4px 4px / 65% 65% 4px 4px;
-      background: var(--purple-deep);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 1.4rem;
-      color: #fff;
-      box-shadow: 0 0 15px var(--purple-glow);
-      overflow: hidden;
-    }
-
-    .brand-crest img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .brand-title h1 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 2rem;
-      letter-spacing: 2px;
-      color: #fff;
-      text-shadow: 0 0 12px var(--purple-glow);
-    }
-
-    .brand-title span {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      color: var(--ink-silver);
-      display: block;
-    }
-
-    /* BUSCADOR GRABADO */
-    .search-bar {
-      display: flex;
-      flex: 1;
-      max-width: 360px;
-      border: 1px solid rgba(255,255,255,0.5);
-      background: #050208;
-    }
-
-    .search-bar input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      padding: 8px 12px;
-      color: #fff;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.78rem;
-      outline: none;
-    }
-
-    .search-bar button {
-      background: var(--purple-deep);
-      color: #fff;
-      border: none;
-      border-left: 1px solid rgba(255,255,255,0.5);
-      padding: 0 14px;
-      font-family: 'Cinzel', serif;
-      font-weight: bold;
-      font-size: 0.72rem;
-      cursor: pointer;
-    }
-
-    .search-bar button:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    /* BOTONES ESTILO GRABADO GÓTICO */
-    .btn-cathedral {
-      background: #000;
-      color: #fff;
-      border: 1px solid #fff;
-      outline: 1px solid rgba(255,255,255,0.3);
-      outline-offset: -4px;
-      padding: 9px 16px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-    }
-
-    .btn-cathedral:hover {
-      background: #fff;
-      color: #000;
-      box-shadow: 0 0 20px var(--purple-glow);
-    }
-
-    .btn-purple-fill {
-      background: var(--purple-deep);
-      box-shadow: inset 0 0 12px rgba(139, 92, 246, 0.4);
-    }
-
-    /* SECCIÓN 1: HERO & ARCO CATEDRAL */
-    .hero-section {
-      position: relative;
-      padding: 55px 5%;
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 45px;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-      overflow: hidden;
-    }
-
-    /* Rosetón gótico SVG de fondo girando lentamente */
-    .rose-window-bg {
-      position: absolute;
-      top: -60px;
-      left: -80px;
-      width: 480px;
-      height: 480px;
-      opacity: 0.12;
-      pointer-events: none;
-      animation: spinSlow 60s linear infinite;
-    }
-
-    @keyframes spinSlow {
-      100% { transform: rotate(360deg); }
-    }
-
-    .hero-text {
-      position: relative;
-      z-index: 2;
-    }
-
-    .crest-badge {
-      display: inline-block;
-      border-top: 1px solid #fff;
-      border-bottom: 1px solid #fff;
-      padding: 5px 14px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      color: #d8b4fe;
-      margin-bottom: 18px;
-    }
-
-    .hero-text h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: clamp(2.6rem, 4.5vw, 4.2rem);
-      line-height: 1.05;
-      font-weight: normal;
-      margin-bottom: 18px;
-      color: #fff;
-      text-shadow: 0 0 22px var(--purple-glow);
-    }
-
-    .hero-text p {
-      color: var(--ink-silver);
-      font-size: 0.88rem;
-      line-height: 1.75;
-      margin-bottom: 28px;
-      max-width: 510px;
-    }
-
-    /* VENTANAL OJIVAL PARA EL BANNER */
-    .cathedral-arch-frame {
-      position: relative;
-      z-index: 2;
-      border: 2px solid #fff;
-      border-radius: 220px 220px 6px 6px;
-      padding: 12px;
-      background: linear-gradient(180deg, var(--purple-deep) 0%, #000 100%);
-      box-shadow: 0 0 40px rgba(76, 29, 149, 0.5), inset 0 0 20px rgba(255,255,255,0.2);
-    }
-
-    .cathedral-arch-inner {
-      height: 390px;
-      border: 1px solid rgba(255,255,255,0.7);
-      border-radius: 208px 208px 2px 2px;
-      background: #030106;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      text-align: center;
-      padding: 25px;
-    }
-
-    .cathedral-arch-inner img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: contrast(1.15);
-      z-index: 1;
-    }
-
-    .arch-default-art {
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .arch-default-art h3 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 5rem;
-      color: #fff;
-      text-shadow: 0 0 25px #7e22ce, 3px 3px 0 #000;
-    }
-
-    .arch-default-art p {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 4px;
-      color: #d8b4fe;
-    }
-
-    .upload-engraved {
-      position: absolute;
-      bottom: 14px;
-      z-index: 5;
-      background: rgba(0, 0, 0, 0.9);
-      border: 1px solid #fff;
-      color: #fff;
-      padding: 5px 12px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-    }
-
-    .upload-engraved:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    /* SECCIÓN 2: CATÁLOGO EN ARCOS GÓTICOS */
-    .catalog-section {
-      padding: 65px 5%;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .section-title-center {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-title-center h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 3rem;
-      font-weight: normal;
-      letter-spacing: 2px;
-    }
-
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 40px;
-    }
-
-    .filter-btn {
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.45);
-      color: var(--ink-silver);
-      padding: 8px 16px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--purple-deep);
-      border-color: #fff;
-      color: #fff;
-      box-shadow: 0 0 15px var(--purple-glow);
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(295px, 1fr));
-      gap: 30px;
-    }
-
-    /* TARJETA ESTILO RETABLO GÓTICO */
-    .gothic-card {
-      background: var(--bg-panel);
-      border: 1px solid #fff;
-      outline: 1px solid rgba(255,255,255,0.3);
-      outline-offset: -5px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      transition: 0.3s ease;
-      position: relative;
-    }
-
-    .gothic-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 35px rgba(76, 29, 149, 0.6);
-    }
-
-    .card-spire-header {
-      text-align: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 3px;
-      color: #d8b4fe;
-      margin-bottom: 12px;
-    }
-
-    /* Imagen con arco ojival */
-    .product-arch-img {
-      height: 265px;
-      border: 1px solid #fff;
-      border-radius: 140px 140px 2px 2px;
-      background: radial-gradient(circle at center, #1b062e 0%, #000 90%);
-      margin-bottom: 16px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .product-arch-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .engraving-placeholder {
-      text-align: center;
-      padding: 15px;
-    }
-
-    .engraving-placeholder .cross-mark {
-      font-size: 2.2rem;
-      display: block;
-      margin-bottom: 6px;
-      text-shadow: 0 0 12px #a855f7;
-    }
-
-    .product-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-    }
-
-    .product-title-row h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
-      letter-spacing: 1px;
-    }
-
-    .price-crest {
-      font-family: 'Cinzel', serif;
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: #fff;
-      background: var(--purple-deep);
-      border: 1px solid #fff;
-      padding: 2px 10px;
-    }
-
-    .product-desc {
-      font-size: 0.78rem;
-      color: var(--ink-silver);
-      line-height: 1.6;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-
-    .sizes {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 15px;
-    }
-
-    .size-btn {
-      flex: 1;
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: var(--ink-silver);
-      padding: 6px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.74rem;
-      cursor: pointer;
-    }
-
-    .size-btn.selected {
-      background: #fff;
-      color: #000;
-      font-weight: bold;
-    }
-
-    /* LOOKBOOK CON ARCOS */
-    .lookbook-section {
-      padding: 55px 5%;
-      border-bottom: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .lookbook-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-      margin-top: 25px;
-    }
-
-    .lookbook-arch {
-      height: 300px;
-      border: 1px solid rgba(255,255,255,0.7);
-      border-radius: 130px 130px 4px 4px;
-      background: var(--bg-panel);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      overflow: hidden;
-    }
-
-    .lookbook-arch img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* SECCIÓN 3: FORMULARIO DE REGISTRO ALTAR GÓTICO */
-    .register-section {
-      padding: 70px 5%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .sanctuary-form-box {
-      width: 100%;
-      max-width: 760px;
-      background: var(--bg-panel);
-      border: 2px solid #fff;
-      outline: 1px solid rgba(255,255,255,0.4);
-      outline-offset: -7px;
-      padding: 40px 35px;
-      box-shadow: 0 0 50px rgba(76, 29, 149, 0.45);
-      position: relative;
-    }
-
-    .sanctuary-form-box h2 {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 2.8rem;
-      font-weight: normal;
-      text-align: center;
-      margin-bottom: 6px;
-    }
-
-    .sanctuary-form-box .subtitle {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--ink-silver);
-      margin-bottom: 28px;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .form-group label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
-      letter-spacing: 1.5px;
-      color: #e9d5ff;
-    }
-
-    .form-group input {
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.6);
-      padding: 12px 14px;
-      color: #fff;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
-      outline: none;
-    }
-
-    .form-group input:focus {
-      border-color: #c084fc;
-      box-shadow: 0 0 15px var(--purple-glow);
-    }
-
-    .submit-btn {
-      width: 100%;
-      margin-top: 26px;
-      padding: 15px;
-      background: var(--purple-deep);
-      border: 1px solid #fff;
-      color: #fff;
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 3px;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .submit-btn:hover {
-      background: #fff;
-      color: #000;
-      box-shadow: 0 0 25px var(--purple-glow);
-    }
-
-    .vip-pass {
-      display: none;
-      margin-top: 24px;
-      padding: 18px;
-      border: 1px solid #fff;
-      background: var(--purple-deep);
-      text-align: center;
-    }
-
-    /* DRAWER BOLSA */
-    .cart-drawer {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      width: 100%;
-      max-width: 370px;
-      height: 100vh;
-      background: #040108;
-      border-left: 1px solid #fff;
-      z-index: 2000;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      transition: right 0.3s ease;
-    }
-
-    .cart-drawer.open { right: 0; }
-
-    .cart-items {
-      flex: 1;
-      overflow-y: auto;
-      margin: 18px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cart-item {
-      background: var(--bg-panel);
-      border: 1px solid rgba(255,255,255,0.4);
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.78rem;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 5%;
-      border-top: 1px solid rgba(255,255,255,0.25);
-      background: #000;
-      font-size: 0.78rem;
-      color: var(--ink-silver);
-    }
-
-    footer .gothic-brand {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 2.4rem;
-      color: #fff;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #000;
-      color: #fff;
-      border: 1px solid #fff;
-      padding: 10px 16px;
-      font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
-      z-index: 3000;
-      transform: translateY(150%);
-      transition: transform 0.3s ease;
-    }
-
-    .toast.show { transform: translateY(0); }
-
-    input[type="file"] { display: none; }
-
-    @media (max-width: 850px) {
-      .hero-section { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .cathedral-arch-frame { border-radius: 160px 160px 6px 6px; }
-      .cathedral-arch-inner { border-radius: 150px 150px 2px 2px; height: 340px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3A's | Gorras & Ropa Urbana Y2K</title>
+    <!-- Fuentes estilo Y2K y Streetwear -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #070709;
+            --card-bg: #111116;
+            --chrome-silver: #e2e2e8;
+            --metal-gray: #8a8a99;
+            --accent-red: #ff1e42;
+            --accent-acid: #ccff00;
+            --border-y2k: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--chrome-silver);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(255, 30, 66, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 40%);
+        }
+
+        /* Cinta superior Y2K animada */
+        .marquee-bar {
+            background: var(--chrome-silver);
+            color: var(--bg-dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.75rem;
+            padding: 6px 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-bottom: 2px solid var(--accent-red);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: scrollText 18s linear infinite;
+        }
+
+        @keyframes scrollText {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Navegación */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: var(--border-y2k);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(7, 7, 9, 0.85);
+        }
+
+        .brand-logo-small {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(180deg, #ffffff 0%, #686875 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 12px rgba(255,255,255,0.2);
+        }
+
+        nav a {
+            color: var(--chrome-silver);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-red);
+        }
+
+        /* HERO / BANNER PRINCIPAL (Acción principal) */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            border-bottom: var(--border-y2k);
+        }
+
+        /* Emblema Y2K inspirado en el logo de la imagen */
+        .y2k-emblem {
+            position: relative;
+            padding: 40px 70px;
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255, 30, 66, 0.25), inset 0 0 20px rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+            transform: rotate(-4deg);
+            background: radial-gradient(circle, #181820 0%, #050507 100%);
+        }
+
+        .y2k-emblem::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border: 1px solid var(--accent-red);
+            border-radius: 50%;
+            transform: rotate(6deg);
+            pointer-events: none;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            font-weight: 800;
+            font-style: italic;
+            line-height: 1;
+            background: linear-gradient(180deg, #ffffff 20%, #8e8e9e 50%, #ffffff 85%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.9));
+        }
+
+        /* Estrellas Y2K decorativas */
+        .star {
+            position: absolute;
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px #fff;
+            animation: pulse 2s infinite alternate;
+        }
+        .star-1 { top: -15px; left: 10px; font-size: 1.8rem; }
+        .star-2 { bottom: -15px; right: 15px; font-size: 2.2rem; }
+        .star-3 { bottom: 10px; left: -10px; font-size: 1.2rem; color: var(--accent-red); }
+
+        @keyframes pulse {
+            from { opacity: 0.5; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1.15); }
+        }
+
+        .hero-subtitle {
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .hero-target {
+            font-size: 0.85rem;
+            color: var(--metal-gray);
+            margin-bottom: 35px;
+        }
+
+        .btn-y2k {
+            display: inline-block;
+            padding: 14px 36px;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            box-shadow: 4px 4px 0px var(--accent-red);
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-y2k:hover {
+            background: #fff;
+            color: var(--bg-dark);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+            transform: translate(2px, 2px);
+        }
+
+        /* SECCIÓN DE PRODUCTOS Y PRECIOS */
+        .section-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: var(--border-y2k);
+            padding-bottom: 15px;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .tag-badge {
+            border: 1px solid var(--accent-red);
+            color: var(--accent-red);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: var(--border-y2k);
+            padding: 25px;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            border-color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .product-card.featured {
+            border: 1.5px solid var(--accent-red);
+        }
+
+        .featured-label {
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: var(--accent-red);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 3px 10px;
+            letter-spacing: 1px;
+        }
+
+        .product-visual {
+            height: 200px;
+            background: radial-gradient(circle, #22222b 0%, #0b0b0e 100%);
+            border: 1px dashed rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: rgba(255,255,255,0.15);
+            position: relative;
+        }
+
+        /* Puedes reemplazar el contenido de .product-visual con etiquetas <img> reales de tus productos */
+        .product-visual span {
+            color: var(--chrome-silver);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 14px;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .product-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 0.85rem;
+            color: var(--metal-gray);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 15px;
+        }
+
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: #fff;
+        }
+
+        /* SECCIÓN FORMULARIO DE REGISTRO */
+        .register-section {
+            border-top: var(--border-y2k);
+            background: linear-gradient(180deg, #070709 0%, #101016 100%);
+        }
+
+        .form-wrapper {
+            max-width: 580px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1.5px solid #fff;
+            padding: 40px;
+            box-shadow: 8px 8px 0px var(--accent-red);
+        }
+
+        .form-wrapper h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .form-wrapper p {
+            font-size: 0.85rem;
+            color: var(--metal-gray);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+            color: var(--chrome-silver);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #070709;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-red);
+            box-shadow: 0 0 10px rgba(255, 30, 66, 0.3);
+        }
+
+        .submit-btn {
+            width: 100%;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        #formMessage {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--accent-acid);
+            text-align: center;
+            display: none;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: var(--border-y2k);
+            font-size: 0.8rem;
+            color: var(--metal-gray);
+        }
+    </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand-box" onclick="document.getElementById('logoInput').click()" title="Subir emblema 3'As">
-      <div class="brand-crest" id="logoPreview">3'As</div>
-      <div class="brand-title">
-        <h1>3'As</h1>
-        <span>† GOTHIC STREETWEAR // 15+ †</span>
-      </div>
-      <input type="file" id="logoInput" accept="image/*" onchange="previewImage(this, 'logoPreview', true)">
+    <!-- Barra superior Y2K -->
+    <div class="marquee-bar">
+        <div class="marquee-content">
+            ✦ 3A'S STREETWEAR ✦ GORRAS & ROPA ESTILO URBANO ✦ NUEVA COLECCIÓN Y2K ✦ ENVÍOS DISPONIBLES ✦ 3A'S STREETWEAR ✦ GORRAS & ROPA ESTILO URBANO ✦ NUEVA COLECCIÓN Y2K ✦
+        </div>
     </div>
 
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Buscar reliquias urbanas..." onkeyup="filterProducts()">
-      <button onclick="filterProducts()">BUSCAR</button>
-    </div>
+    <!-- Encabezado -->
+    <header>
+        <div class="brand-logo-small">3A's</div>
+        <nav>
+            <a href="#inicio">Marca</a>
+            <a href="#productos">Catálogo</a>
+            <a href="#registro">Registro</a>
+        </nav>
+    </header>
 
-    <div class="nav-actions">
-      <button class="btn-cathedral" onclick="toggleCart()">
-        BOLSA [<span id="cartCount">0</span>]
-      </button>
-      <a href="#registro" class="btn-cathedral btn-purple-fill">† REGISTRO</a>
-    </div>
-  </header>
-
-  <!-- SECCIÓN 1: BANNER CATEDRAL Y MARCA -->
-  <section class="hero-section">
-    <!-- Rosetón gótico SVG decorativo -->
-    <svg class="rose-window-bg" viewBox="0 0 200 200" fill="none" stroke="#ffffff" stroke-width="1">
-      <circle cx="100" cy="100" r="95" />
-      <circle cx="100" cy="100" r="85" stroke-dasharray="4 2" />
-      <circle cx="100" cy="100" r="45" />
-      <circle cx="100" cy="100" r="18" />
-      <path d="M100 5 L100 195 M5 100 L195 100 M33 33 L167 167 M167 33 L33 167" />
-      <polygon points="100,15 185,100 100,185 15,100" />
-      <polygon points="40,40 160,40 160,160 40,160" />
-    </svg>
-
-    <div class="hero-text">
-      <div class="crest-badge">† GORRAS Y ROPA ESTILO URBANO †</div>
-      <h2>3'As Dark Sanctuary</h2>
-      <p>
-        Creamos y diseñamos gorras y ropa estilo urbano con estética gótica, grabado oscuro y esencia underground. Piezas exclusivas forjadas para jóvenes y adultos de <strong>15 años en adelante</strong>.
-      </p>
-      <div style="display:flex; flex-wrap:wrap; gap:12px;">
-        <a href="#catalogo" class="btn-cathedral btn-purple-fill">↓ VER COLECCIÓN ($10 - $30)</a>
-        <a href="#registro" class="btn-cathedral">† UNIRSE AL CULTO 3'As</a>
-      </div>
-    </div>
-
-    <!-- Arco Ojival Banner -->
-    <div class="cathedral-arch-frame">
-      <div class="cathedral-arch-inner" id="bannerContainer">
-        <div class="arch-default-art" id="bannerDefault">
-          <div style="font-size:1.4rem; margin-bottom:4px;">†</div>
-          <h3>3'As</h3>
-          <p>URBAN CAPS & GOTHIC APPAREL</p>
-        </div>
-        <button class="upload-engraved" onclick="document.getElementById('bannerInput').click()">
-          📷 SUBIR ARTE / BANNER
-        </button>
-        <input type="file" id="bannerInput" accept="image/*" onchange="previewImage(this, 'bannerContainer', false)">
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 2: PRODUCTOS A OFRECER -->
-  <section class="catalog-section" id="catalogo">
-    <div class="section-title-center">
-      <div class="gothic-divider">† COLECCIÓN OFICIAL †</div>
-      <h2>Catálogo Urbano 3'As</h2>
-    </div>
-
-    <div class="filter-tabs">
-      <button class="filter-btn active" onclick="setCategory('all', this)">TODO [3]</button>
-      <button class="filter-btn" onclick="setCategory('camisetas', this)">CAMISETAS — $10</button>
-      <button class="filter-btn" onclick="setCategory('gorras', this)">GORRAS — $30</button>
-      <button class="filter-btn" onclick="setCategory('pantalones', this)">PANTALONES — $25</button>
-    </div>
-
-    <div class="products-grid" id="productsGrid">
-      <!-- CAMISETAS $10 -->
-      <article class="gothic-card" data-category="camisetas" data-name="camisetas 3a's">
-        <div class="card-spire-header">† I // TEE_ENGRAVING †</div>
-        <div class="product-arch-img" id="prodImg1">
-          <div class="engraving-placeholder">
-            <span class="cross-mark">†</span>
-            <small>Camiseta Urbana 3'As</small>
-          </div>
-          <button class="upload-engraved" onclick="document.getElementById('fileProd1').click()">📷 SUBIR FOTO</button>
-          <input type="file" id="fileProd1" accept="image/*" onchange="previewImage(this, 'prodImg1', false)">
-        </div>
-        <div class="product-title-row">
-          <h3>Camisetas 3A's</h3>
-          <span class="price-crest">$10</span>
-        </div>
-        <p class="product-desc">
-          Corte boxy oversized negro profundo con ilustraciones estilo grabado gótico y arquitectura oscura.
-        </p>
-        <div class="sizes">
-          <button class="size-btn" onclick="selectSize(this)">S</button>
-          <button class="size-btn selected" onclick="selectSize(this)">M</button>
-          <button class="size-btn" onclick="selectSize(this)">L</button>
-          <button class="size-btn" onclick="selectSize(this)">XL</button>
-        </div>
-        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Camiseta 3A\'s', 10, this)">
-          + AÑADIR A LA BOLSA — $10
-        </button>
-      </article>
-
-      <!-- GORRAS $30 -->
-      <article class="gothic-card" data-category="gorras" data-name="gorras 3a's">
-        <div class="card-spire-header">† II // CROWN_CAP †</div>
-        <div class="product-arch-img" id="prodImg2">
-          <div class="engraving-placeholder">
-            <span class="cross-mark">⛧</span>
-            <small>Gorra Exclusiva 3'As</small>
-          </div>
-          <button class="upload-engraved" onclick="document.getElementById('fileProd2').click()">📷 SUBIR FOTO</button>
-          <input type="file" id="fileProd2" accept="image/*" onchange="previewImage(this, 'prodImg2', false)">
-        </div>
-        <div class="product-title-row">
-          <h3>Gorras 3A's</h3>
-          <span class="price-crest">$30</span>
-        </div>
-        <p class="product-desc">
-          Gorra estructurada de colección con bordado grueso gótico 3'As y detalles ornamentales monocromáticos.
-        </p>
-        <div class="sizes">
-          <button class="size-btn selected" onclick="selectSize(this)">ÚNICA</button>
-          <button class="size-btn" onclick="selectSize(this)">7 1/4</button>
-          <button class="size-btn" onclick="selectSize(this)">7 1/2</button>
-        </div>
-        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Gorra 3A\'s', 30, this)">
-          + AÑADIR A LA BOLSA — $30
-        </button>
-      </article>
-
-      <!-- PANTALONES $25 -->
-      <article class="gothic-card" data-category="pantalones" data-name="pantalones 3a's">
-        <div class="card-spire-header">† III // BAGGY_RELIC †</div>
-        <div class="product-arch-img" id="prodImg3">
-          <div class="engraving-placeholder">
-            <span class="cross-mark">✦</span>
-            <small>Pantalón Urbano 3'As</small>
-          </div>
-          <button class="upload-engraved" onclick="document.getElementById('fileProd3').click()">📷 SUBIR FOTO</button>
-          <input type="file" id="fileProd3" accept="image/*" onchange="previewImage(this, 'prodImg3', false)">
-        </div>
-        <div class="product-title-row">
-          <h3>Pantalones 3A's</h3>
-          <span class="price-crest">$25</span>
-        </div>
-        <p class="product-desc">
-          Pantalón baggy / cargo corte ancho estilo urbano con costuras contrastadas y bolsillos utilitarios.
-        </p>
-        <div class="sizes">
-          <button class="size-btn" onclick="selectSize(this)">28</button>
-          <button class="size-btn selected" onclick="selectSize(this)">30</button>
-          <button class="size-btn" onclick="selectSize(this)">32</button>
-          <button class="size-btn" onclick="selectSize(this)">34</button>
-        </div>
-        <button class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="addToCart('Pantalón 3A\'s', 25, this)">
-          + AÑADIR A LA BOLSA — $25
-        </button>
-      </article>
-    </div>
-  </section>
-
-  <!-- LOOKBOOK EN ARCOS -->
-  <section class="lookbook-section">
-    <div class="section-title-center">
-      <div class="gothic-divider">† GALERÍA VISUAL †</div>
-      <h2 style="font-size:2.4rem;">Lookbook 3'As</h2>
-    </div>
-    <div class="lookbook-grid">
-      <div class="lookbook-arch" id="look1">
-        <span>† OUTFIT I †</span>
-        <button class="upload-engraved" onclick="document.getElementById('fileLook1').click()">+ SUBIR FOTO I</button>
-        <input type="file" id="fileLook1" accept="image/*" onchange="previewImage(this, 'look1', false)">
-      </div>
-      <div class="lookbook-arch" id="look2">
-        <span>† OUTFIT II †</span>
-        <button class="upload-engraved" onclick="document.getElementById('fileLook2').click()">+ SUBIR FOTO II</button>
-        <input type="file" id="fileLook2" accept="image/*" onchange="previewImage(this, 'look2', false)">
-      </div>
-      <div class="lookbook-arch" id="look3">
-        <span>† OUTFIT III †</span>
-        <button class="upload-engraved" onclick="document.getElementById('fileLook3').click()">+ SUBIR FOTO III</button>
-        <input type="file" id="fileLook3" accept="image/*" onchange="previewImage(this, 'look3', false)">
-      </div>
-    </div>
-  </section>
-
-  <!-- SECCIÓN 3: REGISTRO AL FINAL -->
-  <section class="register-section" id="registro">
-    <div class="sanctuary-form-box">
-      <div style="text-align:center; font-size:1.3rem; margin-bottom:4px;">†</div>
-      <h2>Registro 3'As</h2>
-      <p class="subtitle">
-        Acceso exclusivo para público de <strong>15 años en adelante</strong>. Completa tus datos para unirte.
-      </p>
-
-      <form id="registerForm" onsubmit="handleRegister(event)">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="regNombre">NOMBRE *</label>
-            <input type="text" id="regNombre" placeholder="Ej. Leonel Anrango" required>
-          </div>
-
-          <div class="form-group">
-            <label for="regEdad">EDAD (15+ AÑOS) *</label>
-            <input type="number" id="regEdad" min="15" max="99" placeholder="Ej. 18" required>
-          </div>
-
-          <div class="form-group">
-            <label for="regCel">NÚMERO CEL. *</label>
-            <input type="tel" id="regCel" placeholder="Ej. 099 123 4567" required>
-          </div>
-
-          <div class="form-group">
-            <label for="regCorreo">CORREO ELECTRÓNICO *</label>
-            <input type="email" id="regCorreo" placeholder="usuario@correo.com" required>
-          </div>
+    <!-- 1. BANNER Y MARCA -->
+    <section id="inicio" class="hero">
+        <div class="y2k-emblem">
+            <span class="star star-1">✦</span>
+            <span class="star star-2">✦</span>
+            <span class="star star-3">†</span>
+            <h1 class="hero-title">3A's</h1>
         </div>
 
-        <button type="submit" class="submit-btn">
-          † CONFIRMAR REGISTRO EN 3'As †
-        </button>
-      </form>
+        <p class="hero-subtitle">Crea, diseña gorras y ropa estilo urbano</p>
+        <p class="hero-target">[ PARA JÓVENES Y ADULTOS DE 15 AÑOS EN ADELANTE // ESTÉTICA Y2K ]</p>
+        
+        <a href="#productos" class="btn-y2k">Ver Colección</a>
+    </section>
 
-      <div class="vip-pass" id="vipPass">
-        <h3 style="font-family:'Cinzel', serif; margin-bottom:6px;">† MIEMBRO REGISTRADO EN 3'As †</h3>
-        <p id="vipDetails" style="font-size: 0.8rem;"></p>
-      </div>
-    </div>
-  </section>
+    <!-- 2. PRODUCTOS A OFRECER Y PRECIOS -->
+    <section id="productos" class="section-container">
+        <div class="section-header">
+            <h2>Drop Oficial</h2>
+            <span class="tag-badge">Edición Limitada</span>
+        </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <span class="gothic-brand">3'As</span>
-    <p style="font-family:'Cinzel', serif; letter-spacing:2px;">GORRAS Y ROPA ESTILO URBANO // PÚBLICO 15+ AÑOS</p>
-    <p style="margin-top:8px;">Por: <strong>Leonel Anrango</strong> — 3A's</p>
-  </footer>
-
-  <!-- DRAWER BOLSA -->
-  <aside class="cart-drawer" id="cartDrawer">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.4); padding-bottom:12px;">
-      <h3 style="font-family:'Cinzel', serif; font-size:1rem;">† BOLSA 3'As</h3>
-      <button class="btn-cathedral" style="padding:4px 10px;" onclick="toggleCart()">✕</button>
-    </div>
-    <div class="cart-items" id="cartItems">
-      <p style="color:var(--ink-silver); font-size:0.8rem;">Tu bolsa está vacía.</p>
-    </div>
-    <div style="border-top:1px solid rgba(255,255,255,0.4); padding-top:14px;">
-      <div style="display:flex; justify-content:space-between; font-family:'Cinzel', serif; font-weight:bold; margin-bottom:14px;">
-        <span>TOTAL:</span>
-        <span id="cartTotal">$0</span>
-      </div>
-      <a href="#registro" class="btn-cathedral btn-purple-fill" style="width:100%; justify-content:center;" onclick="toggleCart()">
-        CONTINUAR AL REGISTRO →
-      </a>
-    </div>
-  </aside>
-
-  <div class="toast" id="toast"></div>
-
-  <script>
-    let cart = [];
-
-    function showToast(msg) {
-      const toast = document.getElementById('toast');
-      toast.textContent = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2600);
-    }
-
-    function previewImage(input, targetId, isLogo) {
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const container = document.getElementById(targetId);
-          if (isLogo) {
-            container.innerHTML = `<img src="${e.target.result}" alt="Logo 3'As">`;
-          } else {
-            const oldImg = container.querySelector('img');
-            if (oldImg) oldImg.remove();
-            const defArt = container.querySelector('.arch-default-art, .engraving-placeholder');
-            if (defArt) defArt.style.display = 'none';
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            container.prepend(img);
-          }
-          showToast('† Imagen integrada');
-        };
-        reader.readAsDataURL(input.files[0]);
-      }
-    }
-
-    function selectSize(btn) {
-      btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
-      btn.classList.add('selected');
-    }
-
-    function addToCart(name, price, btnElement) {
-      const card = btnElement.closest('.gothic-card');
-      const selectedSize = card.querySelector('.size-btn.selected').textContent;
-      cart.push({ name, price, size: selectedSize });
-      updateCartUI();
-      showToast(`+ ${name} [${selectedSize}] añadido`);
-    }
-
-    function removeFromCart(index) {
-      cart.splice(index, 1);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      document.getElementById('cartCount').textContent = cart.length;
-      const itemsContainer = document.getElementById('cartItems');
-      const totalEl = document.getElementById('cartTotal');
-
-      if (cart.length === 0) {
-        itemsContainer.innerHTML = '<p style="color:var(--ink-silver); font-size:0.8rem;">Tu bolsa está vacía.</p>';
-        totalEl.textContent = '$0';
-        return;
-      }
-
-      let total = 0;
-      itemsContainer.innerHTML = cart.map((item, idx) => {
-        total += item.price;
-        return `
-          <div class="cart-item">
-            <div>
-              <strong>${item.name}</strong><br>
-              <small style="color:#d8b4fe;">Talla: ${item.size} | $${item.price}</small>
+        <div class="products-grid">
+            <!-- Producto Principal: Gorras -->
+            <div class="product-card featured">
+                <div class="featured-label">ESTELAR</div>
+                <div>
+                    <div class="product-visual">
+                        <span>[ GORRA 3A's ]</span>
+                    </div>
+                    <h3 class="product-title">Gorras Urbanas</h3>
+                    <p class="product-desc">Diseño exclusivo 3A's con bordados de alto relieve, visera curva y estética cyber-streetwear.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="price">$30</span>
+                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
+                </div>
             </div>
-            <button class="btn-cathedral" style="padding:3px 7px;" onclick="removeFromCart(${idx})">✕</button>
-          </div>
-        `;
-      }).join('');
 
-      totalEl.textContent = `$${total}`;
-    }
+            <!-- Producto 2: Camisetas -->
+            <div class="product-card">
+                <div>
+                    <div class="product-visual">
+                        <span>[ TEE 3A's ]</span>
+                    </div>
+                    <h3 class="product-title">Camisetas</h3>
+                    <p class="product-desc">Corte streetwear oversized en algodón pesado negro con gráficos cromados estilo 2000s.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="price">$10</span>
+                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
+                </div>
+            </div>
 
-    function toggleCart() {
-      document.getElementById('cartDrawer').classList.toggle('open');
-    }
+            <!-- Producto 3: Pantalones -->
+            <div class="product-card">
+                <div>
+                    <div class="product-visual">
+                        <span>[ PANTS 3A's ]</span>
+                    </div>
+                    <h3 class="product-title">Pantalones</h3>
+                    <p class="product-desc">Silueta holgada urbana con detalles metálicos y costuras reforzadas para el día a día.</p>
+                </div>
+                <div class="product-footer">
+                    <span class="price">$25</span>
+                    <a href="#registro" class="btn-y2k" style="padding: 8px 16px; font-size: 0.75rem;">Pedir</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    let currentCategory = 'all';
+    <!-- 3. FORMULARIO DE REGISTRO AL FINAL -->
+    <section id="registro" class="section-container register-section">
+        <div class="form-wrapper">
+            <h3>Únete al Club 3A's</h3>
+            <p>Regístrate para apartar tus gorras y prendas urbanas o recibir acceso anticipado a nuestros próximos drops.</p>
 
-    function setCategory(cat, btn) {
-      currentCategory = cat;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filterProducts();
-    }
+            <form id="y2kForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Alex Méndez" required>
+                </div>
 
-    function filterProducts() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      document.querySelectorAll('.gothic-card').forEach(card => {
-        const cat = card.dataset.category;
-        const name = card.dataset.name;
-        const matchCat = currentCategory === 'all' || cat === currentCategory;
-        const matchSearch = name.includes(query);
-        card.style.display = (matchCat && matchSearch) ? 'flex' : 'none';
-      });
-    }
+                <div class="form-group">
+                    <label for="edad">Edad (15+ años) *</label>
+                    <input type="number" id="edad" name="edad" min="15" max="99" placeholder="Ej. 20" required>
+                </div>
 
-    function handleRegister(e) {
-      e.preventDefault();
-      const nombre = document.getElementById('regNombre').value.trim();
-      const edad = parseInt(document.getElementById('regEdad').value, 10);
-      const cel = document.getElementById('regCel').value.trim();
-      const correo = document.getElementById('regCorreo').value.trim();
+                <div class="form-group">
+                    <label for="celular">Número Cel. *</label>
+                    <input type="tel" id="celular" name="celular" placeholder="Ej. 099 123 4567" required>
+                </div>
 
-      if (edad < 15) {
-        showToast('⚠ Edad mínima requerida: 15 años.');
-        return;
-      }
+                <div class="form-group">
+                    <label for="correo">Correo electrónico *</label>
+                    <input type="email" id="correo" name="correo" placeholder="usuario@dominio.com" required>
+                </div>
 
-      const vipPass = document.getElementById('vipPass');
-      const vipDetails = document.getElementById('vipDetails');
-      vipDetails.innerHTML = `
-        <strong>${nombre}</strong> (${edad} años)<br>
-        Tel: <strong>${cel}</strong> | Correo: <strong>${correo}</strong>
-      `;
-      vipPass.style.display = 'block';
-      showToast('† Registro completado en 3\'As');
-    }
-  </script>
+                <button type="submit" class="btn-y2k submit-btn">Completar Registro</button>
+                <div id="formMessage">✦ ¡Registro exitoso! Bienvenido a 3A's.</div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2026 3A's — Gorras y Ropa Estilo Urbano. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Validación básica y mensaje de confirmación en el formulario
+        document.getElementById('y2kForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const msg = document.getElementById('formMessage');
+            msg.style.display = 'block';
+            this.reset();
+        });
+    </script>
 </body>
 </html>
